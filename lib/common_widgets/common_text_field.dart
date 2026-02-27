@@ -10,6 +10,7 @@ class CommonTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(tittle,
         style: GoogleFonts.inter( 
@@ -18,7 +19,7 @@ class CommonTextField extends StatelessWidget {
           color: Color(0xff1E1E1E)
         ),
         ),
-        SizedBox(height: Get.height*0.03,),
+        SizedBox(height: Get.height*0.01,),
         Container(
           height: Get.height*0.05,
           decoration: BoxDecoration(

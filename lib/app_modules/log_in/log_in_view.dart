@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gwaupp/common_widgets/common_text_field.dart';
 import 'package:gwaupp/utils/app_images.dart';
 
 class LogInView extends StatelessWidget {
@@ -38,7 +39,8 @@ class LogInView extends StatelessWidget {
                     fontSize: 14,
                     color: Color(0xff6B6B6B)
                   ),
-                  )
+                  ),
+                  CommonTextField(tittle: 'Email Address')
                 ],
               ),
             )
