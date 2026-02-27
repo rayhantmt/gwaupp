@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gwaupp/app_modules/log_in/log_in_controller.dart';
+import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/common_widgets/common_text_field.dart';
 import 'package:gwaupp/utils/app_images.dart';
 
-class LogInView extends StatelessWidget {
+class LogInView extends GetView<LogInController> {
   const LogInView({super.key});
 
   @override
@@ -14,36 +16,106 @@ class LogInView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(height: Get.height*0.17,),
+            SizedBox(height: Get.height * 0.17),
             Image.asset(AppImages.logo),
-            SizedBox(height: Get.height*0.05,),
+            SizedBox(height: Get.height * 0.05),
             Container(
-              height: Get.height*0.5,
-              width: Get.width*0.9,
+              height: Get.height * 0.45,
+              width: Get.width * 0.9,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: Color(0xffFFFFFF)
+                color: Color(0xffFFFFFF),
               ),
-              child: Column(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: Column(
+                  children: [
+                    Text(
+                      'Sign In',
+                      style: GoogleFonts.montserrat(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 24,
+                        color: Color(0xff1E1E1E),
+                      ),
+                    ),
+                    Text(
+                      'Please enter your email address & password',
+                      style: GoogleFonts.inter(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: Color(0xff6B6B6B),
+                      ),
+                    ),
+                    CommonTextField(tittle: 'Email Address',obsecure: false,),
+                    SizedBox(height: Get.height * 0.03),
+                    Obx(
+                      () => CommonTextField(
+                        tittle: 'Password',
+                        obsecure: controller.isObsecure.value,
+                        suffix: GestureDetector(
+                          onTap: () => controller.toggle(),
+                          child: Icon(Icons.remove_red_eye_outlined),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: Get.height*0.02,),
+                    Row(
                 children: [
-                  Text('Sign In',
-                  style: GoogleFonts.montserrat( 
-                    fontWeight: FontWeight.w600,
-                    fontSize: 24,
-                    color: Color(0xff1E1E1E)
+                  Obx(
+                    () => Checkbox(
+                      checkColor: Colors.white,
+                      activeColor: Color(0xff0F3D2E),
+                      value: controller.ischeck.value,
+                      onChanged: (value) => controller.togglechekc(value),
+                    ),
                   ),
-                  ),
-                  Text('Please enter your email address & password',
-                  style: GoogleFonts.inter(
+                  Text('Rememeber me',
+                  style: GoogleFonts.inter( 
+                    color: Color(0xff6B6B6B),
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
-                    color: Color(0xff6B6B6B)
                   ),
                   ),
-                  CommonTextField(tittle: 'Email Address')
+                  Expanded(child: SizedBox()),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text('Forgot Passord?',
+                    style: GoogleFonts.roboto( 
+                      fontWeight: FontWeight.w700,
+                      fontSize: 14,
+                      color: Color(0xff0F3D2E)
+                    ),
+                    ),
+                  )
                 ],
               ),
-            )
+              SizedBox(height: Get.height*0.03,),
+                    CommonButton(tittle: 'Log In')
+                  ],
+                ),
+              ),
+            ),
+            SizedBox(height: Get.height*0.02,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Container(
+                  height: 1,
+                  width: Get.width*0.4,
+                  color: Color(0xffE6E6E3),
+                ),
+                SizedBox(width: Get.width*0.01,),
+                Text('OR'),
+                 SizedBox(width: Get.width*0.01,),
+                Container(
+                  height: 1,
+                  width: Get.width*0.4,
+                  color: Color(0xffE6E6E3),
+                )
+              ],
+            ),
+            SizedBox(height: Get.height*0.05,),
+            Image.asset(AppImages.loginwithgoogle)
           ],
         ),
       ),
