@@ -31,6 +31,13 @@ class LogInView extends StatelessWidget {
                     fontSize: 24,
                     color: Color(0xff1E1E1E)
                   ),
+                  ),
+                  Text('Please enter your email address & password',
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: Color(0xff6B6B6B)
+                  ),
                   )
                 ],
               ),
