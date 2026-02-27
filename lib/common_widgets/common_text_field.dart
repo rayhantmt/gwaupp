@@ -32,7 +32,7 @@ class CommonTextField extends StatelessWidget {
             
           ),
           child: TextFormField(
-          obscureText: obsecure!,
+          obscureText: obsecure,
             decoration: InputDecoration(
               contentPadding: EdgeInsets.all(10),
               border: InputBorder.none,

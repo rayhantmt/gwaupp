@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/exceptions/exceptions.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/log_in/log_in_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
