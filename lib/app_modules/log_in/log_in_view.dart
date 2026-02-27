@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/exceptions/exceptions.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/log_in/log_in_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
@@ -115,7 +116,16 @@ class LogInView extends GetView<LogInController> {
               ],
             ),
             SizedBox(height: Get.height*0.05,),
-            Image.asset(AppImages.loginwithgoogle)
+            Image.asset(AppImages.loginwithgoogle),
+            SizedBox(height: Get.height*0.05,),
+            Text('Create New Account',
+            style: GoogleFonts.inter( 
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+              color: Color(0xff0F3D2E),
+              decoration: TextDecoration.underline
+            ),
+            )
           ],
         ),
       ),
