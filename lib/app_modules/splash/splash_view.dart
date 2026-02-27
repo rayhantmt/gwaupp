@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gwaupp/utils/app_images.dart';
 
 import 'package:gwaupp/utils/app_pages.dart';
 
@@ -27,6 +28,12 @@ class _SplashViewState extends State<SplashView> {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Image.asset(AppImages.splashScreen,
+      height: double.infinity,
+      width: double.infinity,
+      fit: BoxFit.cover,
+      ),
+    );
   }
 }
