@@ -5,6 +5,7 @@ import 'package:gwaupp/app_modules/log_in/log_in_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/common_widgets/common_text_field.dart';
 import 'package:gwaupp/utils/app_images.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class LogInView extends GetView<LogInController> {
   const LogInView({super.key});
@@ -117,13 +118,16 @@ class LogInView extends GetView<LogInController> {
             SizedBox(height: Get.height*0.05,),
             Image.asset(AppImages.loginwithgoogle),
             SizedBox(height: Get.height*0.05,),
-            Text('Create New Account',
-            style: GoogleFonts.inter( 
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
-              color: Color(0xff0F3D2E),
-              decoration: TextDecoration.underline
-            ),
+            GestureDetector(
+              onTap: () => Get.toNamed(AppPages.createnewaccount),
+              child: Text('Create New Account',
+              style: GoogleFonts.inter( 
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+                color: Color(0xff0F3D2E),
+                decoration: TextDecoration.underline
+              ),
+              ),
             )
           ],
         ),
