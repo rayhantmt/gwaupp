@@ -9,6 +9,10 @@ import 'package:gwaupp/app_modules/log_in/log_in_binding.dart';
 import 'package:gwaupp/app_modules/log_in/log_in_view.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_binding.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_view.dart';
+import 'package:gwaupp/app_modules/update_password/update_password_binding.dart';
+import 'package:gwaupp/app_modules/update_password/update_password_view.dart';
+import 'package:gwaupp/app_modules/verify_otp_forgotpass/verify_otp_forgotpass_binding.dart';
+import 'package:gwaupp/app_modules/verify_otp_forgotpass/verify_otp_forgotpass_view.dart';
 import 'package:gwaupp/utils/app_pages.dart';
 
 class AppRoutes {
@@ -18,6 +22,8 @@ class AppRoutes {
     GetPage(name: AppPages.otppage, page: () => OtpPageView(),binding: OtpPageBinding()),
     GetPage(name: AppPages.createyourprofile, page: () => CreateYourProfileView(),binding: CreateYourProfileBinding()),
     GetPage(name: AppPages.forgotpassword, page: () => ForgotPasswordView(),binding: ForgotPasswordBinding()),
-    
+    GetPage(name: AppPages.verifyotpforgotpass, page: () => VerifyOtpForgotpassView(),binding: VerifyOtpForgotpassBinding()),
+    GetPage(name: AppPages.updatepassword, page: () => UpdatePasswordView(),binding: UpdatePasswordBinding())
+
   ];
 }
