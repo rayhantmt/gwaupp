@@ -104,7 +104,9 @@ class CreateNewAccountView extends GetView<CreateNewAccountController> {
                 ),
               ),
               SizedBox(height: Get.height*0.25,),
-              CommonButton(tittle: 'Send OTP'),
+              GestureDetector(
+                onTap: () => Get.toNamed(AppPages.otppage),
+                child: CommonButton(tittle: 'Send OTP')),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
