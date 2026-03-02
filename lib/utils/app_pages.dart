@@ -6,4 +6,5 @@ class AppPages {
   static const String forgotpassword='/forgotpassword';
   static const String verifyotpforgotpass='/verifyotpforgotpass';
   static const String updatepassword='/updatepassword';
+  static const String homescreen='/homescreen';
 }
