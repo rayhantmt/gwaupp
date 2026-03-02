@@ -79,7 +79,7 @@ class LogInView extends GetView<LogInController> {
                   ),
                   Expanded(child: SizedBox()),
                   GestureDetector(
-                    onTap: () {},
+                    onTap:() => Get.toNamed(AppPages.forgotpassword),
                     child: Text('Forgot Passord?',
                     style: GoogleFonts.roboto( 
                       fontWeight: FontWeight.w700,
