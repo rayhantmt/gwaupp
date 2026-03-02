@@ -135,3 +135,4 @@ class LogInView extends GetView<LogInController> {
     );
   }
 }
+
