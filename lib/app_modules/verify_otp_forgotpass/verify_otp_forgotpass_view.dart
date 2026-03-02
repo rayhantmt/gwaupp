@@ -21,7 +21,9 @@ class VerifyOtpForgotpassView extends GetView<VerifyOtpForgotpassController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: Get.height * 0.06),
-            Image.asset(AppImages.backIcon, height: Get.height * 0.06),
+            GestureDetector(
+              onTap: () => Get.back(),
+              child: Image.asset(AppImages.backIcon, height: Get.height * 0.06)),
             SizedBox(height: Get.height * 0.05),
             Container(
               height: Get.height * 0.3,
