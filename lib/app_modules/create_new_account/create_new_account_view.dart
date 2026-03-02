@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/create_new_account/create_new_account_controller.dart';
+import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/common_widgets/common_text_field.dart';
 import 'package:gwaupp/utils/app_images.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class CreateNewAccountView extends GetView<CreateNewAccountController> {
   const CreateNewAccountView({super.key});
@@ -101,6 +103,36 @@ class CreateNewAccountView extends GetView<CreateNewAccountController> {
                   ],
                 ),
               ),
+              SizedBox(height: Get.height*0.25,),
+              CommonButton(tittle: 'Send OTP'),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text('Alreday have an account',
+                  style: GoogleFonts.inter( 
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: Color(0xff6B6B6B)
+                    
+                  ),
+                  ),
+                  
+                ],
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: () => Get.toNamed(AppPages.login),
+                    child: Text('Sign In',
+                        style: GoogleFonts.inter( 
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xff0F3D2E)
+                        ),
+                        ),
+                  ),
+                ],
+              )
             ],
           ),
         ),
