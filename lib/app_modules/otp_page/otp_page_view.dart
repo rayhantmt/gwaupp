@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class OtpPageView extends GetView<OtpPageController> {
   const OtpPageView({super.key});
@@ -54,7 +55,8 @@ class OtpPageView extends GetView<OtpPageController> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: List.generate(6, (index) {
                       return SizedBox(
-                        width: 40,
+                        width: Get.width*0.11,
+                        height: Get.height*0.07,
                         child: TextField(
                           controller: controller.otpControllers[index],
                           focusNode: controller.otpFocusNodes[index],
@@ -65,13 +67,13 @@ class OtpPageView extends GetView<OtpPageController> {
                           ],
                           textAlign: TextAlign.center,
                           style: const TextStyle(
-                            fontSize: 20,
+                            fontSize: 12,
                             fontWeight: FontWeight.w500,
                           ),
 
                           decoration: const InputDecoration(
                             counterText: '',
-                            border: UnderlineInputBorder(),
+                            border: OutlineInputBorder(),
                           ),
                           onChanged: (value) {
                             controller.onOtpFieldChanged(value, index);
@@ -117,7 +119,9 @@ class OtpPageView extends GetView<OtpPageController> {
               ),
             ),
             SizedBox(height: Get.height*0.35,),
-            CommonButton(tittle: 'Verify OTP')
+            GestureDetector(
+              onTap: () => Get.toNamed(AppPages.createyourprofile),
+              child: CommonButton(tittle: 'Verify OTP'))
           ],
         ),
       ),
