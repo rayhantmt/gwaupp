@@ -7,7 +7,6 @@ import 'package:gwaupp/app_modules/main_screen/main_screen_controller.dart';
 import 'package:gwaupp/app_modules/new_expense/new_expense.dart';
 import 'package:gwaupp/utils/app_images.dart';
 
-
 class MainScreenView extends GetView<MainScreenController> {
   const MainScreenView({super.key});
 
@@ -21,7 +20,7 @@ class MainScreenView extends GetView<MainScreenController> {
               return HomeScreenView();
             } else if (controller.pagetype.value == 1) {
               return NewExpenseView();
-            }  else {
+            } else {
               return InsightsView();
             }
           }),
@@ -37,17 +36,17 @@ class MainScreenView extends GetView<MainScreenController> {
                     topLeft: Radius.circular(32),
                     topRight: Radius.circular(32),
                   ),
-                 // border: Border.all(width: 0.5, color: Color(0xff6C6E79)),
+                  // border: Border.all(width: 0.5, color: Color(0xff6C6E79)),
                 ),
                 height: Get.height * 0.15,
                 width: double.infinity,
                 child: Stack(
-                
                   children: [
-                    Image.asset(AppImages.unionbottom,
-                     height: Get.height * 0.15,
-                     width: double.infinity,
-                    fit: BoxFit.cover,
+                    Image.asset(
+                      AppImages.unionbottom,
+                      height: Get.height * 0.15,
+                      width: double.infinity,
+                      fit: BoxFit.cover,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -76,31 +75,30 @@ class MainScreenView extends GetView<MainScreenController> {
                             ],
                           ),
                         ),
+                        SizedBox(width: Get.width*0.033,),
                         GestureDetector(
                           onTap: () => controller.setpagetype(1),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
-                              Image.asset(
-                                AppImages.newexpense,
-                    
-                                height: Get.height * 0.035,
-                                color: controller.pagetype.value == 1
-                                    ? Color(0xff0F3D2E)
-                                    : Color(0xff0F3D2E),
+                              // Image.asset(
+                              //   AppImages.newexpense,
+
+                              //   height: Get.height * 0.035,
+                              //   color: controller.pagetype.value == 1
+                              //       ? Color(0xff0F3D2E)
+                              //       : Color(0xff0F3D2E),
+                              // ),
+                              CircleAvatar(
+                                radius: Get.height*0.03,
+                                backgroundColor: Color(0xff0F3D2E),
+                                child: Icon(Icons.add, color: Colors.white),
                               ),
-                              Text(
-                                '',
-                                style: GoogleFonts.manrope(
-                                  fontWeight: FontWeight.w500,
-                                  color: controller.pagetype.value == 1
-                                      ? Color(0xffEEEEF0)
-                                      : Color(0xff6C6E79),
-                                ),
-                              ),
+                              SizedBox(height: Get.height * 0.05),
                             ],
                           ),
                         ),
+                           SizedBox(width: Get.width*0.001,),
                         GestureDetector(
                           onTap: () => controller.setpagetype(2),
                           child: Column(
@@ -125,8 +123,6 @@ class MainScreenView extends GetView<MainScreenController> {
                             ],
                           ),
                         ),
-                     
-                      
                       ],
                     ),
                   ],
