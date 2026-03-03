@@ -11,4 +11,6 @@ class AppImages {
   static const String insightsicon='assets/insights.png';
   static const String newexpense='assets/new_expense.png';
   static const String unionbottom='assets/union_bottom.png';
+  static const String notificationIcon='assets/notification_icon.png';
+  static const String profileImage='assets/profile_image.jpg';
 }

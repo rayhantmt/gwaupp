@@ -49,7 +49,8 @@ class HomeScreenView extends GetView<HomeScreenController> {
                               color: Color(0xffC9A24D)
                             ),
                             ),
-                            SizedBox(width: Get.width*0.03,),
+                           // SizedBox(width: Get.width*0.03,),
+                           Expanded(child: SizedBox()),
                             Container(
                               height: Get.height*0.05,
                               width: Get.width*0.2,
@@ -69,7 +70,15 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                 ),
                                 ),
                               ),
-                            )
+                            ),
+                                 SizedBox(width: Get.width*0.03,),
+                            Image.asset(AppImages.notificationIcon),
+                             SizedBox(width: Get.width*0.03,),
+                             CircleAvatar(
+                              backgroundImage: AssetImage(AppImages.profileImage,
+                              
+                              ),
+                             )
                           ],
                         )
                       ],
