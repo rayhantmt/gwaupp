@@ -9,6 +9,8 @@ import 'package:gwaupp/app_modules/home_screen/home_screen_binding.dart';
 import 'package:gwaupp/app_modules/home_screen/home_screen_view.dart';
 import 'package:gwaupp/app_modules/log_in/log_in_binding.dart';
 import 'package:gwaupp/app_modules/log_in/log_in_view.dart';
+import 'package:gwaupp/app_modules/main_screen/main_screen.dart';
+import 'package:gwaupp/app_modules/main_screen/main_screen_binding.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_binding.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_view.dart';
 import 'package:gwaupp/app_modules/update_password/update_password_binding.dart';
@@ -26,7 +28,8 @@ class AppRoutes {
     GetPage(name: AppPages.forgotpassword, page: () => ForgotPasswordView(),binding: ForgotPasswordBinding()),
     GetPage(name: AppPages.verifyotpforgotpass, page: () => VerifyOtpForgotpassView(),binding: VerifyOtpForgotpassBinding()),
     GetPage(name: AppPages.updatepassword, page: () => UpdatePasswordView(),binding: UpdatePasswordBinding()),
-    GetPage(name: AppPages.homescreen, page: () => HomeScreenView(),binding: HomeScreenBinding())
+    GetPage(name: AppPages.homescreen, page: () => HomeScreenView(),binding: HomeScreenBinding()),
+    GetPage(name: AppPages.mainscreen, page: () => MainScreenView(),binding: MainScreenBinding())
 
   ];
 }

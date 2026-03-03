@@ -7,4 +7,8 @@ class AppImages {
   static const String backIcon='assets/back_icon.png';
   static const Color primarycolor=Color(0xffFAFAF8);
   static const String homebanner='assets/home_banner.png';
+  static const String homeicon='assets/home.png';
+  static const String insightsicon='assets/insights.png';
+  static const String newexpense='assets/new_expense.png';
+  static const String unionbottom='assets/union_bottom.png';
 }
