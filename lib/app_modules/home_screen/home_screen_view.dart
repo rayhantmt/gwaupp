@@ -21,7 +21,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
             child: Column(
               children: [
                 Container(
-                  height: Get.height * 0.4,
+                  height: Get.height * 0.42,
                   width: double.infinity,
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -100,7 +100,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                         ),
                         SizedBox(height: Get.height*0.03,),
                         Container(
-                          height: Get.height*0.15,
+                          height: Get.height*0.2,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             boxShadow: [
