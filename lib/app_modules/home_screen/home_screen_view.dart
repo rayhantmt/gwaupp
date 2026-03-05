@@ -125,6 +125,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                       AppImages.netsavingslogo,
                                       height: Get.height * 0.04,
                                     ),
+                                    SizedBox(width: Get.width*0.03,),
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -147,6 +148,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         ),
                                       ],
                                     ),
+                                     SizedBox(width: Get.width*0.03,),
                                     Text(
                                       '29.56%',
                                       style: GoogleFonts.inter(
@@ -155,6 +157,35 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         color: Color(0xff6BB498),
                                       ),
                                     ),
+                                    SizedBox(width: Get.width*0.07,),
+                                    Container(
+                                      
+                                      height: Get.height*0.04,
+                                      width: Get.width*0.3,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(8),
+                                        border: Border.all(
+                                          width: 1,
+                                          color: Color(0xffC9A24D)
+                                        )
+                                      ),
+                                      child: Padding(
+                                        padding: const EdgeInsets.only(left: 5,
+                                        right: 5
+                                        ),
+                                        child: Row(
+                                          children: [
+                                            Text('Feb 2026',
+                                            style: GoogleFonts.inter( 
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xffC9A24D),
+                                              fontSize: 14
+                                            ),
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    )
                                   ],
                                 ),
                               ],
