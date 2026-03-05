@@ -189,6 +189,13 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                     )
                                   ],
                                 ),
+                                SizedBox(height: Get.height*0.03,),
+                                Divider(
+                                  height: 1,
+                                  endIndent: 1,
+                                  indent: 1,
+                                  color: Color(0xff245040),
+                                )
                               ],
                             ),
                           ),
