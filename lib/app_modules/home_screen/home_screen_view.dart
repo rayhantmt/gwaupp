@@ -29,7 +29,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                       end: Alignment.bottomCenter,
                       colors: [
                         Colors.transparent,
-                       Color(0xff0F3D2E),
+                        Color(0xff0F3D2E),
                         Color(0xff195D47),
                         Color(0xffFFFFFF),
                       ],
@@ -38,48 +38,80 @@ class HomeScreenView extends GetView<HomeScreenController> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        SizedBox(height: Get.height*0.07,),
+                        SizedBox(height: Get.height * 0.07),
                         Row(
                           children: [
-                            Text('GWAUPP',
-                            style: GoogleFonts.montserrat( 
-                              fontWeight: FontWeight.w700,
-                              fontSize: 24,
-                              color: Color(0xffC9A24D)
+                            Text(
+                              'GWAUPP',
+                              style: GoogleFonts.montserrat(
+                                fontWeight: FontWeight.w700,
+                                fontSize: 24,
+                                color: Color(0xffC9A24D),
+                              ),
                             ),
-                            ),
-                           // SizedBox(width: Get.width*0.03,),
-                           Expanded(child: SizedBox()),
+                            // SizedBox(width: Get.width*0.03,),
+                            Expanded(child: SizedBox()),
                             Container(
-                              height: Get.height*0.05,
-                              width: Get.width*0.2,
+                              height: Get.height * 0.05,
+                              width: Get.width * 0.2,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(100),
                                 border: Border.all(
                                   width: 1,
-                                  color: Color(0xff317B62)
-                                )
+                                  color: Color(0xff317B62),
+                                ),
                               ),
                               child: Center(
-                                child: Text('Free',
-                                style: GoogleFonts.inter( 
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14,
-                                  color: Colors.white
-                                ),
+                                child: Text(
+                                  'Free',
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 14,
+                                    color: Colors.white,
+                                  ),
                                 ),
                               ),
                             ),
-                                 SizedBox(width: Get.width*0.03,),
+                            SizedBox(width: Get.width * 0.03),
                             Image.asset(AppImages.notificationIcon),
-                             SizedBox(width: Get.width*0.03,),
-                             CircleAvatar(
-                              backgroundImage: AssetImage(AppImages.profileImage,
-                              
+                            SizedBox(width: Get.width * 0.03),
+                            CircleAvatar(
+                              backgroundImage: AssetImage(
+                                AppImages.profileImage,
                               ),
-                             )
+                            ),
                           ],
+                        ),
+                        Text('Good morning',
+                        style: GoogleFonts.inter( 
+                          fontWeight: FontWeight.w500,
+                          fontSize: 14,
+                          color: Colors.white
+                        ),
+                        ),
+                        Text('Jmaes Walker',
+                        style: GoogleFonts.montserrat( 
+                          fontWeight: FontWeight.w600,
+                          fontSize: 22,
+                          color: Colors.white
+                        ),
+                        ),
+                        SizedBox(height: Get.height*0.03,),
+                        Container(
+                          height: Get.height*0.15,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 12,
+                                color: Color(0xff75B5A0)
+                              )
+                            ],
+                            borderRadius: BorderRadius.circular(20),
+                            color: Color(0xff0F3D2E)
+                          ),
                         )
                       ],
                     ),

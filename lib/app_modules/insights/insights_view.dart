@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gwaupp/utils/app_images.dart';
 
 class InsightsView extends StatelessWidget {
   const InsightsView({super.key});
@@ -6,7 +7,12 @@ class InsightsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppImages.primarycolor,
+      body: Column(
+        children: [
+          Text('Insifht')
+        ],
+      ),
     );
   }
 }

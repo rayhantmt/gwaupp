@@ -60,16 +60,16 @@ class MainScreenView extends GetView<MainScreenController> {
                                 AppImages.homeicon,
                                 height: Get.height * 0.035,
                                 color: controller.pagetype.value == 0
-                                    ? Color(0xffEEEEF0)
-                                    : Color(0xff6C6E79),
+                                    ? Color(0xff0F3D2E)
+                                    : Color(0xff6B6B6B),
                               ),
                               Text(
                                 'Home',
                                 style: GoogleFonts.manrope(
                                   fontWeight: FontWeight.w500,
                                   color: controller.pagetype.value == 0
-                                      ? Color(0xffEEEEF0)
-                                      : Color(0xff6C6E79),
+                                      ? Color(0xff0F3D2E)
+                                    : Color(0xff6B6B6B),
                                 ),
                               ),
                             ],
@@ -108,16 +108,16 @@ class MainScreenView extends GetView<MainScreenController> {
                                 AppImages.insightsicon,
                                 height: Get.height * 0.035,
                                 color: controller.pagetype.value == 2
-                                    ? Color(0xffEEEEF0)
-                                    : Color(0xff6C6E79),
+                                   ? Color(0xff0F3D2E)
+                                    : Color(0xff6B6B6B),
                               ),
                               Text(
                                 'Insights',
                                 style: GoogleFonts.manrope(
                                   fontWeight: FontWeight.w500,
                                   color: controller.pagetype.value == 2
-                                      ? Color(0xffEEEEF0)
-                                      : Color(0xff6C6E79),
+                                      ? Color(0xff0F3D2E)
+                                    : Color(0xff6B6B6B),
                                 ),
                               ),
                             ],
