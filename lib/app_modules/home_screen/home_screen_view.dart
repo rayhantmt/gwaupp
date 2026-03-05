@@ -147,13 +147,14 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         ),
                                       ],
                                     ),
-                                    Text('29.56%',
-                                    style: GoogleFonts.inter( 
-                                      fontWeight: FontWeight.w600,
-                                      fontSize: 12,
-                                      color: Color(0xff6BB498)
+                                    Text(
+                                      '29.56%',
+                                      style: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 12,
+                                        color: Color(0xff6BB498),
+                                      ),
                                     ),
-                                    )
                                   ],
                                 ),
                               ],
