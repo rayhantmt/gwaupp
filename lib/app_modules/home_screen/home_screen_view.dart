@@ -112,6 +112,17 @@ class HomeScreenView extends GetView<HomeScreenController> {
                             borderRadius: BorderRadius.circular(20),
                             color: Color(0xff0F3D2E)
                           ),
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Image.asset(AppImages.netsavingslogo,
+                                  height: Get.height*0.04,
+                                  )
+                                ],
+                              )
+                            ],
+                          ),
                         )
                       ],
                     ),
