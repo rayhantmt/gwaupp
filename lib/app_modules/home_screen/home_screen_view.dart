@@ -84,49 +84,82 @@ class HomeScreenView extends GetView<HomeScreenController> {
                             ),
                           ],
                         ),
-                        Text('Good morning',
-                        style: GoogleFonts.inter( 
-                          fontWeight: FontWeight.w500,
-                          fontSize: 14,
-                          color: Colors.white
+                        Text(
+                          'Good morning',
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w500,
+                            fontSize: 14,
+                            color: Colors.white,
+                          ),
                         ),
+                        Text(
+                          'Jmaes Walker',
+                          style: GoogleFonts.montserrat(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 22,
+                            color: Colors.white,
+                          ),
                         ),
-                        Text('Jmaes Walker',
-                        style: GoogleFonts.montserrat( 
-                          fontWeight: FontWeight.w600,
-                          fontSize: 22,
-                          color: Colors.white
-                        ),
-                        ),
-                        SizedBox(height: Get.height*0.03,),
+                        SizedBox(height: Get.height * 0.03),
                         Container(
-                          height: Get.height*0.2,
+                          height: Get.height * 0.2,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             boxShadow: [
                               BoxShadow(
                                 blurRadius: 12,
-                                color: Color(0xff75B5A0)
-                              )
+                                color: Color(0xff75B5A0),
+                              ),
                             ],
                             borderRadius: BorderRadius.circular(20),
-                            color: Color(0xff0F3D2E)
+                            color: Color(0xff0F3D2E),
                           ),
                           child: Padding(
                             padding: const EdgeInsets.all(12),
                             child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
                                   children: [
-                                    Image.asset(AppImages.netsavingslogo,
-                                    height: Get.height*0.04,
+                                    Image.asset(
+                                      AppImages.netsavingslogo,
+                                      height: Get.height * 0.04,
+                                    ),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          '\$1,200',
+                                          style: GoogleFonts.montserrat(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 24,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        Text(
+                                          'Net Savings',
+                                          style: GoogleFonts.inter(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 12,
+                                            color: Color(0xff6BB498),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Text('29.56%',
+                                    style: GoogleFonts.inter( 
+                                      fontWeight: FontWeight.w600,
+                                      fontSize: 12,
+                                      color: Color(0xff6BB498)
+                                    ),
                                     )
                                   ],
-                                )
+                                ),
                               ],
                             ),
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
