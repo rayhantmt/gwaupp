@@ -14,4 +14,5 @@ class AppImages {
   static const String notificationIcon='assets/notification_icon.png';
   static const String profileImage='assets/profile_image.jpg';
   static const String netsavingslogo='assets/net_savings_logo.png';
+  static const String arrowdown='assets/arrow_down.png';
 }

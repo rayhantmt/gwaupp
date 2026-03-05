@@ -181,7 +181,8 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                               color: Color(0xffC9A24D),
                                               fontSize: 14
                                             ),
-                                            )
+                                            ),
+                                            Image.asset(AppImages.arrowdown)
                                           ],
                                         ),
                                       ),
