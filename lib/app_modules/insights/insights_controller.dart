@@ -6,14 +6,27 @@ class InsightsController extends GetxController{
   void toggle(){
     isexpense.value=!isexpense.value;
   }
-  var quatardata=[
-    InsightsModel(quater: 'Q1',id: 0),
-    InsightsModel(quater: 'Q2',id: 1),
-    InsightsModel(quater: 'Q3',id: 2),
-    InsightsModel(quater: 'Q4',id: 3)
-  ];
+ 
   var page=0.obs;
   void togglepage(int i){
     page.value=i;
+  }
+  var monthlyDataList = <MonthlyData>[].obs;
+
+  @override
+  void onInit() {
+    super.onInit();
+    loadDummyData();
+  }
+
+  void loadDummyData() {
+    monthlyDataList.assignAll([
+      MonthlyData(month: "Jan", value: 30),
+      MonthlyData(month: "Feb", value: 50),
+      MonthlyData(month: "Mar", value: 20),
+      MonthlyData(month: "Apr", value: 80),
+      MonthlyData(month: "May", value: 60),
+      MonthlyData(month: "Jun", value: 40),
+    ]);
   }
 }

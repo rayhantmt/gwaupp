@@ -1,3 +1,4 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -190,6 +191,65 @@ class InsightsView extends GetView<InsightsController> {
                     ),
                   ),
                 ],
+              ),
+            ),
+            SizedBox(height: Get.height*0.05,),
+            Container(
+              height: Get.height * 0.25,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: Color(0xffEDF1F3),
+              ),
+              child: BarChart(
+                BarChartData(
+                  gridData: FlGridData(show: false),
+                  borderData: FlBorderData(show: false),
+                  backgroundColor: Colors.white,
+                  alignment: BarChartAlignment.spaceAround,
+                  maxY:
+                      controller.monthlyDataList
+                          .map((e) => e.value)
+                          .reduce((a, b) => a > b ? a : b) +
+                      10,
+                  barGroups: controller.monthlyDataList.map((data) {
+                    return BarChartGroupData(
+                      x: controller.monthlyDataList.indexOf(data),
+                      barRods: [
+                        BarChartRodData(
+                          toY: data.value,
+                          color: Color(0xff317B62),
+                          width: 18,
+                          borderRadius: BorderRadius.circular(2),
+                        ),
+                      ],
+                    );
+                  }).toList(),
+                  titlesData: FlTitlesData(
+                    leftTitles: AxisTitles(
+                      sideTitles: SideTitles(showTitles: false),
+                    ),
+                    rightTitles: AxisTitles(
+                      sideTitles: SideTitles(showTitles: false),
+                    ),
+                    topTitles: AxisTitles(
+                      sideTitles: SideTitles(showTitles: false),
+                    ),
+                    bottomTitles: AxisTitles(
+                      sideTitles: SideTitles(
+                        showTitles: false,
+                        getTitlesWidget: (double value, TitleMeta meta) {
+                          int index = value.toInt();
+                          if (index < controller.monthlyDataList.length) {
+                            return Text(
+                              controller.monthlyDataList[index].month,
+                            );
+                          }
+                          return const Text("");
+                        },
+                      ),
+                    ),
+                  ),
+                ),
               ),
             ),
           ],

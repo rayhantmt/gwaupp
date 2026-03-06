@@ -1,5 +1,9 @@
-class InsightsModel {
-   final String quater;
-final int id;
-  InsightsModel({required this.id,required this.quater});
+class MonthlyData {
+  final String month;
+  final double value;
+
+  MonthlyData({
+    required this.month,
+    required this.value,
+  });
 }
