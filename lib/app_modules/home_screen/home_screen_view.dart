@@ -391,7 +391,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                 ),
                 SizedBox(height: Get.height * 0.03),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric( horizontal: 20),
                   child: Container(
                     height: Get.height * 0.16,
                     decoration: BoxDecoration(
@@ -404,23 +404,47 @@ class HomeScreenView extends GetView<HomeScreenController> {
                         ),
                       ],
                     ),
-                    child: Column(
-                      children: [
-                        Row(
-                          children: [
-                            Image.asset(AppImages.yelloicon,
-                            height: Get.height*0.03,
-                            ),
-                            Text('Top Spendig category',
-                            style: GoogleFonts.inter( 
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              color: Color(0xff1E1E1E)
-                            ),
-                            )
-                          ],
-                        )
-                      ],
+                    child: Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(AppImages.yelloicon,
+                              height: Get.height*0.03,
+                              ),
+                              Text('Top Spendig category',
+                              style: GoogleFonts.inter( 
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                                color: Color(0xff1E1E1E)
+                              ),
+                              )
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Text('Dining Outside',
+                              style: GoogleFonts.inter( 
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                                color: Color(0xff1E1E1E)
+                              ),
+                              ),
+                              Spacer(),
+                              Text('\$820',
+                              style:GoogleFonts.montserrat( 
+                                fontWeight: FontWeight.w600,
+                                fontSize: 24,
+                                color: Color(0xff0F3D2E)
+                              ) ,
+                              )
+                            ],
+                          ),
+                          Image.asset(AppImages.viewbreakdown)
+                        ],
+                      ),
                     ),
                   ),
                 ),
