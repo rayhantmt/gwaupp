@@ -304,6 +304,28 @@ class InsightsView extends GetView<InsightsController> {
                               fontSize: 20,
                               color: Color(0xff0F3D2E)
                             ),
+                            ),
+                            SizedBox(height: Get.height*0.02,),
+                            Row(
+                              children: [
+                                Image.asset(controller.businessdata[index].profit?AppImages.profit:AppImages.loss,
+                                height: Get.height*0.02,
+                                ),
+                                Text('${controller.businessdata[index].profilorlosspercent}%',
+                                style: GoogleFonts.inter( 
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 12,
+                                  color: Color(0xffC84B4B)
+                                ),
+                                )
+                              ],
+                            ),
+                            Text('VS last month',
+                            style: GoogleFonts.inter( 
+                              fontWeight: FontWeight.w400,
+                              fontSize: 12,
+                              color: Color(0xff6B6B6B)
+                            ),
                             )
                           ],
                         )
