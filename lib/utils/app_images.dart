@@ -24,5 +24,7 @@ class AppImages {
   static const String viewbreakdown='assets/view_breakdown.png';
   static const String expenses='assets/expenses.png';
   static const String income='assets/income.png';
+  static const String addexpense='assets/add_expense.png';
+  static const String addincome='assets/add_income.png';
 
 }
