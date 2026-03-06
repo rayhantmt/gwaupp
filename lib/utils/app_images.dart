@@ -20,4 +20,5 @@ class AppImages {
   static const String divider='assets/divider.png';
   static const String target='assets/target.png';
   static const String edit='assets/edit.png';
+  static const String yelloicon='assets/arrow_yellow.png';
 }

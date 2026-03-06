@@ -302,6 +302,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                     child: Padding(
                       padding: const EdgeInsets.all(12),
                       child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
                           Row(
                             children: [
@@ -365,7 +366,24 @@ class HomeScreenView extends GetView<HomeScreenController> {
                               ],
                             ),
                           ),
-                          
+                          Row(
+                            children: [
+                              Text('Remaining amount',
+                              style: GoogleFonts.inter( 
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                                color: Color(0xff6B6B6B)
+                              ),
+                              ),
+                              Text('\$260',
+                              style: GoogleFonts.inter( 
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14,
+                                color: Color(0xff1E1E1E)
+                              ),
+                              )
+                            ],
+                          )
                         ],
                       ),
                     ),
@@ -384,6 +402,22 @@ class HomeScreenView extends GetView<HomeScreenController> {
                           blurRadius: 12,
                           color: Color(0xff000000).withOpacity(0.1),
                         ),
+                      ],
+                    ),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Image.asset(AppImages.yelloicon),
+                            Text('Top Spendig category',
+                            style: GoogleFonts.inter( 
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: Color(0xff1E1E1E)
+                            ),
+                            )
+                          ],
+                        )
                       ],
                     ),
                   ),
