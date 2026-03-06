@@ -229,10 +229,11 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         ),
                                       ],
                                     ),
-                                    SizedBox(width: Get.width*0.03,),
-                                   Image.asset(AppImages.divider,
-                                   height: Get.height*0.04,
-                                   ),
+                                    SizedBox(width: Get.width * 0.03),
+                                    Image.asset(
+                                      AppImages.divider,
+                                      height: Get.height * 0.04,
+                                    ),
                                     Row(
                                       children: [
                                         Text(
@@ -279,6 +280,54 @@ class HomeScreenView extends GetView<HomeScreenController> {
                               ],
                             ),
                           ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    height: Get.height * 0.16,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Color(0xffFFFFFF),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 12,
+                          color: Color(0xff000000).withOpacity(0.1),
+                        ),
+                      ],
+                      
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              Image.asset(AppImages.target,
+                              height: Get.height*0.03,
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(height: Get.height*0.03,),
+                   Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Container(
+                    height: Get.height * 0.16,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: Color(0xffFFFFFF),
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 12,
+                          color: Color(0xff000000).withOpacity(0.1),
                         ),
                       ],
                     ),
