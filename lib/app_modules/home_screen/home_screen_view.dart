@@ -298,7 +298,6 @@ class HomeScreenView extends GetView<HomeScreenController> {
                           color: Color(0xff000000).withOpacity(0.1),
                         ),
                       ],
-                      
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(12),
@@ -306,27 +305,74 @@ class HomeScreenView extends GetView<HomeScreenController> {
                         children: [
                           Row(
                             children: [
-                              Image.asset(AppImages.target,
-                              height: Get.height*0.03,
+                              Image.asset(
+                                AppImages.target,
+                                height: Get.height * 0.03,
                               ),
-                              Text('Spending Target',
-                              style: GoogleFonts.inter( 
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                color: Color(0xff000000)
-                              ),
+                              Text(
+                                'Spending Target',
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  color: Color(0xff000000),
+                                ),
                               ),
                               Spacer(),
-                             Image.asset(AppImages.edit)
+                              Image.asset(
+                                AppImages.edit,
+                                height: Get.height * 0.03,
+                              ),
                             ],
-                          )
+                          ),
+                          Row(
+                            children: [
+                              Text(
+                                'Spent',
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                  color: Color(0xff1E1E1E),
+                                ),
+                              ),
+                              Spacer(),
+                              Text(
+                                '\$560/\$820',
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14,
+                                  color: Color(0xff1E1E1E),
+                                ),
+                              ),
+                            ],
+                          ),
+                          Container(
+                            height: Get.height * 0.02,
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(100),
+                              color: Color(0xffE6E6E3),
+                            ),
+                            child: Stack(
+                              children: [
+                                Container(
+                                  height: Get.height * 0.02,
+                                  width: Get.width * 0.5,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(100),
+                                    color: Color(0xffC9A24D),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          
                         ],
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: Get.height*0.03,),
-                   Padding(
+                SizedBox(height: Get.height * 0.03),
+                Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Container(
                     height: Get.height * 0.16,
