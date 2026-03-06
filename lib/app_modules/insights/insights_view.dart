@@ -84,14 +84,114 @@ class InsightsView extends GetView<InsightsController> {
                 ],
               ),
             ),
-            // ListView.builder(
-            //   scrollDirection: Axis.horizontal,
-            //   itemCount: controller.quatardata.length,
-            //   itemBuilder: (context, index) => Container(
-            //   height: Get.height*0.05,
-            //   width: Get.width*0.2,
-            //   color: controller.quatardata[index].id==index?Color(0xff0F3D2E):Color(0xffFFFFFF),
-            // ),)
+            SizedBox(height: Get.height * 0.02),
+            Obx(
+              () => Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  GestureDetector(
+                    onTap: () => controller.togglepage(0),
+                    child: Container(
+                      height: Get.height * 0.05,
+                      width: Get.width * 0.2,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(1000),
+                        color: controller.page.value == 0
+                            ? Color(0xff0F3D2E)
+                            : Colors.white,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Q1',
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: controller.page.value == 0
+                                ? Color(0xffFFFFFF)
+                                : Color(0xff6B6B6B),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => controller.togglepage(1),
+                    child: Container(
+                      height: Get.height * 0.05,
+                      width: Get.width * 0.2,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(1000),
+                        color: controller.page.value == 1
+                            ? Color(0xff0F3D2E)
+                            : Colors.white,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Q2',
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: controller.page.value == 1
+                                ? Color(0xffFFFFFF)
+                                : Color(0xff6B6B6B),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => controller.togglepage(2),
+                    child: Container(
+                      height: Get.height * 0.05,
+                      width: Get.width * 0.2,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(1000),
+                        color: controller.page.value == 2
+                            ? Color(0xff0F3D2E)
+                            : Colors.white,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Q3',
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: controller.page.value == 2
+                                ? Color(0xffFFFFFF)
+                                : Color(0xff6B6B6B),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: () => controller.togglepage(3),
+                    child: Container(
+                      height: Get.height * 0.05,
+                      width: Get.width * 0.2,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(1000),
+                        color: controller.page.value == 3
+                            ? Color(0xff0F3D2E)
+                            : Colors.white,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Q4',
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: controller.page.value == 3
+                                ? Color(0xffFFFFFF)
+                                : Color(0xff6B6B6B),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
