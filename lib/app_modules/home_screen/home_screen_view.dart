@@ -448,6 +448,20 @@ class HomeScreenView extends GetView<HomeScreenController> {
                     ),
                   ),
                 ),
+                SizedBox(height: Get.height*0.05,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Image.asset(AppImages.income,
+                      height: Get.height*0.05,
+                      ),
+                      Image.asset(AppImages.expenses,
+                      height: Get.height*0.05,)
+                    ],
+                  ),
+                )
               ],
             ),
           ),

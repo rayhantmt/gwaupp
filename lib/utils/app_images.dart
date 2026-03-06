@@ -22,5 +22,7 @@ class AppImages {
   static const String edit='assets/edit.png';
   static const String yelloicon='assets/arrow_yellow.png';
   static const String viewbreakdown='assets/view_breakdown.png';
-  
+  static const String expenses='assets/expenses.png';
+  static const String income='assets/income.png';
+
 }
