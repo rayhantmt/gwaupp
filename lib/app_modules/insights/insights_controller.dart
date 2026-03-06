@@ -29,4 +29,11 @@ class InsightsController extends GetxController{
       MonthlyData(month: "Jun", value: 40),
     ]);
   }
+  var businessdata=<BusinessData>[
+    BusinessData(tittle: 'Business Income', lastmonthIncome: 2000, thismonthIncome: 3192, profit: true),
+     BusinessData(tittle: 'Consulting Fees', lastmonthIncome: 1500, thismonthIncome: 1192, profit: false),
+      BusinessData(tittle: 'Monthly salary', lastmonthIncome: 10000, thismonthIncome: 10000, profit: false),
+       BusinessData(tittle: 'Bonus Income', lastmonthIncome: 100, thismonthIncome: 500, profit: true),
+        BusinessData(tittle: 'Side Business Income', lastmonthIncome: 300, thismonthIncome: 100, profit: false),
+  ].obs;
 }

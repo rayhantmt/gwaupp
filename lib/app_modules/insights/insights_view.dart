@@ -202,7 +202,7 @@ class InsightsView extends GetView<InsightsController> {
               ),
               child: BarChart(
                 BarChartData(
-                  gridData: FlGridData(show: false),
+                  //gridData: FlGridData(show: false),
                   borderData: FlBorderData(show: false),
                   backgroundColor: Colors.white,
                   alignment: BarChartAlignment.spaceAround,
@@ -228,13 +228,13 @@ class InsightsView extends GetView<InsightsController> {
                     leftTitles: AxisTitles(
                       sideTitles: SideTitles(showTitles: false),
                     ),
-                    rightTitles: AxisTitles(
+                    bottomTitles: AxisTitles(
                       sideTitles: SideTitles(showTitles: false),
                     ),
                     topTitles: AxisTitles(
                       sideTitles: SideTitles(showTitles: false),
                     ),
-                    bottomTitles: AxisTitles(
+                    rightTitles: AxisTitles(
                       sideTitles: SideTitles(
                         showTitles: false,
                         getTitlesWidget: (double value, TitleMeta meta) {
