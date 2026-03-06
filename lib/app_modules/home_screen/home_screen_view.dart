@@ -195,6 +195,73 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                   endIndent: 1,
                                   indent: 1,
                                   color: Color(0xff245040),
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Column(
+                                      children: [
+                                        Text('\$3,450',
+                                        style: GoogleFonts.montserrat( 
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 22,
+                                          color: Colors.white
+                                        ),
+                                        ),
+                                        Row(
+                                          children: [
+                                            Image.asset(AppImages.arrowdowncontainer,
+                                            height: Get.height*0.03,
+                                            ),
+                                            Text('Income',
+                                            style: GoogleFonts.inter( 
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 12,
+                                              color: Color(0xff6BB498)
+                                            ),
+                                            )
+                                          ],
+                                        )
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text('41.32%',
+                                        style: GoogleFonts.inter( 
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 12,
+                                          color: Color(0xff6BB498)
+                                        ),
+                                        ),
+                                        Column(
+                                          children: [
+                                            Text('\$3,450',
+                                        style: GoogleFonts.montserrat( 
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 22,
+                                          color: Colors.white
+                                        ),
+                                        ),
+                                        Row(
+                                          children: [
+                                           
+                                            Text('Expense',
+                                            style: GoogleFonts.inter( 
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 12,
+                                              color: Color(0xff6BB498)
+                                            ),
+                                            ), Image.asset(AppImages.arrowupcontainer,
+                                            height: Get.height*0.03,
+                                            ),
+                                          ],
+                                        )
+                                          ],
+                                        )
+                                        
+                                      ],
+                                    )
+                                  ],
                                 )
                               ],
                             ),
