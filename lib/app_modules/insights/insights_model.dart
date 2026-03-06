@@ -1,5 +1,5 @@
 class InsightsModel {
    final String quater;
-
-  InsightsModel({required this.quater});
+final int id;
+  InsightsModel({required this.id,required this.quater});
 }

@@ -84,6 +84,14 @@ class InsightsView extends GetView<InsightsController> {
                 ],
               ),
             ),
+            // ListView.builder(
+            //   scrollDirection: Axis.horizontal,
+            //   itemCount: controller.quatardata.length,
+            //   itemBuilder: (context, index) => Container(
+            //   height: Get.height*0.05,
+            //   width: Get.width*0.2,
+            //   color: controller.quatardata[index].id==index?Color(0xff0F3D2E):Color(0xffFFFFFF),
+            // ),)
           ],
         ),
       ),
