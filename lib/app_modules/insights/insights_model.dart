@@ -12,6 +12,7 @@ class BusinessData{
   final int lastmonthIncome;
   final int thismonthIncome;
   final bool profit;
+  final int profilorlosspercent;
 
-  BusinessData({required this.tittle, required this.lastmonthIncome, required this.thismonthIncome, required this.profit});
+  BusinessData( {required this.profilorlosspercent, required this.tittle, required this.lastmonthIncome, required this.thismonthIncome, required this.profit});
 }
