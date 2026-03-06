@@ -33,6 +33,7 @@ class InsightsView extends GetView<InsightsController> {
             SizedBox(height: Get.height * 0.05),
             Obx(
               () => Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   GestureDetector(
                     onTap: () => controller.toggle(),
