@@ -408,7 +408,9 @@ class HomeScreenView extends GetView<HomeScreenController> {
                       children: [
                         Row(
                           children: [
-                            Image.asset(AppImages.yelloicon),
+                            Image.asset(AppImages.yelloicon,
+                            height: Get.height*0.03,
+                            ),
                             Text('Top Spendig category',
                             style: GoogleFonts.inter( 
                               fontWeight: FontWeight.w600,
