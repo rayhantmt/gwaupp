@@ -125,7 +125,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                       AppImages.netsavingslogo,
                                       height: Get.height * 0.04,
                                     ),
-                                    SizedBox(width: Get.width*0.03,),
+                                    SizedBox(width: Get.width * 0.03),
                                     Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
@@ -148,7 +148,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         ),
                                       ],
                                     ),
-                                     SizedBox(width: Get.width*0.03,),
+                                    SizedBox(width: Get.width * 0.03),
                                     Text(
                                       '29.56%',
                                       style: GoogleFonts.inter(
@@ -157,39 +157,40 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         color: Color(0xff6BB498),
                                       ),
                                     ),
-                                    SizedBox(width: Get.width*0.07,),
+                                    SizedBox(width: Get.width * 0.07),
                                     Container(
-                                      
-                                      height: Get.height*0.04,
-                                      width: Get.width*0.3,
+                                      height: Get.height * 0.04,
+                                      width: Get.width * 0.3,
                                       decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(8),
                                         border: Border.all(
                                           width: 1,
-                                          color: Color(0xffC9A24D)
-                                        )
+                                          color: Color(0xffC9A24D),
+                                        ),
                                       ),
                                       child: Padding(
-                                        padding: const EdgeInsets.only(left: 5,
-                                        right: 5
+                                        padding: const EdgeInsets.only(
+                                          left: 5,
+                                          right: 5,
                                         ),
                                         child: Row(
                                           children: [
-                                            Text('Feb 2026',
-                                            style: GoogleFonts.inter( 
-                                              fontWeight: FontWeight.w600,
-                                              color: Color(0xffC9A24D),
-                                              fontSize: 14
+                                            Text(
+                                              'Feb 2026',
+                                              style: GoogleFonts.inter(
+                                                fontWeight: FontWeight.w600,
+                                                color: Color(0xffC9A24D),
+                                                fontSize: 14,
+                                              ),
                                             ),
-                                            ),
-                                            Image.asset(AppImages.arrowdown)
+                                            Image.asset(AppImages.arrowdown),
                                           ],
                                         ),
                                       ),
-                                    )
+                                    ),
                                   ],
                                 ),
-                                SizedBox(height: Get.height*0.03,),
+                                SizedBox(height: Get.height * 0.03),
                                 Divider(
                                   height: 1,
                                   endIndent: 1,
@@ -197,72 +198,84 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                   color: Color(0xff245040),
                                 ),
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Column(
                                       children: [
-                                        Text('\$3,450',
-                                        style: GoogleFonts.montserrat( 
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 22,
-                                          color: Colors.white
-                                        ),
+                                        Text(
+                                          '\$3,450',
+                                          style: GoogleFonts.montserrat(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 22,
+                                            color: Colors.white,
+                                          ),
                                         ),
                                         Row(
                                           children: [
-                                            Image.asset(AppImages.arrowdowncontainer,
-                                            height: Get.height*0.03,
+                                            Image.asset(
+                                              AppImages.arrowdowncontainer,
+                                              height: Get.height * 0.03,
                                             ),
-                                            Text('Income',
-                                            style: GoogleFonts.inter( 
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 12,
-                                              color: Color(0xff6BB498)
+                                            Text(
+                                              'Income',
+                                              style: GoogleFonts.inter(
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 12,
+                                                color: Color(0xff6BB498),
+                                              ),
                                             ),
-                                            )
                                           ],
-                                        )
+                                        ),
                                       ],
                                     ),
+                                    SizedBox(width: Get.width*0.03,),
+                                   Image.asset(AppImages.divider,
+                                   height: Get.height*0.04,
+                                   ),
                                     Row(
                                       children: [
-                                        Text('41.32%',
-                                        style: GoogleFonts.inter( 
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 12,
-                                          color: Color(0xff6BB498)
+                                        Text(
+                                          '41.32%',
+                                          style: GoogleFonts.inter(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 12,
+                                            color: Color(0xff6BB498),
+                                          ),
                                         ),
-                                        ),
+                                        SizedBox(width: Get.width * 0.05),
                                         Column(
                                           children: [
-                                            Text('\$3,450',
-                                        style: GoogleFonts.montserrat( 
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 22,
-                                          color: Colors.white
-                                        ),
-                                        ),
-                                        Row(
-                                          children: [
-                                           
-                                            Text('Expense',
-                                            style: GoogleFonts.inter( 
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 12,
-                                              color: Color(0xff6BB498)
+                                            Text(
+                                              '\$3,450',
+                                              style: GoogleFonts.montserrat(
+                                                fontWeight: FontWeight.w600,
+                                                fontSize: 22,
+                                                color: Colors.white,
+                                              ),
                                             ),
-                                            ), Image.asset(AppImages.arrowupcontainer,
-                                            height: Get.height*0.03,
+                                            Row(
+                                              children: [
+                                                Text(
+                                                  'Expense',
+                                                  style: GoogleFonts.inter(
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 12,
+                                                    color: Color(0xff6BB498),
+                                                  ),
+                                                ),
+                                                Image.asset(
+                                                  AppImages.arrowupcontainer,
+                                                  height: Get.height * 0.03,
+                                                ),
+                                              ],
                                             ),
                                           ],
-                                        )
-                                          ],
-                                        )
-                                        
+                                        ),
                                       ],
-                                    )
+                                    ),
                                   ],
-                                )
+                                ),
                               ],
                             ),
                           ),

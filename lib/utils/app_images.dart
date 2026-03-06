@@ -17,4 +17,5 @@ class AppImages {
   static const String arrowdown='assets/arrow_down.png';
   static const String arrowdowncontainer='assets/arrow_down_container.png';
   static const String arrowupcontainer='assets/arrow_down_container.png';
+  static const String divider='assets/divider.png';
 }
