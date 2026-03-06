@@ -301,14 +301,23 @@ class HomeScreenView extends GetView<HomeScreenController> {
                       
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                      padding: const EdgeInsets.all(12),
                       child: Column(
                         children: [
                           Row(
                             children: [
                               Image.asset(AppImages.target,
                               height: Get.height*0.03,
-                              )
+                              ),
+                              Text('Spending Target',
+                              style: GoogleFonts.inter( 
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                                color: Color(0xff000000)
+                              ),
+                              ),
+                              Spacer(),
+                             Image.asset(AppImages.edit)
                             ],
                           )
                         ],
