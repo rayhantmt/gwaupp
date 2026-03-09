@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:gwaupp/utils/app_images.dart';
 
 class MyProfileView extends StatelessWidget {
@@ -8,6 +9,12 @@ class MyProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20),
+        child: Column(children: [
+          SizedBox(height: Get.height*0.06,),
+        ]),
+      ),
     );
   }
 }
