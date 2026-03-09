@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/home_screen/home_screen_controller.dart';
 import 'package:gwaupp/utils/app_images.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class HomeScreenView extends GetView<HomeScreenController> {
   const HomeScreenView({super.key});
@@ -77,9 +78,12 @@ class HomeScreenView extends GetView<HomeScreenController> {
                             SizedBox(width: Get.width * 0.03),
                             Image.asset(AppImages.notificationIcon),
                             SizedBox(width: Get.width * 0.03),
-                            CircleAvatar(
-                              backgroundImage: AssetImage(
-                                AppImages.profileImage,
+                            GestureDetector(
+                              onTap: () => Get.toNamed(AppPages.myprofile),
+                              child: CircleAvatar(
+                                backgroundImage: AssetImage(
+                                  AppImages.profileImage,
+                                ),
                               ),
                             ),
                           ],
