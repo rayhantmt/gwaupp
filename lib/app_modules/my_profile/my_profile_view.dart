@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gwaupp/common_widgets/profile_container.dart';
 import 'package:gwaupp/utils/app_images.dart';
 
 class MyProfileView extends StatelessWidget {
@@ -19,7 +20,9 @@ class MyProfileView extends StatelessWidget {
           SizedBox(height: Get.height*0.06,),
           Row(
             children: [
-              Icon(Icons.arrow_back_ios_new),
+              GestureDetector(
+                onTap: () => Get.back(),
+                child: Icon(Icons.arrow_back_ios_new)),
               SizedBox(width: Get.width*0.05,),
               Text('My Profile',
               style: GoogleFonts.montserrat( 
@@ -81,7 +84,9 @@ class MyProfileView extends StatelessWidget {
             fontSize: 16,
             color: Color(0xff6B6B6B)
           ),
-          )
+          ),
+          SizedBox(height: Get.height*0.02,),
+          ProfileContainer(tittle: 'Income Category', img: AppImages.incomeCategory)
         ]),
       ),
     );

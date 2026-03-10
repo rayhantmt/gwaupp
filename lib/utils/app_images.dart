@@ -28,5 +28,12 @@ class AppImages {
   static const String addincome='assets/add_income.png';
   static const String profit='assets/profit.png';
   static const String loss='assets/loss.png';
+  static const String incomeCategory='assets/income_category.png';
+  static const String changePassword='assets/change_password.png';
+  static const String payment='assets/payment.png';
+  static const String privacy='assets/privacy.png';
+  static const String rateTheapp='assets/rate_the_app.png';
+  static const String signout='assets/signout.png';
+  static const String subscriptions='assets/subscriptions.png';
 
 }
