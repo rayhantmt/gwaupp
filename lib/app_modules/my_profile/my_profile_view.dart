@@ -145,6 +145,14 @@ class MyProfileView extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: Get.height*0.02,),
+            Text('More Info & Support',
+            style: GoogleFonts.inter( 
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+              color: Color(0xff6B6B6B)
+            ),
+            )
           ],
         ),
       ),
