@@ -152,7 +152,53 @@ class MyProfileView extends StatelessWidget {
               fontSize: 16,
               color: Color(0xff6B6B6B)
             ),
-            )
+            ),
+            SizedBox(height: Get.height*0.02,),
+            Container(
+              height: Get.height*0.05,
+decoration: BoxDecoration(
+  borderRadius: BorderRadius.circular(16),
+  color: Color(0xffFFFFFF)
+),
+child: ProfileContainer(tittle: 'Rate this App', img: AppImages.rateTheapp),
+            ),
+            SizedBox(height: Get.height*0.02,),
+            Text('Others',
+            style: GoogleFonts.inter( 
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+              color: Color(0xff6B6B6B)
+            ),
+            ),
+            SizedBox(height: Get.height*0.02,),
+            Container(
+              height: Get.height*0.1,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: Color(0xffFFFFFF)
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                   ProfileContainer(
+                    tittle: 'GWAUPP Privacy',
+                    img: AppImages.privacy,
+                  ),
+                  Divider(
+                    height: 1,
+                    indent: 1,
+                    endIndent: 1,
+                    color: Color(0xffE6E6E3),
+                  ),
+                  ProfileContainer(
+                    tittle: 'GWAUPP Terms of Service',
+                    img: AppImages.privacy,
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: Get.height*0.03,),
+            Image.asset(AppImages.signout)
           ],
         ),
       ),
