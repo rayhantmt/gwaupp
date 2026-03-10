@@ -11,24 +11,27 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
-      body: Column(
-        children: [
-          SizedBox(height: Get.height*0.06,),
-          Row(
-            children: [
-              Icon(Icons.arrow_back_ios_rounded,
-              color: Color(0xff1E1E1E),
-              ),
-              Text('Income History',
-              style: GoogleFonts.montserrat( 
-                fontWeight: FontWeight.w600,
-                fontSize: 22,
-                color: Color(0xff1E1E1E)
-              ),
-              )
-            ],
-          )
-        ],
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            SizedBox(height: Get.height*0.06,),
+            Row(
+              children: [
+                Icon(Icons.arrow_back_ios_rounded,
+                color: Color(0xff1E1E1E),
+                ),
+                Text('Income History',
+                style: GoogleFonts.montserrat( 
+                  fontWeight: FontWeight.w600,
+                  fontSize: 22,
+                  color: Color(0xff1E1E1E)
+                ),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

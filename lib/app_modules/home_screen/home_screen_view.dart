@@ -460,11 +460,44 @@ class HomeScreenView extends GetView<HomeScreenController> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Image.asset(AppImages.income,
-                      height: Get.height*0.05,
+                     // Image.asset(AppImages.income,
+                     // height: Get.height*0.05,
+                      //),
+                      GestureDetector(
+                        onTap: () => Get.toNamed(AppPages.incomeHistory),
+                        child: Container(
+                          height: Get.height*0.05,
+                          width: Get.width*0.4,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),color: Color(0xff0F3D2E)
+                          ),
+                          child: Center(
+                            child: Text('Income',
+                            style: GoogleFonts.inter( 
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: Color(0xffFFFFFF)
+                            ),
+                            ),
+                          ),
+                        ),
                       ),
-                      Image.asset(AppImages.expenses,
-                      height: Get.height*0.05,)
+                         Container(
+                        height: Get.height*0.05,
+                        width: Get.width*0.4,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(100),color: Color(0xff0F3D2E)
+                        ),
+                        child: Center(
+                          child: Text('Expenses',
+                          style: GoogleFonts.inter( 
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: Color(0xffFFFFFF)
+                          ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                 )
