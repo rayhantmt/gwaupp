@@ -27,9 +27,15 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                   fontSize: 22,
                   color: Color(0xff1E1E1E)
                 ),
+                ),
+                Spacer(),
+                Image.asset(AppImages.incomeCategory,
+                height: Get.height*0.03,
                 )
               ],
-            )
+            ),
+            SizedBox(height: Get.height*0.02,),
+            
           ],
         ),
       ),
