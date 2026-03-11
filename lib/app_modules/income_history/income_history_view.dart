@@ -194,6 +194,17 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                 ),
                                 )
                               ],
+                            ),
+                            controller.inconedata[index].bank?Row(
+                              children: [
+                                Image.asset(AppImages.bankicon,
+                                height: Get.height*0.05,
+                                )
+                              ],
+                            ):Row(
+                              children: [
+
+                              ],
                             )
                             ],
                         ),

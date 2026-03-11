@@ -35,5 +35,6 @@ class AppImages {
   static const String rateTheapp='assets/rate_the_app.png';
   static const String signout='assets/signout.png';
   static const String subscriptions='assets/subscriptions.png';
+  static const String bankicon='assets/bank_icon.png';
 
 }
