@@ -131,6 +131,35 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                 ),
               ),
             ),
+            //SizedBox(height: Get.height * 0.02),
+            Expanded(
+              child: ListView.builder(
+                itemCount: controller.inconedata.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Container(
+                      height: Get.height * 0.2,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 12,
+                            color: Color(0xff333333).withOpacity(0.15),
+                           // spreadRadius: 12
+                          ),
+                        ],
+                      ),
+                      child: Column(
+                        children: [Text(controller.inconedata[index].datetime)],
+                      ),
+                    ),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

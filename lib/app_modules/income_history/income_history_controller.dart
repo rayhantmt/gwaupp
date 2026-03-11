@@ -1,9 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:gwaupp/app_modules/income_history/income_history_model.dart';
 import 'package:intl/intl.dart';
 
-class IncomeHistoryController extends GetxController{
- // Rx<DateTime> datecontroller=DateTime.now().obs;
+class IncomeHistoryController extends GetxController {
+  // Rx<DateTime> datecontroller=DateTime.now().obs;
   Rx<DateTime?> startDate = Rx<DateTime?>(null);
   Rx<DateTime?> endDate = Rx<DateTime?>(null);
 
@@ -19,4 +19,85 @@ class IncomeHistoryController extends GetxController{
         : '?';
     return '$start - $end';
   }
+
+  var inconedata = <IncomeHistoryModel>[
+    IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+    
+  ];
 }
