@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/income_history/income_history_controller.dart';
+import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
 
 class IncomeHistoryView extends GetView<IncomeHistoryController> {
@@ -132,7 +133,8 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
               ),
             ),
             //SizedBox(height: Get.height * 0.02),
-            Expanded(
+            SizedBox(
+              height: Get.height*0.7,
               child: ListView.builder(
                 itemCount: controller.inconedata.length,
                 itemBuilder: (context, index) {
@@ -273,6 +275,8 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                 },
               ),
             ),
+            SizedBox(height: Get.height*0.03,),
+            CommonButton(tittle: 'Add Income')
           ],
         ),
       ),
