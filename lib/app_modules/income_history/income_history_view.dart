@@ -161,7 +161,7 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                               children: [
                                 Text(controller.inconedata[index].datetime),
                                 Spacer(),
-                                Text(controller.inconedata[index].amount,
+                                Text('\$${controller.inconedata[index].amount}',
                                 style: GoogleFonts.montserrat( 
                                   fontWeight: FontWeight.w600,
                                   fontSize: 18,
@@ -169,6 +169,13 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                 ),
                                 )
                               ],
+                            ),
+                            Text(controller.inconedata[index].tittle,
+                            style: GoogleFonts.inter( 
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                              color: Color(0xff1E1E1E)
+                            ),
                             )
                             ],
                         ),
