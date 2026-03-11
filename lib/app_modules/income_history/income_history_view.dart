@@ -14,12 +14,16 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: Get.height*0.06,),
             Row(
               children: [
-                Icon(Icons.arrow_back_ios_rounded,
-                color: Color(0xff1E1E1E),
+                GestureDetector(
+                  onTap: () => Get.back(),
+                  child: Icon(Icons.arrow_back_ios_rounded,
+                  color: Color(0xff1E1E1E),
+                  ),
                 ),
                 Text('Income History',
                 style: GoogleFonts.montserrat( 
@@ -35,6 +39,18 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
               ],
             ),
             SizedBox(height: Get.height*0.02,),
+            Container(
+              height: Get.height*0.05,
+              width: Get.width*0.6,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                color: Color(0xffFFFFFF),
+                border: Border.all(
+                  width: 1,
+                  color: Color(0xffE6E6E3)
+                )
+              ),
+            )
             
           ],
         ),
