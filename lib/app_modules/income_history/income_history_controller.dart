@@ -29,7 +29,42 @@ class IncomeHistoryController extends GetxController {
       note: 'Daily shop sales',
     ),
      IncomeHistoryModel(
+      false,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
       true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      false,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      true,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      false,
+      datetime: '23 Sep 25, 11:24 AM',
+      amount: '2,000',
+      tittle: 'Monthly Salary',
+      note: 'Daily shop sales',
+    ),
+     IncomeHistoryModel(
+      false,
       datetime: '23 Sep 25, 11:24 AM',
       amount: '2,000',
       tittle: 'Monthly Salary',
@@ -63,41 +98,6 @@ class IncomeHistoryController extends GetxController {
       tittle: 'Monthly Salary',
       note: 'Daily shop sales',
     ),
-     IncomeHistoryModel(
-      true,
-      datetime: '23 Sep 25, 11:24 AM',
-      amount: '2,000',
-      tittle: 'Monthly Salary',
-      note: 'Daily shop sales',
-    ),
-     IncomeHistoryModel(
-      true,
-      datetime: '23 Sep 25, 11:24 AM',
-      amount: '2,000',
-      tittle: 'Monthly Salary',
-      note: 'Daily shop sales',
-    ),
-     IncomeHistoryModel(
-      true,
-      datetime: '23 Sep 25, 11:24 AM',
-      amount: '2,000',
-      tittle: 'Monthly Salary',
-      note: 'Daily shop sales',
-    ),
-     IncomeHistoryModel(
-      true,
-      datetime: '23 Sep 25, 11:24 AM',
-      amount: '2,000',
-      tittle: 'Monthly Salary',
-      note: 'Daily shop sales',
-    ),
-     IncomeHistoryModel(
-      true,
-      datetime: '23 Sep 25, 11:24 AM',
-      amount: '2,000',
-      tittle: 'Monthly Salary',
-      note: 'Daily shop sales',
-    ),
-    
+
   ];
 }

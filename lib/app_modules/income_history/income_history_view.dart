@@ -156,6 +156,7 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Row(
                               children: [
@@ -232,14 +233,24 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                       CircleAvatar(
                                         radius: 20,
                                         backgroundColor: Color(0xffFCECEB),
-                                        child: Icon(Icons.delete_outline_rounded,
-                                      color: Color(0xffC84B4B),
+                                        child: Icon(
+                                          Icons.delete_outline_rounded,
+                                          color: Color(0xffC84B4B),
+                                        ),
                                       ),
-                                      )
                                     ],
                                   )
                                 : Row(children: [
-
+Image.asset(AppImages.cashicon,
+height: Get.height*0.05,
+),
+Text('Cash',
+style: GoogleFonts.inter( 
+  fontWeight: FontWeight.w400,
+  fontSize: 14,
+  color: Color(0xff1E1E1E)
+),
+)
                               ],
                             ),
                           ],
