@@ -148,12 +148,30 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                           BoxShadow(
                             blurRadius: 12,
                             color: Color(0xff333333).withOpacity(0.15),
-                           // spreadRadius: 12
+                            // spreadRadius: 12
                           ),
                         ],
                       ),
-                      child: Column(
-                        children: [Text(controller.inconedata[index].datetime)],
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Row(
+                              children: [
+                                Text(controller.inconedata[index].datetime),
+                                Spacer(),
+                                Text(controller.inconedata[index].amount,
+                                style: GoogleFonts.montserrat( 
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 18,
+                                  color: Color(0xff0F3D2E)
+                                ),
+                                )
+                              ],
+                            )
+                            ],
+                        ),
                       ),
                     ),
                   );
