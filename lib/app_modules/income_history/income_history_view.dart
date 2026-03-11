@@ -161,52 +161,88 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                               children: [
                                 Text(controller.inconedata[index].datetime),
                                 Spacer(),
-                                Text('\$${controller.inconedata[index].amount}',
-                                style: GoogleFonts.montserrat( 
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 18,
-                                  color: Color(0xff0F3D2E)
+                                Text(
+                                  '\$${controller.inconedata[index].amount}',
+                                  style: GoogleFonts.montserrat(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 18,
+                                    color: Color(0xff0F3D2E),
+                                  ),
                                 ),
-                                )
                               ],
                             ),
-                            Text(controller.inconedata[index].tittle,
-                            style: GoogleFonts.inter( 
-                              fontWeight: FontWeight.w600,
-                              fontSize: 14,
-                              color: Color(0xff1E1E1E)
-                            ),
+                            Text(
+                              controller.inconedata[index].tittle,
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 14,
+                                color: Color(0xff1E1E1E),
+                              ),
                             ),
                             Row(
                               children: [
-                                Text('Note: ',
-                                style: GoogleFonts.inter( 
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
-                                  color: Color(0xff6B6B6B)
+                                Text(
+                                  'Note: ',
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    color: Color(0xff6B6B6B),
+                                  ),
                                 ),
+                                Text(
+                                  controller.inconedata[index].note,
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14,
+                                    color: Color(0xff1E1E1E),
+                                  ),
                                 ),
-                                Text(controller.inconedata[index].note,
-                                style: GoogleFonts.inter( 
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 14,
-                                  color: Color(0xff1E1E1E)
-                                ),
-                                )
                               ],
                             ),
-                            controller.inconedata[index].bank?Row(
-                              children: [
-                                Image.asset(AppImages.bankicon,
-                                height: Get.height*0.05,
-                                )
-                              ],
-                            ):Row(
-                              children: [
+                            controller.inconedata[index].bank
+                                ? Row(
+                                    children: [
+                                      Image.asset(
+                                        AppImages.bankicon,
+                                        height: Get.height * 0.05,
+                                      ),
+                                      Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            'US Bank',
+                                            style: GoogleFonts.inter(
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 14,
+                                              color: Color(0xff1E1E1E),
+                                            ),
+                                          ),
+                                          Text(
+                                            'James Walker | Savings',
+                                            style: GoogleFonts.inter(
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 14,
+                                              color: Color(0xff6B6B6B),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Spacer(),
+                                      CircleAvatar(
+                                        radius: 20,
+                                        backgroundColor: Color(0xffFCECEB),
+                                        child: Icon(Icons.delete_outline_rounded,
+                                      color: Color(0xffC84B4B),
+                                      ),
+                                      )
+                                    ],
+                                  )
+                                : Row(children: [
 
                               ],
-                            )
-                            ],
+                            ),
+                          ],
                         ),
                       ),
                     ),
