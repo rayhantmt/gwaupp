@@ -16,42 +16,121 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: Get.height*0.06,),
+            SizedBox(height: Get.height * 0.06),
             Row(
               children: [
                 GestureDetector(
                   onTap: () => Get.back(),
-                  child: Icon(Icons.arrow_back_ios_rounded,
-                  color: Color(0xff1E1E1E),
+                  child: Icon(
+                    Icons.arrow_back_ios_rounded,
+                    color: Color(0xff1E1E1E),
                   ),
                 ),
-                Text('Income History',
-                style: GoogleFonts.montserrat( 
-                  fontWeight: FontWeight.w600,
-                  fontSize: 22,
-                  color: Color(0xff1E1E1E)
-                ),
+                Text(
+                  'Income History',
+                  style: GoogleFonts.montserrat(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 22,
+                    color: Color(0xff1E1E1E),
+                  ),
                 ),
                 Spacer(),
-                Image.asset(AppImages.incomeCategory,
-                height: Get.height*0.03,
-                )
+                Image.asset(
+                  AppImages.incomeCategory,
+                  height: Get.height * 0.03,
+                ),
               ],
             ),
-            SizedBox(height: Get.height*0.02,),
-            Container(
-              height: Get.height*0.05,
-              width: Get.width*0.6,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(100),
-                color: Color(0xffFFFFFF),
-                border: Border.all(
-                  width: 1,
-                  color: Color(0xffE6E6E3)
-                )
+            SizedBox(height: Get.height * 0.02),
+            // GestureDetector(
+            //   onTap: () async {
+            //     DateTime? pickeddate = await showDatePicker(
+            //       context: context,
+            //       firstDate: DateTime.now(),
+            //       lastDate: DateTime(3000),
+            //     );
+            //     controller.datecontroller.value = pickeddate!;
+            //   },
+            //   child: Container(
+            //     height: Get.height * 0.05,
+            //     width: Get.width * 0.6,
+            //     decoration: BoxDecoration(
+            //       borderRadius: BorderRadius.circular(100),
+            //       color: Color(0xffFFFFFF),
+            //       border: Border.all(width: 1, color: Color(0xffE6E6E3)),
+            //     ),
+            //     child: Row(
+            //       mainAxisAlignment: MainAxisAlignment.center,
+            //       children: [
+            //         Icon(
+            //           Icons.calendar_month_outlined,
+            //           color: Color(0xff6B6B6B),
+            //         ),
+            //         Text(controller.datecontroller.value.toString()),
+            //       ],
+            //     ),
+            //   ),
+            // ),
+            // In your widget
+            GestureDetector(
+              onTap: () async {
+                // Pick START date
+                DateTime? pickedStart = await showDatePicker(
+                  context: context,
+                  initialDate: controller.startDate.value ?? DateTime.now(),
+                  firstDate: DateTime.now(),
+                  lastDate: DateTime(3000),
+                  helpText: 'Select start date',
+                );
+
+                if (pickedStart == null) return;
+
+                // Pick END date (must be after start)
+                DateTime? pickedEnd = await showDatePicker(
+                  context: context,
+                  initialDate: pickedStart,
+                  firstDate: pickedStart, // 👈 forces end >= start
+                  lastDate: DateTime(3000),
+                  helpText: 'Select end date',
+                );
+
+                if (pickedEnd == null) return;
+
+                controller.startDate.value = pickedStart;
+                controller.endDate.value = pickedEnd;
+              },
+              child: Obx(
+                () => Container(
+                  height: Get.height * 0.05,
+                  //width: Get.width * 0.6,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: const Color(0xffFFFFFF),
+                    border: Border.all(
+                      width: 1,
+                      color: const Color(0xffE6E6E3),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Icon(
+                        Icons.calendar_month_outlined,
+                        color: Color(0xff6B6B6B),
+                      ),
+                      const SizedBox(width: 6),
+                      Text(
+                        controller.formattedDateRange,
+                        style: const TextStyle(
+                          color: Color(0xff6B6B6B),
+                          fontSize: 13,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            )
-            
+            ),
           ],
         ),
       ),
