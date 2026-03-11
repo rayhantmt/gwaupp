@@ -240,19 +240,31 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                       ),
                                     ],
                                   )
-                                : Row(children: [
-Image.asset(AppImages.cashicon,
-height: Get.height*0.05,
-),
-Text('Cash',
-style: GoogleFonts.inter( 
-  fontWeight: FontWeight.w400,
-  fontSize: 14,
-  color: Color(0xff1E1E1E)
-),
-)
-                              ],
-                            ),
+                                : Row(
+                                    children: [
+                                      Image.asset(
+                                        AppImages.cashicon,
+                                        height: Get.height * 0.05,
+                                      ),
+                                      Text(
+                                        'Cash',
+                                        style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 14,
+                                          color: Color(0xff1E1E1E),
+                                        ),
+                                      ),
+                                      Spacer(),
+                                      CircleAvatar(
+                                        radius: 20,
+                                        backgroundColor: Color(0xffFCECEB),
+                                        child: Icon(
+                                          Icons.delete_outline_rounded,
+                                          color: Color(0xffC84B4B),
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                           ],
                         ),
                       ),
