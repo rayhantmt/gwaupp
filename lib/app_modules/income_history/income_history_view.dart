@@ -176,6 +176,24 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                               fontSize: 14,
                               color: Color(0xff1E1E1E)
                             ),
+                            ),
+                            Row(
+                              children: [
+                                Text('Note: ',
+                                style: GoogleFonts.inter( 
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                  color: Color(0xff6B6B6B)
+                                ),
+                                ),
+                                Text(controller.inconedata[index].note,
+                                style: GoogleFonts.inter( 
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                  color: Color(0xff1E1E1E)
+                                ),
+                                )
+                              ],
                             )
                             ],
                         ),
