@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/add_income/add_income_controller.dart';
+import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
 import 'package:gwaupp/utils/app_pages.dart';
 
@@ -276,7 +277,7 @@ class AddIncomeView extends GetView<AddIncomeController> {
                 ),
                 Obx(
                   () => Switch(
-                    activeColor: Color(0xffFFFFFF),
+                    //activeColor: Color(0xffFFFFFF),
                     focusColor: Color(0xffFFFFFF),
                     activeThumbColor: Color(0xff0F3D2E),
                     value: controller.repeatedTrans.value,
@@ -285,6 +286,8 @@ class AddIncomeView extends GetView<AddIncomeController> {
                 ),
               ],
             ),
+            SizedBox(height: Get.height*0.05,),
+            CommonButton(tittle: 'Add Income')
           ],
         ),
       ),
