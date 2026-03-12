@@ -172,6 +172,8 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                             ),
                           ),
                         ),
+                        SizedBox(height: Get.height*0.05,),
+                        CommonButton(tittle: 'Save & Apply')
                       ],
                     ),
                   ),
