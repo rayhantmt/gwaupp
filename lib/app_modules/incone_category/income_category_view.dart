@@ -4,7 +4,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/incone_category/income_category_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
-import 'package:gwaupp/utils/app_pages.dart';
 
 class IncomeCategoryView extends GetView<IncomeCategoryController> {
   const IncomeCategoryView({super.key});
@@ -64,7 +63,6 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
                 ],
               ),
             ),
-            // SizedBox(height: Get.height * 0.03),
             SizedBox(
               height: Get.height * 0.5,
               child: ListView.builder(
@@ -179,9 +177,6 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
               child: Image.asset(AppImages.addNewCategory),
             ),
             SizedBox(height: Get.height * 0.03),
-            GestureDetector(
-              onTap: () => Get.offNamed(AppPages.addincome),
-              child: CommonButton(tittle: 'Apply Now')),
           ],
         ),
       ),

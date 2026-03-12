@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:get/route_manager.dart';
 import 'package:gwaupp/app_modules/add_income/add_income_binding.dart';
 import 'package:gwaupp/app_modules/add_income/add_income_view.dart';
@@ -11,6 +12,8 @@ import 'package:gwaupp/app_modules/home_screen/home_screen_binding.dart';
 import 'package:gwaupp/app_modules/home_screen/home_screen_view.dart';
 import 'package:gwaupp/app_modules/income_history/income_history_binding.dart';
 import 'package:gwaupp/app_modules/income_history/income_history_view.dart';
+import 'package:gwaupp/app_modules/incone_category/income_category_binding.dart';
+import 'package:gwaupp/app_modules/incone_category/income_category_view.dart';
 import 'package:gwaupp/app_modules/log_in/log_in_binding.dart';
 import 'package:gwaupp/app_modules/log_in/log_in_view.dart';
 import 'package:gwaupp/app_modules/main_screen/main_screen.dart';
@@ -41,7 +44,8 @@ class AppRoutes {
     GetPage(name: AppPages.myprofile, page: () => MyProfileView(),binding: MyProfileBinding()),
     GetPage(name: AppPages.incomeHistory, page: () => IncomeHistoryView(),binding: IncomeHistoryBinding()),
     GetPage(name: AppPages.addincome, page: () => AddIncomeView(),binding: AddIncomeBinding()),
-    GetPage(name: AppPages.selectcategory, page:  () => SelectCategoryView(),binding: SelectCategoryBindings())
+    GetPage(name: AppPages.selectcategory, page:  () => SelectCategoryView(),binding: SelectCategoryBindings()),
+    GetPage(name: AppPages.incomecategory, page: () => IncomeCategoryView(),binding: IncomeCategoryBinding())
 
   ];
 }
