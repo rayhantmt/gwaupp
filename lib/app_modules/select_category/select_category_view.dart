@@ -62,13 +62,14 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                 ],
               ),
             ),
-           // SizedBox(height: Get.height * 0.03),
+            // SizedBox(height: Get.height * 0.03),
             Expanded(
               child: ListView.builder(
                 itemCount: controller.categories.length,
-                itemBuilder: (context, index) => Container(
+                itemBuilder: (context, index) => Obx(() => Container(
                   height: Get.height * 0.04,
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
                         controller.categories[index].category,
@@ -78,9 +79,13 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                           color: Color(0xff2B2B2B),
                         ),
                       ),
+                      Checkbox(
+                        value: controller.categories[index].isSelected.value,
+                        onChanged: (value) => controller.toggle(value!, index),
+                      ),
                     ],
                   ),
-                ),
+                ),)
               ),
             ),
           ],
