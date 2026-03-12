@@ -20,7 +20,6 @@ class AddIncomeView extends GetView<AddIncomeController> {
           children: [
             SizedBox(height: Get.height * 0.06),
             Row(
-         
               children: [
                 Icon(
                   Icons.arrow_back_ios_new_rounded,
@@ -47,7 +46,7 @@ class AddIncomeView extends GetView<AddIncomeController> {
               ),
             ),
             Row(
-                   mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 GestureDetector(
                   onTap: () async {
@@ -116,54 +115,180 @@ class AddIncomeView extends GetView<AddIncomeController> {
                 ),
               ],
             ),
-            SizedBox(height: Get.height*0.02,),
-            Text('Category',
-            style: GoogleFonts.inter( 
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
-              color: Color(0xff1E1E1E)
-            ),
+            SizedBox(height: Get.height * 0.02),
+            Text(
+              'Category',
+              style: GoogleFonts.inter(
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+                color: Color(0xff1E1E1E),
+              ),
             ),
             GestureDetector(
               onTap: () => Get.toNamed(AppPages.selectcategory),
               child: Container(
-                height: Get.height*0.05,
+                height: Get.height * 0.05,
                 width: double.infinity,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  border: Border.all(
-                    width: 1,
-                    color: Color(0xffD8D9E0)
-                  )
+                  border: Border.all(width: 1, color: Color(0xffD8D9E0)),
                 ),
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     children: [
-                      Image.asset(AppImages.incomeCategory,
-                      color: Color(0xff6B6B6B),
-                    height: Get.height*0.035,
+                      Image.asset(
+                        AppImages.incomeCategory,
+                        color: Color(0xff6B6B6B),
+                        height: Get.height * 0.035,
                       ),
-                      SizedBox(width: Get.width*0.05,),
-                      Text('Select a category',
-                      style: GoogleFonts.inter( 
-                        fontWeight: FontWeight.w400,
-                        fontSize: 14,
-                        color: Color(0xff6B6B6B)
-                      ),
+                      SizedBox(width: Get.width * 0.05),
+                      Text(
+                        'Select a category',
+                        style: GoogleFonts.inter(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          color: Color(0xff6B6B6B),
+                        ),
                       ),
                       Spacer(),
-                      Icon(Icons.arrow_forward_ios_rounded,
-                      color: Color(0xff6B6B6B),
-                      )
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Color(0xff6B6B6B),
+                      ),
                     ],
                   ),
                 ),
               ),
-            )
+            ),
+            SizedBox(height: Get.height * 0.03),
+            Obx(() {
+              final selected = controller.selectedMethod.value;
+              return Column(
+                children: [
+                  Row(
+                    children: [
+                      _MethodChip(label: 'Cash', icon: Icons.money, index: 0),
+                      SizedBox(width: 8),
+                      _MethodChip(
+                        label: 'Credit',
+                        icon: Icons.credit_card,
+                        index: 1,
+                      ),
+                      SizedBox(width: 8),
+                      _MethodChip(
+                        label: 'Bank',
+                        icon: Icons.account_balance,
+                        index: 2,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 24),
+                  IndexedStack(
+                    index: selected,
+                    children: [CashContent(), CreditContent(), BankContent()],
+                  ),
+                ],
+              );
+            }),
+            Container(
+                height: Get.height * 0.05,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(width: 1, color: Color(0xffD8D9E0)),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        AppImages.enteramount,
+                        color: Color(0xff6B6B6B),
+                        height: Get.height * 0.035,
+                      ),
+                      SizedBox(width: Get.width * 0.05),
+                      Text(
+                        'Enter amount',
+                        style: GoogleFonts.inter(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          color: Color(0xff6B6B6B),
+                        ),
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Color(0xff6B6B6B),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
           ],
         ),
       ),
     );
   }
+}
+
+class _MethodChip extends GetView<AddIncomeController> {
+  final String label;
+  final IconData icon;
+  final int index;
+  const _MethodChip({
+    required this.label,
+    required this.icon,
+    required this.index,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final isSelected = controller.selectedMethod.value == index;
+    return GestureDetector(
+      onTap: () => controller.selectMethod(index),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: isSelected ? Color(0xff1A4D2E) : Color(0xffE6E6E3),
+            width: isSelected ? 2 : 1,
+          ),
+        ),
+        child: Row(
+          children: [
+            Icon(
+              icon,
+              size: 18,
+              color: isSelected ? Color(0xff1A4D2E) : Color(0xff6B6B6B),
+            ),
+            SizedBox(width: 6),
+            Text(
+              label,
+              style: GoogleFonts.inter(
+                color: isSelected ? Color(0xff1A4D2E) : Color(0xff6B6B6B),
+                fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CashContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => Text('Cash'); // build your cash UI here
+}
+
+class CreditContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => Text('Credit'); // build your credit UI here
+}
+
+class BankContent extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) => Text('Bank'); // build your bank UI here
 }

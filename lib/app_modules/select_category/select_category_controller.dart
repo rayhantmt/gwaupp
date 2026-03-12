@@ -12,8 +12,7 @@ class SelectCategoryController extends GetxController{
     SelectCategoryModel(category: 'Service Charge',isSelected: false.obs)
   ];
   void toggle(bool b,int i){
-    print('value $b');
-    print('index $i');
     categories[i].isSelected.value=b;
   }
+ 
 }

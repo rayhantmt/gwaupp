@@ -22,4 +22,10 @@ class AddIncomeController extends GetxController{
   final period = startTime.value!.period == DayPeriod.am ? 'AM' : 'PM';
   return '$hour:$minute $period';
 }
+
+  var selectedMethod = 0.obs; // 0=Cash, 1=Credit, 2=Bank
+
+  void selectMethod(int index) {
+    selectedMethod.value = index;
+  }
 }
