@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/income_history/income_history_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class IncomeHistoryView extends GetView<IncomeHistoryController> {
   const IncomeHistoryView({super.key});
@@ -276,7 +277,9 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
               ),
             ),
             SizedBox(height: Get.height*0.03,),
-            CommonButton(tittle: 'Add Income')
+            GestureDetector(
+              onTap: () => Get.toNamed(AppPages.addincome),
+              child: CommonButton(tittle: 'Add Income'))
           ],
         ),
       ),
