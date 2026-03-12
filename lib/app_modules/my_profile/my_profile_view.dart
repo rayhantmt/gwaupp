@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/common_widgets/profile_container.dart';
 import 'package:gwaupp/utils/app_images.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class MyProfileView extends StatelessWidget {
   const MyProfileView({super.key});
@@ -100,9 +101,12 @@ class MyProfileView extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  ProfileContainer(
-                    tittle: 'Income Category',
-                    img: AppImages.incomeCategory,
+                  GestureDetector(
+                    onTap: () => Get.toNamed(AppPages.incomecategory),
+                    child: ProfileContainer(
+                      tittle: 'Income Category',
+                      img: AppImages.incomeCategory,
+                    ),
                   ),
                   Divider(
                     height: 1,
