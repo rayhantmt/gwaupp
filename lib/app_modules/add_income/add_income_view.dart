@@ -231,39 +231,60 @@ class AddIncomeView extends GetView<AddIncomeController> {
                 ),
               ),
             ),
-            Text('Note',
-            style: GoogleFonts.inter( 
-              fontWeight: FontWeight.w600,
-              fontSize: 16,
-              color: Color(0xff1E1E1E)
+            Text(
+              'Note',
+              style: GoogleFonts.inter(
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+                color: Color(0xff1E1E1E),
+              ),
             ),
-            ),
-            SizedBox(height: Get.height*0.02,),
+            SizedBox(height: Get.height * 0.02),
             Container(
-              height: Get.height*.15,
+              height: Get.height * .15,
               width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  width: 1,
-                  color: Color(0xffD8D9E0)
-                )
+                border: Border.all(width: 1, color: Color(0xffD8D9E0)),
               ),
               child: TextFormField(
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.only(left: 10),
-                  hint: Text('Enter comment',
-                  style: GoogleFonts.inter( 
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14,
-                    color: Color(0xff6B6B6B)
+                  hint: Text(
+                    'Enter comment',
+                    style: GoogleFonts.inter(
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                      color: Color(0xff6B6B6B),
+                    ),
                   ),
-                  ),
-                  
                 ),
               ),
-            )
+            ),
+            SizedBox(height: Get.height * 0.02),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Repeat this transaction',
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.w400,
+                    fontSize: 14,
+                    color: Color(0xff1E1E1E),
+                  ),
+                ),
+                Obx(
+                  () => Switch(
+                    activeColor: Color(0xffFFFFFF),
+                    focusColor: Color(0xffFFFFFF),
+                    activeThumbColor: Color(0xff0F3D2E),
+                    value: controller.repeatedTrans.value,
+                    onChanged: (value) => controller.togglerepeated(value),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),

@@ -28,4 +28,8 @@ class AddIncomeController extends GetxController{
   void selectMethod(int index) {
     selectedMethod.value = index;
   }
+  RxBool repeatedTrans=false.obs;
+  void togglerepeated (bool b){
+repeatedTrans.value=b;
+  }
 }
