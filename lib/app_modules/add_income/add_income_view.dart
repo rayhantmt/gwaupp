@@ -192,39 +192,45 @@ class AddIncomeView extends GetView<AddIncomeController> {
               );
             }),
             Container(
-                height: Get.height * 0.05,
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  border: Border.all(width: 1, color: Color(0xffD8D9E0)),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    children: [
-                      Image.asset(
-                        AppImages.enteramount,
-                        color: Color(0xff6B6B6B),
-                        height: Get.height * 0.035,
-                      ),
-                      SizedBox(width: Get.width * 0.05),
-                      Text(
-                        'Enter amount',
-                        style: GoogleFonts.inter(
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
+              height: Get.height * 0.05,
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                border: Border.all(width: 1, color: Color(0xffD8D9E0)),
+              ),
+              child: TextFormField(
+                decoration: InputDecoration(
+                  contentPadding: EdgeInsets.only(left: 10),
+                  border: InputBorder.none,
+                  hint: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          AppImages.enteramount,
+                          color: Color(0xff6B6B6B),
+                          height: Get.height * 0.035,
+                        ),
+                        SizedBox(width: Get.width * 0.05),
+                        Text(
+                          'Enter amount',
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: Color(0xff6B6B6B),
+                          ),
+                        ),
+                        Spacer(),
+                        Icon(
+                          Icons.arrow_forward_ios_rounded,
                           color: Color(0xff6B6B6B),
                         ),
-                      ),
-                      Spacer(),
-                      Icon(
-                        Icons.arrow_forward_ios_rounded,
-                        color: Color(0xff6B6B6B),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
+            ),
           ],
         ),
       ),
