@@ -1,4 +1,6 @@
 import 'package:get/route_manager.dart';
+import 'package:gwaupp/app_modules/add_income/add_income_binding.dart';
+import 'package:gwaupp/app_modules/add_income/add_income_view.dart';
 import 'package:gwaupp/app_modules/create_new_account/create_new_account_binding.dart';
 import 'package:gwaupp/app_modules/create_new_account/create_new_account_view.dart';
 import 'package:gwaupp/app_modules/create_your_profile/create_your_profile_binding.dart';
@@ -36,6 +38,7 @@ class AppRoutes {
     GetPage(name: AppPages.mainscreen, page: () => MainScreenView(),binding: MainScreenBinding()),
     GetPage(name: AppPages.myprofile, page: () => MyProfileView(),binding: MyProfileBinding()),
     GetPage(name: AppPages.incomeHistory, page: () => IncomeHistoryView(),binding: IncomeHistoryBinding()),
+    GetPage(name: AppPages.addincome, page: () => AddIncomeView(),binding: AddIncomeBinding())
 
   ];
 }
