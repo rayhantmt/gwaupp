@@ -115,6 +115,14 @@ class AddIncomeView extends GetView<AddIncomeController> {
                 ),
               ],
             ),
+            SizedBox(height: Get.height*0.02,),
+            Text('Category',
+            style: GoogleFonts.inter( 
+              fontWeight: FontWeight.w600,
+              fontSize: 16,
+              color: Color(0xff1E1E1E)
+            ),
+            )
           ],
         ),
       ),
