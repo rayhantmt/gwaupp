@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/select_category/select_category_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class SelectCategoryView extends GetView<SelectCategoryController> {
   const SelectCategoryView({super.key});
@@ -183,7 +184,9 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
               child: Image.asset(AppImages.addNewCategory),
             ),
             SizedBox(height: Get.height * 0.03),
-            CommonButton(tittle: 'Apply Now'),
+            GestureDetector(
+              onTap: () => Get.offNamed(AppPages.addincome),
+              child: CommonButton(tittle: 'Apply Now')),
           ],
         ),
       ),
