@@ -83,6 +83,7 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                           ),
                         ),
                         Checkbox(
+                          activeColor: Color(0xff0F3D2E),
                           value: controller.categories[index].isSelected.value,
                           onChanged: (value) =>
                               controller.toggle(value!, index),
