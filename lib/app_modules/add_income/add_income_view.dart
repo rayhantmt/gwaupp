@@ -15,9 +15,11 @@ class AddIncomeView extends GetView<AddIncomeController> {
         padding: const EdgeInsets.symmetric(horizontal: 20),
 
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: Get.height * 0.06),
             Row(
+         
               children: [
                 Icon(
                   Icons.arrow_back_ios_new_rounded,
@@ -44,6 +46,7 @@ class AddIncomeView extends GetView<AddIncomeController> {
               ),
             ),
             Row(
+                   mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 GestureDetector(
                   onTap: () async {
@@ -60,29 +63,35 @@ class AddIncomeView extends GetView<AddIncomeController> {
                   child: Obx(
                     () => Container(
                       height: Get.height * 0.05,
-                      width: Get.width * 0.3,
+                      width: Get.width * 0.4,
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
                         border: Border.all(width: 1, color: Color(0xffE6E6E3)),
                       ),
-                      child: Row(
-                        children: [
-                          Icon(
-                            Icons.calendar_month_outlined,
-                            color: Color(0xff6B6B6B),
-                          ),
-                          Text(controller.formattedDateRange),
-                        ],
+                      child: Center(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.calendar_month_outlined,
+                              color: Color(0xff6B6B6B),
+                            ),
+                            Text(controller.formattedDateRange),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ),
-
+                SizedBox(width: Get.width * 0.05),
                 GestureDetector(
                   onTap: () async {
-                    TimeOfDay? pickedStart = await showTimePicker(context: context, initialTime: TimeOfDay.now());
+                    TimeOfDay? pickedStart = await showTimePicker(
+                      context: context,
+                      initialTime: TimeOfDay.now(),
+                    );
                     if (pickedStart == null) return;
-                    controller.startTime.value =pickedStart ;
+                    controller.startTime.value = pickedStart;
                   },
                   child: Obx(
                     () => Container(
