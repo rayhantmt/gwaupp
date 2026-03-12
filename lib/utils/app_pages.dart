@@ -11,4 +11,5 @@ class AppPages {
   static const String myprofile='/myprofile';
   static const String incomeHistory='/incomehistory';
   static const String addincome='/addincome';
+  static const String selectcategory='/selectcategory';
 }

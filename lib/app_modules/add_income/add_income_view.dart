@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/add_income/add_income_controller.dart';
 import 'package:gwaupp/utils/app_images.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class AddIncomeView extends GetView<AddIncomeController> {
   const AddIncomeView({super.key});
@@ -123,37 +124,40 @@ class AddIncomeView extends GetView<AddIncomeController> {
               color: Color(0xff1E1E1E)
             ),
             ),
-            Container(
-              height: Get.height*0.05,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(
-                  width: 1,
-                  color: Color(0xffD8D9E0)
-                )
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Row(
-                  children: [
-                    Image.asset(AppImages.incomeCategory,
-                    color: Color(0xff6B6B6B),
-                  height: Get.height*0.035,
-                    ),
-                    SizedBox(width: Get.width*0.05,),
-                    Text('Select a category',
-                    style: GoogleFonts.inter( 
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14,
-                      color: Color(0xff6B6B6B)
-                    ),
-                    ),
-                    Spacer(),
-                    Icon(Icons.arrow_forward_ios_rounded,
-                    color: Color(0xff6B6B6B),
-                    )
-                  ],
+            GestureDetector(
+              onTap: () => Get.toNamed(AppPages.selectcategory),
+              child: Container(
+                height: Get.height*0.05,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    width: 1,
+                    color: Color(0xffD8D9E0)
+                  )
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Row(
+                    children: [
+                      Image.asset(AppImages.incomeCategory,
+                      color: Color(0xff6B6B6B),
+                    height: Get.height*0.035,
+                      ),
+                      SizedBox(width: Get.width*0.05,),
+                      Text('Select a category',
+                      style: GoogleFonts.inter( 
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
+                        color: Color(0xff6B6B6B)
+                      ),
+                      ),
+                      Spacer(),
+                      Icon(Icons.arrow_forward_ios_rounded,
+                      color: Color(0xff6B6B6B),
+                      )
+                    ],
+                  ),
                 ),
               ),
             )
