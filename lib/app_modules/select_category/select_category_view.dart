@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gwaupp/app_modules/select_category/select_category_controller.dart';
 import 'package:gwaupp/utils/app_images.dart';
 
-class SelectCategoryView extends StatelessWidget {
+class SelectCategoryView extends GetView<SelectCategoryController> {
   const SelectCategoryView({super.key});
 
   @override
@@ -59,6 +60,27 @@ class SelectCategoryView extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+            ),
+           // SizedBox(height: Get.height * 0.03),
+            Expanded(
+              child: ListView.builder(
+                itemCount: controller.categories.length,
+                itemBuilder: (context, index) => Container(
+                  height: Get.height * 0.04,
+                  child: Row(
+                    children: [
+                      Text(
+                        controller.categories[index].category,
+                        style: GoogleFonts.inter(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 16,
+                          color: Color(0xff2B2B2B),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ],
