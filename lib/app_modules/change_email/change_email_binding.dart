@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:gwaupp/app_modules/add_expense/change_email/change_email_controller.dart';
+import 'package:gwaupp/app_modules/change_email/change_email_controller.dart';
 
 class ChangeEmailBinding extends Bindings{
   @override
