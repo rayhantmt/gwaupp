@@ -40,36 +40,79 @@ class PersonalDetailsView extends StatelessWidget {
                 borderRadius: BorderRadius.circular(12),
                 color: Color(0xffFFFFFF),
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  CircleAvatar(
-                    backgroundImage: AssetImage(AppImages.profileImage),
-                    radius: Get.height * 0.07,
-                  ),
-                  Text('Must be JPG,JPEG or PNG',
-                  style: GoogleFonts.inter( 
-                    fontWeight: FontWeight.w400,
-                    fontSize: 12,
-                    color: Color(0xff6B6B6B)
-                  ),
-                  ),
-                  SizedBox(height: Get.height*0.002,),
-                  Text('Upload Photo',
-                  style: GoogleFonts.inter(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 16, 
-                    color: Color(0xff0F3D2E)
-                  ),
-                  ),
-                  SizedBox(height: Get.height*0.02,),
-                  Divider(
-                    height: 1,
-                    indent: 1,
-                    endIndent: 1,
-                    color: Color(0xffE6E6E3),
-                  )
-                ],
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    CircleAvatar(
+                      backgroundImage: AssetImage(AppImages.profileImage),
+                      radius: Get.height * 0.07,
+                    ),
+                    Text(
+                      'Must be JPG,JPEG or PNG',
+                      style: GoogleFonts.inter(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12,
+                        color: Color(0xff6B6B6B),
+                      ),
+                    ),
+                    SizedBox(height: Get.height * 0.002),
+                    Text(
+                      'Upload Photo',
+                      style: GoogleFonts.inter(
+                        fontWeight: FontWeight.w600,
+                        fontSize: 16,
+                        color: Color(0xff0F3D2E),
+                      ),
+                    ),
+                    SizedBox(height: Get.height * 0.02),
+                    Divider(
+                      height: 1,
+                      indent: 1,
+                      endIndent: 1,
+                      color: Color(0xffE6E6E3),
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Name',
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: Color(0xff1E1E1E),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      height: Get.height*0.05,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 1,
+                          color: Color(0xffE6E6E3)
+                        )
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Adma smith',
+                          style: GoogleFonts.inter( 
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: Color(0xff1E1E1E)
+                          ),
+                          ),
+                          Icon(Icons.arrow_forward_ios_rounded,
+                          color: Color(0xff6B6B6B),
+                          )
+                        ],
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ],
