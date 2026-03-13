@@ -171,6 +171,7 @@ class AddIncomeView extends GetView<AddIncomeController> {
               return Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       _MethodChip(label: 'Cash', icon: Icons.money, index: 0),
                       SizedBox(width: 8),

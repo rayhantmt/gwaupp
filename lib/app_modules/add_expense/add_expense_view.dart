@@ -129,7 +129,7 @@ class AddExpenseView extends GetView<AddExpenseController> {
               ),
             ),
             GestureDetector(
-              onTap: () => Get.toNamed(AppPages.selectcategory),
+              onTap: () => Get.toNamed(AppPages.selectcatrgoryexpense),
               child: Container(
                 height: Get.height * 0.05,
                 width: double.infinity,
@@ -171,6 +171,7 @@ class AddExpenseView extends GetView<AddExpenseController> {
               return Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       _MethodChip(label: 'Cash', icon: Icons.money, index: 0),
                       SizedBox(width: 8),

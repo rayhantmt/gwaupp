@@ -27,6 +27,8 @@ import 'package:gwaupp/app_modules/my_profile/my_profile_binding.dart';
 import 'package:gwaupp/app_modules/my_profile/my_profile_view.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_binding.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_view.dart';
+import 'package:gwaupp/app_modules/select_category_expense/select_category_expense_binding.dart';
+import 'package:gwaupp/app_modules/select_category_expense/select_category_expense_view.dart';
 import 'package:gwaupp/app_modules/select_category_income/select_category_bindings.dart';
 import 'package:gwaupp/app_modules/select_category_income/select_category_view.dart';
 import 'package:gwaupp/app_modules/update_password/update_password_binding.dart';
@@ -36,24 +38,96 @@ import 'package:gwaupp/app_modules/verify_otp_forgotpass/verify_otp_forgotpass_v
 import 'package:gwaupp/utils/app_pages.dart';
 
 class AppRoutes {
-  static final pages=[
-    GetPage(name: AppPages.login, page: () => LogInView(),binding: LogInBinding()),
-    GetPage(name: AppPages.createnewaccount, page: () => CreateNewAccountView(),binding: CreateNewAccountBinding()),
-    GetPage(name: AppPages.otppage, page: () => OtpPageView(),binding: OtpPageBinding()),
-    GetPage(name: AppPages.createyourprofile, page: () => CreateYourProfileView(),binding: CreateYourProfileBinding()),
-    GetPage(name: AppPages.forgotpassword, page: () => ForgotPasswordView(),binding: ForgotPasswordBinding()),
-    GetPage(name: AppPages.verifyotpforgotpass, page: () => VerifyOtpForgotpassView(),binding: VerifyOtpForgotpassBinding()),
-    GetPage(name: AppPages.updatepassword, page: () => UpdatePasswordView(),binding: UpdatePasswordBinding()),
-    GetPage(name: AppPages.homescreen, page: () => HomeScreenView(),binding: HomeScreenBinding()),
-    GetPage(name: AppPages.mainscreen, page: () => MainScreenView(),binding: MainScreenBinding()),
-    GetPage(name: AppPages.myprofile, page: () => MyProfileView(),binding: MyProfileBinding()),
-    GetPage(name: AppPages.incomeHistory, page: () => IncomeHistoryView(),binding: IncomeHistoryBinding()),
-    GetPage(name: AppPages.addincome, page: () => AddIncomeView(),binding: AddIncomeBinding()),
-    GetPage(name: AppPages.selectcategory, page:  () => SelectCategoryView(),binding: SelectCategoryBindings()),
-    GetPage(name: AppPages.incomecategory, page: () => IncomeCategoryView(),binding: IncomeCategoryBinding()),
-    GetPage(name: AppPages.expnesecategory, page: () => ExpenseCategoryView(),binding: ExpenseCategoryBinding()),
-    GetPage(name: AppPages.expensehistory, page: () => ExpenseHistoryView(),binding: ExpenseHistoryBinding()),
-    GetPage(name: AppPages.addexpense, page: () => AddExpenseView(),binding: AddExpenseBinding())
-
+  static final pages = [
+    GetPage(
+      name: AppPages.login,
+      page: () => LogInView(),
+      binding: LogInBinding(),
+    ),
+    GetPage(
+      name: AppPages.createnewaccount,
+      page: () => CreateNewAccountView(),
+      binding: CreateNewAccountBinding(),
+    ),
+    GetPage(
+      name: AppPages.otppage,
+      page: () => OtpPageView(),
+      binding: OtpPageBinding(),
+    ),
+    GetPage(
+      name: AppPages.createyourprofile,
+      page: () => CreateYourProfileView(),
+      binding: CreateYourProfileBinding(),
+    ),
+    GetPage(
+      name: AppPages.forgotpassword,
+      page: () => ForgotPasswordView(),
+      binding: ForgotPasswordBinding(),
+    ),
+    GetPage(
+      name: AppPages.verifyotpforgotpass,
+      page: () => VerifyOtpForgotpassView(),
+      binding: VerifyOtpForgotpassBinding(),
+    ),
+    GetPage(
+      name: AppPages.updatepassword,
+      page: () => UpdatePasswordView(),
+      binding: UpdatePasswordBinding(),
+    ),
+    GetPage(
+      name: AppPages.homescreen,
+      page: () => HomeScreenView(),
+      binding: HomeScreenBinding(),
+    ),
+    GetPage(
+      name: AppPages.mainscreen,
+      page: () => MainScreenView(),
+      binding: MainScreenBinding(),
+    ),
+    GetPage(
+      name: AppPages.myprofile,
+      page: () => MyProfileView(),
+      binding: MyProfileBinding(),
+    ),
+    GetPage(
+      name: AppPages.incomeHistory,
+      page: () => IncomeHistoryView(),
+      binding: IncomeHistoryBinding(),
+    ),
+    GetPage(
+      name: AppPages.addincome,
+      page: () => AddIncomeView(),
+      binding: AddIncomeBinding(),
+    ),
+    GetPage(
+      name: AppPages.selectcategory,
+      page: () => SelectCategoryView(),
+      binding: SelectCategoryBindings(),
+    ),
+    GetPage(
+      name: AppPages.incomecategory,
+      page: () => IncomeCategoryView(),
+      binding: IncomeCategoryBinding(),
+    ),
+    GetPage(
+      name: AppPages.expnesecategory,
+      page: () => ExpenseCategoryView(),
+      binding: ExpenseCategoryBinding(),
+    ),
+    GetPage(
+      name: AppPages.expensehistory,
+      page: () => ExpenseHistoryView(),
+      binding: ExpenseHistoryBinding(),
+    ),
+    GetPage(
+      name: AppPages.addexpense,
+      page: () => AddExpenseView(),
+      binding: AddExpenseBinding(),
+    ),
+    GetPage(
+      name: AppPages.selectcatrgoryexpense,
+      page: () => SelectCategoryExpenseView(),
+      binding: SelectCategoryExpenseBinding(),
+    ),
   ];
 }
