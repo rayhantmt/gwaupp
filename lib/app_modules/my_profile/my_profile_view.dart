@@ -114,9 +114,12 @@ class MyProfileView extends StatelessWidget {
                     endIndent: 1,
                     color: Color(0xffE6E6E3),
                   ),
-                  ProfileContainer(
-                    tittle: 'Expense Category',
-                    img: AppImages.incomeCategory,
+                  GestureDetector(
+                    onTap: () => Get.toNamed(AppPages.expnesecategory),
+                    child: ProfileContainer(
+                      tittle: 'Expense Category',
+                      img: AppImages.incomeCategory,
+                    ),
                   ),
                   Divider(
                     height: 1,
