@@ -110,6 +110,47 @@ class PersonalDetailsView extends StatelessWidget {
                           )
                         ],
                       ),
+                    ),
+                    SizedBox(
+                      height: Get.height*0.03,
+                    ),
+                        Row(
+                      children: [
+                        Text(
+                          'Email Address',
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: Color(0xff1E1E1E),
+                          ),
+                        ),
+                      ],
+                    ),
+                      Container(
+                      height: Get.height*0.05,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        border: Border.all(
+                          width: 1,
+                          color: Color(0xffE6E6E3)
+                        )
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text('Adma smith',
+                          style: GoogleFonts.inter( 
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                            color: Color(0xff1E1E1E)
+                          ),
+                          ),
+                          Icon(Icons.arrow_forward_ios_rounded,
+                          color: Color(0xff6B6B6B),
+                          )
+                        ],
+                      ),
                     )
                   ],
                 ),
