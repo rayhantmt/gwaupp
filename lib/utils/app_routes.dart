@@ -29,6 +29,8 @@ import 'package:gwaupp/app_modules/my_profile/my_profile_binding.dart';
 import 'package:gwaupp/app_modules/my_profile/my_profile_view.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_binding.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_view.dart';
+import 'package:gwaupp/app_modules/otp_verification_email/otp_verification_email_binding.dart';
+import 'package:gwaupp/app_modules/otp_verification_email/otp_verification_email_view.dart';
 import 'package:gwaupp/app_modules/personal_details/personal_details_binding.dart';
 import 'package:gwaupp/app_modules/personal_details/personal_details_view.dart';
 import 'package:gwaupp/app_modules/select_category_expense/select_category_expense_binding.dart';
@@ -138,6 +140,7 @@ class AppRoutes {
       page: () => PersonalDetailsView(),
       binding: PersonalDetailsBinding(),
     ),
-    GetPage(name: AppPages.changeEmail, page:()=> ChangeEmailView(),binding: ChangeEmailBinding())
+    GetPage(name: AppPages.changeEmail, page:()=> ChangeEmailView(),binding: ChangeEmailBinding()),
+    GetPage(name: AppPages.otpverificationemail, page: () => OtpVerificationEmailView(),binding: OtpVerificationEmailBinding())
   ];
 }
