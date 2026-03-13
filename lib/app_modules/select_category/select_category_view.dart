@@ -20,9 +20,12 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
             SizedBox(height: Get.height * 0.06),
             Row(
               children: [
-                Icon(
-                  Icons.arrow_back_ios_new_rounded,
-                  color: Color(0xff1E1E1E),
+                GestureDetector(
+                  onTap: () => Get.back(),
+                  child: Icon(
+                    Icons.arrow_back_ios_new_rounded,
+                    color: Color(0xff1E1E1E),
+                  ),
                 ),
                 SizedBox(width: Get.width * 0.05),
                 Text(
@@ -175,7 +178,11 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                           ),
                         ),
                         SizedBox(height: Get.height*0.05,),
-                        CommonButton(tittle: 'Save & Apply')
+                        GestureDetector
+                        
+                        (
+                          onTap: () => Get.back(),
+                          child: CommonButton(tittle: 'Save & Apply'))
                       ],
                     ),
                   ),
