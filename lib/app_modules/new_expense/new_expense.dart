@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:gwaupp/app_modules/main_screen/main_screen_controller.dart';
 import 'package:gwaupp/utils/app_images.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class NewExpenseView extends StatefulWidget {
   const NewExpenseView({super.key});
@@ -29,8 +30,12 @@ class _NewExpenseViewState extends State<NewExpenseView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Image.asset(AppImages.addexpense),
-              Image.asset(AppImages.addincome)
+              GestureDetector(
+                onTap: () => Get.toNamed(AppPages.addexpense),
+                child: Image.asset(AppImages.addexpense)),
+              GestureDetector(
+                onTap: () => Get.toNamed(AppPages.addincome),
+                child: Image.asset(AppImages.addincome))
             ],
           ),
         )
