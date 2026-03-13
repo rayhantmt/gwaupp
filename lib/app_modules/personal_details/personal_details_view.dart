@@ -54,13 +54,20 @@ class PersonalDetailsView extends StatelessWidget {
                     color: Color(0xff6B6B6B)
                   ),
                   ),
-                  SizedBox(height: Get.height*0.02,),
+                  SizedBox(height: Get.height*0.002,),
                   Text('Upload Photo',
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.w600,
                     fontSize: 16, 
                     color: Color(0xff0F3D2E)
                   ),
+                  ),
+                  SizedBox(height: Get.height*0.02,),
+                  Divider(
+                    height: 1,
+                    indent: 1,
+                    endIndent: 1,
+                    color: Color(0xffE6E6E3),
                   )
                 ],
               ),
