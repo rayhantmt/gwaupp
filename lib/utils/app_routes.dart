@@ -1,10 +1,14 @@
 import 'package:get/route_manager.dart';
+import 'package:gwaupp/app_modules/add_expense/add_expense_binding.dart';
+import 'package:gwaupp/app_modules/add_expense/add_expense_view.dart';
 import 'package:gwaupp/app_modules/add_income/add_income_binding.dart';
 import 'package:gwaupp/app_modules/add_income/add_income_view.dart';
 import 'package:gwaupp/app_modules/create_new_account/create_new_account_binding.dart';
 import 'package:gwaupp/app_modules/create_new_account/create_new_account_view.dart';
 import 'package:gwaupp/app_modules/create_your_profile/create_your_profile_binding.dart';
 import 'package:gwaupp/app_modules/create_your_profile/create_your_profile_view.dart';
+import 'package:gwaupp/app_modules/expense_history/expense_history_binding.dart';
+import 'package:gwaupp/app_modules/expense_history/expense_history_view.dart';
 import 'package:gwaupp/app_modules/expnese_category/expense_category_binding.dart';
 import 'package:gwaupp/app_modules/expnese_category/expense_category_view.dart';
 import 'package:gwaupp/app_modules/forgot_password/forgot_password_binding.dart';
@@ -47,7 +51,9 @@ class AppRoutes {
     GetPage(name: AppPages.addincome, page: () => AddIncomeView(),binding: AddIncomeBinding()),
     GetPage(name: AppPages.selectcategory, page:  () => SelectCategoryView(),binding: SelectCategoryBindings()),
     GetPage(name: AppPages.incomecategory, page: () => IncomeCategoryView(),binding: IncomeCategoryBinding()),
-    GetPage(name: AppPages.expnesecategory, page: () => ExpenseCategoryView(),binding: ExpenseCategoryBinding())
+    GetPage(name: AppPages.expnesecategory, page: () => ExpenseCategoryView(),binding: ExpenseCategoryBinding()),
+    GetPage(name: AppPages.expensehistory, page: () => ExpenseHistoryView(),binding: ExpenseHistoryBinding()),
+    GetPage(name: AppPages.addexpense, page: () => AddExpenseView(),binding: AddExpenseBinding())
 
   ];
 }
