@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gwaupp/app_modules/personal_details/personal_details_controller.dart';
 import 'package:gwaupp/utils/app_images.dart';
 
-class PersonalDetailsView extends StatelessWidget {
+class PersonalDetailsView extends GetView<PersonalDetailsController> {
   const PersonalDetailsView({super.key});
 
   @override
@@ -58,12 +59,15 @@ class PersonalDetailsView extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: Get.height * 0.002),
-                    Text(
-                      'Upload Photo',
-                      style: GoogleFonts.inter(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                        color: Color(0xff0F3D2E),
+                    GestureDetector(
+                      onTap: () => controller.pickProfileImage(),
+                      child: Text(
+                        'Upload Photo',
+                        style: GoogleFonts.inter(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                          color: Color(0xff0F3D2E),
+                        ),
                       ),
                     ),
                     SizedBox(height: Get.height * 0.02),
@@ -85,29 +89,48 @@ class PersonalDetailsView extends StatelessWidget {
                         ),
                       ],
                     ),
-                    Container(
-                      height: Get.height * 0.05,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
-                        border: Border.all(width: 1, color: Color(0xffE6E6E3)),
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            'Adma smith',
-                            style: GoogleFonts.inter(
-                              fontWeight: FontWeight.w400,
-                              fontSize: 14,
-                              color: Color(0xff1E1E1E),
+                    GestureDetector(
+                      onTap: () => showModalBottomSheet(
+                        context: context,
+                        builder: (context) => Container(
+                          height: Get.height * 0.3,
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(32),
+                              topRight: Radius.circular(32),
                             ),
+                            color: Color(0xffFFFFFF),
                           ),
-                          Icon(
-                            Icons.arrow_forward_ios_rounded,
-                            color: Color(0xff6B6B6B),
+                        ),
+                      ),
+                      child: Container(
+                        height: Get.height * 0.05,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(12),
+                          border: Border.all(
+                            width: 1,
+                            color: Color(0xffE6E6E3),
                           ),
-                        ],
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              'Adma smith',
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14,
+                                color: Color(0xff1E1E1E),
+                              ),
+                            ),
+                            Icon(
+                              Icons.arrow_forward_ios_rounded,
+                              color: Color(0xff6B6B6B),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(height: Get.height * 0.03),
@@ -148,21 +171,20 @@ class PersonalDetailsView extends StatelessWidget {
                         ],
                       ),
                     ),
-                    
                   ],
                 ),
               ),
             ),
             Spacer(),
-                    Text(
-                      'Delete Account',
-                      style: GoogleFonts.inter(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 16,
-                        color: Color(0xffC84B4B),
-                      ),
-                    ),
-                    SizedBox(height: Get.height * 0.03),
+            Text(
+              'Delete Account',
+              style: GoogleFonts.inter(
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+                color: Color(0xffC84B4B),
+              ),
+            ),
+            SizedBox(height: Get.height * 0.03),
           ],
         ),
       ),
