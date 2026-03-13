@@ -6,7 +6,8 @@ import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
 import 'package:gwaupp/utils/app_pages.dart';
 
-class SelectCategoryExpenseView extends GetView<SelectCategoryExpenseController> {
+class SelectCategoryExpenseView
+    extends GetView<SelectCategoryExpenseController> {
   const SelectCategoryExpenseView({super.key});
 
   @override
@@ -153,7 +154,6 @@ class SelectCategoryExpenseView extends GetView<SelectCategoryExpenseController>
                             ),
                           ),
                           child: TextFormField(
-                            
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 10),
                               hint: Row(
@@ -177,12 +177,11 @@ class SelectCategoryExpenseView extends GetView<SelectCategoryExpenseController>
                             ),
                           ),
                         ),
-                        SizedBox(height: Get.height*0.05,),
-                        GestureDetector
-                        
-                        (
+                        SizedBox(height: Get.height * 0.05),
+                        GestureDetector(
                           onTap: () => Get.back(),
-                          child: CommonButton(tittle: 'Save & Apply'))
+                          child: CommonButton(tittle: 'Save & Apply'),
+                        ),
                       ],
                     ),
                   ),
@@ -193,10 +192,11 @@ class SelectCategoryExpenseView extends GetView<SelectCategoryExpenseController>
             SizedBox(height: Get.height * 0.03),
             GestureDetector(
               onTap: () => Get.offNamed(AppPages.addexpense),
-              child: CommonButton(tittle: 'Apply Now')),
+              child: CommonButton(tittle: 'Apply Now'),
+            ),
           ],
         ),
       ),
-    );;
+    );
   }
 }
