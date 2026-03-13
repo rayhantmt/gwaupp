@@ -14,32 +14,57 @@ class PersonalDetailsView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
-            SizedBox(height: Get.height*0.06,),
+            SizedBox(height: Get.height * 0.06),
             Row(
               children: [
-                Icon(Icons.arrow_back_ios_new_rounded,
-                color: Color(0xff1E1E1E),
+                Icon(
+                  Icons.arrow_back_ios_new_rounded,
+                  color: Color(0xff1E1E1E),
                 ),
-                SizedBox(width: Get.width*0.05,),
-                Text('Personal Details',
-                style: GoogleFonts.montserrat( 
-                  fontWeight: FontWeight.w600,
-                  fontSize: 22,
-                  color: Color(0xff1E1E1E)
+                SizedBox(width: Get.width * 0.05),
+                Text(
+                  'Personal Details',
+                  style: GoogleFonts.montserrat(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 22,
+                    color: Color(0xff1E1E1E),
+                  ),
                 ),
-                )
               ],
             ),
-            SizedBox(
-              height: Get.height*0.02,
-            ),
+            SizedBox(height: Get.height * 0.02),
             Container(
-              height: Get.height*0.4,
+              height: Get.height * 0.4,
+              width: double.infinity,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12),
-                color: Color(0xffFFFFFF)
+                color: Color(0xffFFFFFF),
               ),
-            )
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  CircleAvatar(
+                    backgroundImage: AssetImage(AppImages.profileImage),
+                    radius: Get.height * 0.07,
+                  ),
+                  Text('Must be JPG,JPEG or PNG',
+                  style: GoogleFonts.inter( 
+                    fontWeight: FontWeight.w400,
+                    fontSize: 12,
+                    color: Color(0xff6B6B6B)
+                  ),
+                  ),
+                  SizedBox(height: Get.height*0.02,),
+                  Text('Upload Photo',
+                  style: GoogleFonts.inter(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16, 
+                    color: Color(0xff0F3D2E)
+                  ),
+                  )
+                ],
+              ),
+            ),
           ],
         ),
       ),
