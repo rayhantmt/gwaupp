@@ -41,5 +41,6 @@ class AppImages {
   static const String enteramount='assets/enteramont.png';
   static const String editicon='assets/edit_icon.png';
   static const String deleteicon='assets/delete_icon.png';
+  static const String privacybanner='assets/privacy_banner.png';
 
 }

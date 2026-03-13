@@ -33,10 +33,12 @@ import 'package:gwaupp/app_modules/otp_verification_email/otp_verification_email
 import 'package:gwaupp/app_modules/otp_verification_email/otp_verification_email_view.dart';
 import 'package:gwaupp/app_modules/personal_details/personal_details_binding.dart';
 import 'package:gwaupp/app_modules/personal_details/personal_details_view.dart';
+import 'package:gwaupp/app_modules/privacy_policy/privacy_policy.dart';
 import 'package:gwaupp/app_modules/select_category_expense/select_category_expense_binding.dart';
 import 'package:gwaupp/app_modules/select_category_expense/select_category_expense_view.dart';
 import 'package:gwaupp/app_modules/select_category_income/select_category_bindings.dart';
 import 'package:gwaupp/app_modules/select_category_income/select_category_view.dart';
+import 'package:gwaupp/app_modules/terms_conditions/terms_conditions_view.dart';
 import 'package:gwaupp/app_modules/update_password/update_password_binding.dart';
 import 'package:gwaupp/app_modules/update_password/update_password_view.dart';
 import 'package:gwaupp/app_modules/verify_otp_forgotpass/verify_otp_forgotpass_binding.dart';
@@ -141,6 +143,8 @@ class AppRoutes {
       binding: PersonalDetailsBinding(),
     ),
     GetPage(name: AppPages.changeEmail, page:()=> ChangeEmailView(),binding: ChangeEmailBinding()),
-    GetPage(name: AppPages.otpverificationemail, page: () => OtpVerificationEmailView(),binding: OtpVerificationEmailBinding())
+    GetPage(name: AppPages.otpverificationemail, page: () => OtpVerificationEmailView(),binding: OtpVerificationEmailBinding()),
+    GetPage(name: AppPages.privacyPolicy, page: () => PrivacyPolicy(),),
+    GetPage(name: AppPages.termsandconditions, page: () => TermsConditionsView(),)
   ];
 }

@@ -20,4 +20,6 @@ class AppPages {
   static const String personalDetails='/personalDetails';
   static const String changeEmail='/changeEmail';
   static const String otpverificationemail='/otpverificationemail';
+  static const String privacyPolicy='/privacyPolicy';
+  static const String termsandconditions='/termsandconditions';
 }
