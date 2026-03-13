@@ -179,11 +179,46 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                         context: context,
                         builder: (context) => Container(
                           height: Get.height * 0.3,
+                          width: double.infinity,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.only(
                               topLeft: Radius.circular(32),
                               topRight: Radius.circular(32),
+                            ),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text('Change Email Address',
+                                style: GoogleFonts.montserrat( 
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 22,
+                                  color: Color(0xff2B2B2B)
+                                ),
+                                ),
+                                SizedBox(height: Get.height*0.02,),
+                                Text('Cueent Email',
+                                style: GoogleFonts.inter( 
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  color: Color(0xff1E1E1E)
+                                ),
+                                ),
+                                Container(
+                                  height: Get.height*0.05,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(12),
+                                    color: Color(0xffF2FBF7)
+                                  ),
+                                  child: Center(child: Text('something@gmail.com')),
+                                ),
+                                SizedBox(height: Get.height*0.03,),
+                                CommonButton(tittle: 'Continue')
+                              ],
                             ),
                           ),
                         ),
