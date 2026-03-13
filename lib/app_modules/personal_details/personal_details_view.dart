@@ -10,25 +10,38 @@ class PersonalDetailsView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
-      body: Column(
-        children: [
-          SizedBox(height: Get.height*0.06,),
-          Row(
-            children: [
-              Icon(Icons.arrow_back_ios_new_rounded,
-              color: Color(0xff1E1E1E),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20),
+        child: Column(
+          children: [
+            SizedBox(height: Get.height*0.06,),
+            Row(
+              children: [
+                Icon(Icons.arrow_back_ios_new_rounded,
+                color: Color(0xff1E1E1E),
+                ),
+                SizedBox(width: Get.width*0.05,),
+                Text('Personal Details',
+                style: GoogleFonts.montserrat( 
+                  fontWeight: FontWeight.w600,
+                  fontSize: 22,
+                  color: Color(0xff1E1E1E)
+                ),
+                )
+              ],
+            ),
+            SizedBox(
+              height: Get.height*0.02,
+            ),
+            Container(
+              height: Get.height*0.4,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: Color(0xffFFFFFF)
               ),
-              SizedBox(width: Get.width*0.05,),
-              Text('Personal Details',
-              style: GoogleFonts.montserrat( 
-                fontWeight: FontWeight.w600,
-                fontSize: 22,
-                color: Color(0xff1E1E1E)
-              ),
-              )
-            ],
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
