@@ -1,6 +1,8 @@
 import 'package:get/route_manager.dart';
 import 'package:gwaupp/app_modules/add_expense/add_expense_binding.dart';
 import 'package:gwaupp/app_modules/add_expense/add_expense_view.dart';
+import 'package:gwaupp/app_modules/add_expense/change_email/change_email_binding.dart';
+import 'package:gwaupp/app_modules/add_expense/change_email/change_email_view.dart';
 import 'package:gwaupp/app_modules/add_income/add_income_binding.dart';
 import 'package:gwaupp/app_modules/add_income/add_income_view.dart';
 import 'package:gwaupp/app_modules/create_new_account/create_new_account_binding.dart';
@@ -136,5 +138,6 @@ class AppRoutes {
       page: () => PersonalDetailsView(),
       binding: PersonalDetailsBinding(),
     ),
+    GetPage(name: AppPages.changeEmail, page:()=> ChangeEmailView(),binding: ChangeEmailBinding())
   ];
 }
