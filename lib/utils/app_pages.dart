@@ -17,4 +17,5 @@ class AppPages {
   static const String expensehistory='/expensehistory';
   static const String addexpense='/addexpense';
   static const String selectcatrgoryexpense='/selectcategoryexpense';
+  static const String personalDetails='/personalDetails';
 }

@@ -27,6 +27,8 @@ import 'package:gwaupp/app_modules/my_profile/my_profile_binding.dart';
 import 'package:gwaupp/app_modules/my_profile/my_profile_view.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_binding.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_view.dart';
+import 'package:gwaupp/app_modules/personal_details/personal_details_binding.dart';
+import 'package:gwaupp/app_modules/personal_details/personal_details_view.dart';
 import 'package:gwaupp/app_modules/select_category_expense/select_category_expense_binding.dart';
 import 'package:gwaupp/app_modules/select_category_expense/select_category_expense_view.dart';
 import 'package:gwaupp/app_modules/select_category_income/select_category_bindings.dart';
@@ -128,6 +130,11 @@ class AppRoutes {
       name: AppPages.selectcatrgoryexpense,
       page: () => SelectCategoryExpenseView(),
       binding: SelectCategoryExpenseBinding(),
+    ),
+    GetPage(
+      name: AppPages.personalDetails,
+      page: () => PersonalDetailsView(),
+      binding: PersonalDetailsBinding(),
     ),
   ];
 }
