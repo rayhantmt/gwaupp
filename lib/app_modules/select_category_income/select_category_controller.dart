@@ -1,6 +1,6 @@
 import 'package:get/get_rx/get_rx.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:gwaupp/app_modules/select_category/select_category_model.dart';
+import 'package:gwaupp/app_modules/select_category_income/select_category_model.dart';
 
 class SelectCategoryController extends GetxController{
   var categories=<SelectCategoryModel>[
