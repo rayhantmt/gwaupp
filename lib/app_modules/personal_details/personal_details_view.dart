@@ -5,6 +5,7 @@ import 'package:gwaupp/app_modules/personal_details/personal_details_controller.
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/common_widgets/common_text_field.dart';
 import 'package:gwaupp/utils/app_images.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class PersonalDetailsView extends GetView<PersonalDetailsController> {
   const PersonalDetailsView({super.key});
@@ -217,7 +218,9 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                                   child: Center(child: Text('something@gmail.com')),
                                 ),
                                 SizedBox(height: Get.height*0.03,),
-                                CommonButton(tittle: 'Continue')
+                                GestureDetector(
+                                  onTap: () => Get.toNamed(AppPages.changeEmail),
+                                  child: CommonButton(tittle: 'Continue'))
                               ],
                             ),
                           ),

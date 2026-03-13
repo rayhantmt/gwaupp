@@ -18,4 +18,5 @@ class AppPages {
   static const String addexpense='/addexpense';
   static const String selectcatrgoryexpense='/selectcategoryexpense';
   static const String personalDetails='/personalDetails';
+  static const String changeEmail='/changeEmail';
 }
