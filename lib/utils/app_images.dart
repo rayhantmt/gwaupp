@@ -39,5 +39,7 @@ class AppImages {
   static const String cashicon='assets/cash_icon.png';
   static const String addNewCategory='assets/add_new_category.png';
   static const String enteramount='assets/enteramont.png';
+  static const String editicon='assets/edit_icon.png';
+  static const String deleteicon='assets/delete_icon.png';
 
 }

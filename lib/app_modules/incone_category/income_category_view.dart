@@ -9,7 +9,7 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
   const IncomeCategoryView({super.key});
 
   @override
-  Widget build(BuildContext context,) {
+  Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
       body: Padding(
@@ -25,7 +25,7 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
                 ),
                 SizedBox(width: Get.width * 0.05),
                 Text(
-                  'Select Category',
+                  'Income Category',
                   style: GoogleFonts.montserrat(
                     fontWeight: FontWeight.w600,
                     fontSize: 22,
@@ -33,7 +33,7 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
                 ),
               ],
             ),
-            SizedBox(height: Get.height * 0.03),
+            SizedBox(height: Get.height * 0.02),
             Container(
               height: Get.height * 0.05,
               width: double.infinity,
@@ -53,7 +53,7 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
                   Icon(Icons.search, color: Color(0xff6B6B6B)),
                   SizedBox(width: Get.width * 0.05),
                   Text(
-                    'Select Category',
+                    'Find Category',
                     style: GoogleFonts.inter(
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
@@ -63,27 +63,54 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
                 ],
               ),
             ),
-            SizedBox(
-              height: Get.height * 0.5,
+            SizedBox(height: Get.height * 0.02),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              height: Get.height * (controller.categories.length / 1.2) / 10,
               child: ListView.builder(
+                padding: EdgeInsets.zero,
+                //shrinkWrap: true,
                 itemCount: controller.categories.length,
-                itemBuilder: (context, index) => Obx(
-                  () => Container(
-                    height: Get.height * 0.04,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          controller.categories[index].type,
-                          style: GoogleFonts.inter(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 16,
-                            color: Color(0xff2B2B2B),
-                          ),
+                itemBuilder: (context, index) => Container(
+                  height: Get.height * 0.09,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              controller.categories[index].type,
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                                color: Color(0xff2B2B2B),
+                              ),
+                            ),
+                            Spacer(),
+                            Image.asset(AppImages.editicon,
+                            height: Get.height*0.05,
+                            ),
+                            SizedBox(width: Get.width*0.01,),
+                            Image.asset(AppImages.deleteicon,
+                            height: Get.height*0.05,
+                            )
+                          ],
                         ),
-                    
-                      ],
-                    ),
+                      ),
+                      SizedBox(height: Get.height * 0.02),
+                      Divider(
+                        height: 1,
+                        indent: 1,
+                        endIndent: 1,
+                        color: Color(0xffE6E6E3),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -143,7 +170,6 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
                             ),
                           ),
                           child: TextFormField(
-                            
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 10),
                               hint: Row(
@@ -167,8 +193,8 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
                             ),
                           ),
                         ),
-                        SizedBox(height: Get.height*0.05,),
-                        CommonButton(tittle: 'Save & Apply')
+                        SizedBox(height: Get.height * 0.05),
+                        CommonButton(tittle: 'Save & Apply'),
                       ],
                     ),
                   ),

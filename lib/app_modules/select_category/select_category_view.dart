@@ -54,7 +54,7 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                   Icon(Icons.search, color: Color(0xff6B6B6B)),
                   SizedBox(width: Get.width * 0.05),
                   Text(
-                    'Select Category',
+                    'Find Category',
                     style: GoogleFonts.inter(
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
