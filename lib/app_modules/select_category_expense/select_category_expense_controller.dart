@@ -6,7 +6,7 @@ class SelectCategoryExpenseController extends GetxController{
     SelectCategoryExpenseModel(category: 'Dining Outside',isSelected: false.obs),
     SelectCategoryExpenseModel(category: 'Travel outside',isSelected: false.obs),
     SelectCategoryExpenseModel(category: 'Annual Tour',isSelected: false.obs),
-    SelectCategoryExpenseModel(category: 'Hangout',isSelected: false.obs),
+    SelectCategoryExpenseModel(category: 'Annual Tour',isSelected: false.obs),
     SelectCategoryExpenseModel(category: 'Random Expense',isSelected: false.obs),
     SelectCategoryExpenseModel(category: 'Car repair',isSelected: false.obs)
   ];

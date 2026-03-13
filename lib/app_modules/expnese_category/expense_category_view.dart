@@ -28,7 +28,7 @@ class  ExpenseCategoryView extends GetView<ExpenseCategoryController> {
                 ),
                 SizedBox(width: Get.width * 0.05),
                 Text(
-                  'Income Category',
+                  'Expense Category',
                   style: GoogleFonts.montserrat(
                     fontWeight: FontWeight.w600,
                     fontSize: 22,
