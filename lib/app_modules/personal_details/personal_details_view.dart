@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/personal_details/personal_details_controller.dart';
+import 'package:gwaupp/common_widgets/common_button.dart';
+import 'package:gwaupp/common_widgets/common_text_field.dart';
 import 'package:gwaupp/utils/app_images.dart';
 
 class PersonalDetailsView extends GetView<PersonalDetailsController> {
@@ -93,7 +95,7 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                       onTap: () => showModalBottomSheet(
                         context: context,
                         builder: (context) => Container(
-                          height: Get.height * 0.3,
+                          height: Get.height * 0.35,
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
@@ -101,6 +103,24 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                               topRight: Radius.circular(32),
                             ),
                             color: Color(0xffFFFFFF),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 20),
+                            child: Column(
+                              children: [
+                                Text('Change Name',
+                                
+                                style: GoogleFonts.montserrat( 
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 22,
+                                  color: Color(0xff1E1E1E)
+                                ),),
+                                CommonTextField(tittle: 'First Name', obsecure: false),
+                                CommonTextField(tittle: 'Last Name', obsecure: false),
+                                SizedBox(height: Get.height*0.03,),
+                                CommonButton(tittle: 'Save Changes')
+                              ],
+                            ),
                           ),
                         ),
                       ),
