@@ -150,9 +150,12 @@ class MyProfileView extends StatelessWidget {
                     endIndent: 1,
                     color: Color(0xffE6E6E3),
                   ),
-                  ProfileContainer(
-                    tittle: 'Change Your Password',
-                    img: AppImages.changePassword,
+                  GestureDetector(
+                    onTap: () => Get.toNamed(AppPages.changePassword),
+                    child: ProfileContainer(
+                      tittle: 'Change Your Password',
+                      img: AppImages.changePassword,
+                    ),
                   ),
                 ],
               ),

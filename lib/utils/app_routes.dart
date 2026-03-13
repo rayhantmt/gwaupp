@@ -5,6 +5,8 @@ import 'package:gwaupp/app_modules/change_email/change_email_binding.dart';
 import 'package:gwaupp/app_modules/change_email/change_email_view.dart';
 import 'package:gwaupp/app_modules/add_income/add_income_binding.dart';
 import 'package:gwaupp/app_modules/add_income/add_income_view.dart';
+import 'package:gwaupp/app_modules/change_password/cahnge_password_view.dart';
+import 'package:gwaupp/app_modules/change_password/change_password_binding.dart';
 import 'package:gwaupp/app_modules/create_new_account/create_new_account_binding.dart';
 import 'package:gwaupp/app_modules/create_new_account/create_new_account_view.dart';
 import 'package:gwaupp/app_modules/create_your_profile/create_your_profile_binding.dart';
@@ -145,6 +147,7 @@ class AppRoutes {
     GetPage(name: AppPages.changeEmail, page:()=> ChangeEmailView(),binding: ChangeEmailBinding()),
     GetPage(name: AppPages.otpverificationemail, page: () => OtpVerificationEmailView(),binding: OtpVerificationEmailBinding()),
     GetPage(name: AppPages.privacyPolicy, page: () => PrivacyPolicy(),),
-    GetPage(name: AppPages.termsandconditions, page: () => TermsConditionsView(),)
+    GetPage(name: AppPages.termsandconditions, page: () => TermsConditionsView(),),
+    GetPage(name: AppPages.changePassword, page: () => CahngePasswordView(),binding: ChangePasswordBinding())
   ];
 }

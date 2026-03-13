@@ -22,4 +22,5 @@ class AppPages {
   static const String otpverificationemail='/otpverificationemail';
   static const String privacyPolicy='/privacyPolicy';
   static const String termsandconditions='/termsandconditions';
+  static const String changePassword='/changePassowrd';
 }
