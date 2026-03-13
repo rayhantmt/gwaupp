@@ -36,49 +36,52 @@ class MyProfileView extends StatelessWidget {
               ],
             ),
             SizedBox(height: Get.height * 0.02),
-            Container(
-              height: Get.height * 0.15,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 35,
-                      backgroundImage: AssetImage(AppImages.profileImage),
-                    ),
-                    SizedBox(width: Get.width * 0.05),
-                    Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Adam Smith',
-                          style: GoogleFonts.inter(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                            color: Color(0xff1E1E1E),
+            GestureDetector(
+              onTap: () => Get.toNamed(AppPages.personalDetails),
+              child: Container(
+                height: Get.height * 0.15,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 35,
+                        backgroundImage: AssetImage(AppImages.profileImage),
+                      ),
+                      SizedBox(width: Get.width * 0.05),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Adam Smith',
+                            style: GoogleFonts.inter(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: Color(0xff1E1E1E),
+                            ),
                           ),
-                        ),
-                        Text(
-                          'adam_s854',
-                          style: GoogleFonts.manrope(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 14,
-                            color: Color(0xff6B6B6B),
+                          Text(
+                            'adam_s854',
+                            style: GoogleFonts.manrope(
+                              fontWeight: FontWeight.w500,
+                              fontSize: 14,
+                              color: Color(0xff6B6B6B),
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Spacer(),
-                    Icon(
-                      Icons.arrow_forward_ios_rounded,
-                      color: Color(0xff6B6B6B),
-                    ),
-                  ],
+                        ],
+                      ),
+                      Spacer(),
+                      Icon(
+                        Icons.arrow_forward_ios_rounded,
+                        color: Color(0xff6B6B6B),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
