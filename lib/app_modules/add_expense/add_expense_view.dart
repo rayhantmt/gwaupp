@@ -31,7 +31,7 @@ class AddExpenseView extends GetView<AddExpenseController> {
                 ),
                 SizedBox(width: Get.width * 0.08),
                 Text(
-                  'Add Income',
+                  'Add Expense',
                   style: GoogleFonts.montserrat(
                     fontWeight: FontWeight.w600,
                     fontSize: 22,
@@ -290,7 +290,7 @@ class AddExpenseView extends GetView<AddExpenseController> {
               ],
             ),
             SizedBox(height: Get.height*0.05,),
-            CommonButton(tittle: 'Add Income')
+            CommonButton(tittle: 'Add Expense')
           ],
         ),
       ),

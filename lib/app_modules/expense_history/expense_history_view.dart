@@ -29,7 +29,7 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
                   ),
                 ),
                 Text(
-                  'Income History',
+                  'Expense History',
                   style: GoogleFonts.montserrat(
                     fontWeight: FontWeight.w600,
                     fontSize: 22,
@@ -278,8 +278,8 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
             ),
             SizedBox(height: Get.height*0.03,),
             GestureDetector(
-              onTap: () => Get.toNamed(AppPages.addincome),
-              child: CommonButton(tittle: 'Add Income'))
+              onTap: () => Get.toNamed(AppPages.addexpense),
+              child: CommonButton(tittle: 'Add Expense'))
           ],
         ),
       ),

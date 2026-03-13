@@ -482,22 +482,26 @@ class HomeScreenView extends GetView<HomeScreenController> {
                           ),
                         ),
                       ),
-                         Container(
-                        height: Get.height*0.05,
-                        width: Get.width*0.4,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(100),color: Color(0xff0F3D2E)
-                        ),
-                        child: Center(
-                          child: Text('Expenses',
-                          style: GoogleFonts.inter( 
-                            fontWeight: FontWeight.w600,
-                            fontSize: 16,
-                            color: Color(0xffFFFFFF)
-                          ),
-                          ),
-                        ),
-                      ),
+                         GestureDetector
+                         (
+                          onTap: () => Get.toNamed(AppPages.expensehistory),
+                           child: Container(
+                                                   height: Get.height*0.05,
+                                                   width: Get.width*0.4,
+                                                   decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),color: Color(0xff0F3D2E)
+                                                   ),
+                                                   child: Center(
+                            child: Text('Expenses',
+                            style: GoogleFonts.inter( 
+                              fontWeight: FontWeight.w600,
+                              fontSize: 16,
+                              color: Color(0xffFFFFFF)
+                            ),
+                            ),
+                                                   ),
+                                                 ),
+                         ),
                     ],
                   ),
                 )
