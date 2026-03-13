@@ -19,9 +19,12 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
             SizedBox(height: Get.height * 0.06),
             Row(
               children: [
-                Icon(
-                  Icons.arrow_back_ios_new_rounded,
-                  color: Color(0xff1E1E1E),
+                GestureDetector(
+                  onTap: () => Get.back(),
+                  child: Icon(
+                    Icons.arrow_back_ios_new_rounded,
+                    color: Color(0xff1E1E1E),
+                  ),
                 ),
                 SizedBox(width: Get.width * 0.05),
                 Text(
