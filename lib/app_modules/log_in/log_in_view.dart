@@ -16,6 +16,7 @@ class LogInView extends GetView<LogInController> {
       backgroundColor: Color(0xffFAFAF8),
       body: SingleChildScrollView(
         child: Column(
+         // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: Get.height * 0.17),
             Image.asset(AppImages.logo),
@@ -30,14 +31,20 @@ class LogInView extends GetView<LogInController> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      'Sign In',
-                      style: GoogleFonts.montserrat(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 24,
-                        color: Color(0xff1E1E1E),
-                      ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          'Sign In',
+                          style: GoogleFonts.montserrat(
+                            fontWeight: FontWeight.w600,
+                            fontSize: 24,
+                            color: Color(0xff1E1E1E),
+                          ),
+                        ),
+                      ],
                     ),
                     Text(
                       'Please enter your email address & password',
