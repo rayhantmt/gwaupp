@@ -12,10 +12,10 @@ class IncomeHistoryController extends GetxController {
       return 'Select date range';
     }
     final start = startDate.value != null
-        ? DateFormat('dd MMM yy').format(startDate.value!)
+        ? DateFormat('MM/dd/yy').format(startDate.value!)
         : '?';
     final end = endDate.value != null
-        ? DateFormat('dd MMM yy').format(endDate.value!)
+        ? DateFormat('MM/dd/yy').format(endDate.value!)
         : '?';
     return '$start - $end';
   }
