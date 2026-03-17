@@ -25,7 +25,7 @@ class MainScreenView extends GetView<MainScreenController> {
             }
           }),
           Positioned(
-            bottom: 0,
+            bottom: 20,
             left: 0,
             right: 0,
             child: Obx(
@@ -83,7 +83,7 @@ class MainScreenView extends GetView<MainScreenController> {
                             children: [
                               // Image.asset(
                               //   AppImages.newexpense,
-
+      
                               //   height: Get.height * 0.035,
                               //   color: controller.pagetype.value == 1
                               //       ? Color(0xff0F3D2E)

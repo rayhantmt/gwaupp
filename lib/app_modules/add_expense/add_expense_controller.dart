@@ -11,13 +11,13 @@ class AddExpenseController extends GetxController{
       return 'Select date';
     }
     final start = startDate.value != null
-        ? DateFormat('dd MMM yy').format(startDate.value!)
+        ? DateFormat('MM/dd/yy').format(startDate.value!)
         : '?';
     
     return '$start';
   }
   String get formattedStartTime {
-  if (startTime.value == null) return 'Start Time';
+  if (startTime.value == null) return 'Time';
   final hour = startTime.value!.hourOfPeriod == 0 ? 12 : startTime.value!.hourOfPeriod;
   final minute = startTime.value!.minute.toString().padLeft(2, '0');
   final period = startTime.value!.period == DayPeriod.am ? 'AM' : 'PM';

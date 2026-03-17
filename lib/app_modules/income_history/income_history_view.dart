@@ -210,27 +210,13 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                         AppImages.bankicon,
                                         height: Get.height * 0.05,
                                       ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            'US Bank',
-                                            style: GoogleFonts.inter(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 14,
-                                              color: Color(0xff1E1E1E),
-                                            ),
-                                          ),
-                                          Text(
-                                            'James Walker | Savings',
-                                            style: GoogleFonts.inter(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 14,
-                                              color: Color(0xff6B6B6B),
-                                            ),
-                                          ),
-                                        ],
+                                       Text(
+                                        'Cash',
+                                        style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 14,
+                                          color: Color(0xff1E1E1E),
+                                        ),
                                       ),
                                       Spacer(),
                                       CircleAvatar(

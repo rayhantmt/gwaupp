@@ -187,8 +187,9 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                 fontSize: 14,
                                               ),
                                             ),
-                                            Image.asset(AppImages.arrowdown,
-                                            height: Get.height*0.04,
+                                            Image.asset(
+                                              AppImages.arrowdown,
+                                              height: Get.height * 0.04,
                                             ),
                                           ],
                                         ),
@@ -219,10 +220,10 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         ),
                                         Row(
                                           children: [
-                                            Image.asset(
-                                              AppImages.arrowdowncontainer,
-                                              height: Get.height * 0.03,
-                                            ),
+                                            // Image.asset(
+                                            //   AppImages.arrowdowncontainer,
+                                            //   height: Get.height * 0.03,
+                                            // ),
                                             Text(
                                               'Income',
                                               style: GoogleFonts.inter(
@@ -271,10 +272,10 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                     color: Color(0xff6BB498),
                                                   ),
                                                 ),
-                                                Image.asset(
-                                                  AppImages.arrowupcontainer,
-                                                  height: Get.height * 0.03,
-                                                ),
+                                                // Image.asset(
+                                                //   AppImages.arrowupcontainer,
+                                                //   height: Get.height * 0.03,
+                                                // ),
                                               ],
                                             ),
                                           ],
@@ -374,22 +375,24 @@ class HomeScreenView extends GetView<HomeScreenController> {
                           ),
                           Row(
                             children: [
-                              Text('Remaining amount',
-                              style: GoogleFonts.inter( 
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                color: Color(0xff6B6B6B)
+                              Text(
+                                'Remaining amount',
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                  color: Color(0xff6B6B6B),
+                                ),
                               ),
+                              Text(
+                                '\$260',
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14,
+                                  color: Color(0xff1E1E1E),
+                                ),
                               ),
-                              Text('\$260',
-                              style: GoogleFonts.inter( 
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
-                                color: Color(0xff1E1E1E)
-                              ),
-                              )
                             ],
-                          )
+                          ),
                         ],
                       ),
                     ),
@@ -397,7 +400,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                 ),
                 SizedBox(height: Get.height * 0.03),
                 Padding(
-                  padding: const EdgeInsets.symmetric( horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Container(
                     height: Get.height * 0.16,
                     decoration: BoxDecoration(
@@ -417,94 +420,102 @@ class HomeScreenView extends GetView<HomeScreenController> {
                         children: [
                           Row(
                             children: [
-                              Image.asset(AppImages.yelloicon,
-                              height: Get.height*0.03,
+                              Image.asset(
+                                AppImages.yelloicon,
+                                height: Get.height * 0.03,
                               ),
-                              Text('Top Spendig category',
-                              style: GoogleFonts.inter( 
-                                fontWeight: FontWeight.w600,
-                                fontSize: 16,
-                                color: Color(0xff1E1E1E)
+                              Text(
+                                'Top Spendig category',
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 16,
+                                  color: Color(0xff1E1E1E),
+                                ),
                               ),
-                              )
                             ],
                           ),
                           Row(
                             children: [
-                              Text('Dining Outside',
-                              style: GoogleFonts.inter( 
-                                fontWeight: FontWeight.w400,
-                                fontSize: 16,
-                                color: Color(0xff1E1E1E)
-                              ),
+                              Text(
+                                'Dining Outside',
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 16,
+                                  color: Color(0xff1E1E1E),
+                                ),
                               ),
                               Spacer(),
-                              Text('\$820',
-                              style:GoogleFonts.montserrat( 
-                                fontWeight: FontWeight.w600,
-                                fontSize: 24,
-                                color: Color(0xff0F3D2E)
-                              ) ,
-                              )
+                              Text(
+                                '\$820',
+                                style: GoogleFonts.montserrat(
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 24,
+                                  color: Color(0xff0F3D2E),
+                                ),
+                              ),
                             ],
                           ),
-                          Image.asset(AppImages.viewbreakdown)
+                          Image.asset(AppImages.viewbreakdown),
                         ],
                       ),
                     ),
                   ),
                 ),
-                SizedBox(height: Get.height*0.05,),
+                SizedBox(height: Get.height * 0.05),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                     // Image.asset(AppImages.income,
-                     // height: Get.height*0.05,
+                      // Image.asset(AppImages.income,
+                      // height: Get.height*0.05,
                       //),
                       GestureDetector(
                         onTap: () => Get.toNamed(AppPages.incomeHistory),
                         child: Container(
-                          height: Get.height*0.05,
-                          width: Get.width*0.4,
+                          height: Get.height * 0.05,
+                          width: Get.width * 0.4,
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),color: Color(0xff0F3D2E)
+                            borderRadius: BorderRadius.circular(100),
+                            color: Color(0xff0F3D2E),
                           ),
                           child: Center(
-                            child: Text('Income',
-                            style: GoogleFonts.inter( 
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              color: Color(0xffFFFFFF)
-                            ),
+                            child: Text(
+                              'Income',
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                                color: Color(0xffFFFFFF),
+                              ),
                             ),
                           ),
                         ),
                       ),
-                         GestureDetector
-                         (
-                          onTap: () => Get.toNamed(AppPages.expensehistory),
-                           child: Container(
-                                                   height: Get.height*0.05,
-                                                   width: Get.width*0.4,
-                                                   decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),color: Color(0xff0F3D2E)
-                                                   ),
-                                                   child: Center(
-                            child: Text('Expenses',
-                            style: GoogleFonts.inter( 
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              color: Color(0xffFFFFFF)
+                      GestureDetector(
+                        onTap: () => Get.toNamed(AppPages.expensehistory),
+                        child: Container(
+                          height: Get.height * 0.05,
+                          width: Get.width * 0.4,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: Color(0xff0F3D2E),
+                          ),
+                          child: Center(
+                            child: Text(
+                              'Expenses',
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                                color: Color(0xffFFFFFF),
+                              ),
                             ),
-                            ),
-                                                   ),
-                                                 ),
-                         ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
-                )
+                ),
+                SizedBox(height: Get.height*0.2,)
               ],
             ),
           ),

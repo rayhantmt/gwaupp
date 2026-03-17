@@ -162,7 +162,7 @@ class MyProfileView extends StatelessWidget {
             ),
             SizedBox(height: Get.height * 0.02),
             Text(
-              'More Info & Support',
+              'Support',
               style: GoogleFonts.inter(
                 fontWeight: FontWeight.w600,
                 fontSize: 16,
@@ -170,17 +170,17 @@ class MyProfileView extends StatelessWidget {
               ),
             ),
             SizedBox(height: Get.height * 0.02),
-            Container(
-              height: Get.height * 0.05,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(16),
-                color: Color(0xffFFFFFF),
-              ),
-              child: ProfileContainer(
-                tittle: 'Rate this App',
-                img: AppImages.rateTheapp,
-              ),
-            ),
+            // Container(
+            //   height: Get.height * 0.05,
+            //   decoration: BoxDecoration(
+            //     borderRadius: BorderRadius.circular(16),
+            //     color: Color(0xffFFFFFF),
+            //   ),
+            //   child: ProfileContainer(
+            //     tittle: 'Rate this App',
+            //     img: AppImages.rateTheapp,
+            //   ),
+            // ),
             SizedBox(height: Get.height * 0.02),
             Text(
               'Others',
