@@ -8,6 +8,7 @@ import 'package:gwaupp/utils/app_pages.dart';
 
 class AddIncomeView extends GetView<AddIncomeController> {
   const AddIncomeView({super.key});
+//need to wrap with the single child scroll view
 
   @override
   Widget build(BuildContext context) {
@@ -272,7 +273,7 @@ class AddIncomeView extends GetView<AddIncomeController> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Repeat this transaction',
+                  'Recurring Transaction',
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,

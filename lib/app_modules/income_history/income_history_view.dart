@@ -211,7 +211,7 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                         height: Get.height * 0.05,
                                       ),
                                        Text(
-                                        'Cash',
+                                        'Bank',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w400,
                                           fontSize: 14,

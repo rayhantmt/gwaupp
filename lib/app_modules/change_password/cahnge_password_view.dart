@@ -53,7 +53,7 @@ class CahngePasswordView extends GetView<ChangePasswordController> {
                       color: Color(0xff1E1E1E)
                     ),
                     ),
-                    Text('To secure your account,create a strong 8 digit password',
+                    Text('To secure your account create a strong 8-digit password',
                     style: GoogleFonts.inter( 
                       fontWeight: FontWeight.w400,
                       fontSize: 14,

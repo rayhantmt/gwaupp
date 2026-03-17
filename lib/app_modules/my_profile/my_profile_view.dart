@@ -183,7 +183,7 @@ class MyProfileView extends StatelessWidget {
             // ),
             SizedBox(height: Get.height * 0.02),
             Text(
-              'Others',
+              'Privacy and Terms',
               style: GoogleFonts.inter(
                 fontWeight: FontWeight.w600,
                 fontSize: 16,

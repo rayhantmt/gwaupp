@@ -49,9 +49,13 @@ class _NewExpenseViewState extends State<NewExpenseView> {
   @override
   Widget build(BuildContext context) {
 
-    return const Scaffold(
-      backgroundColor: Colors.transparent,
-      body: SizedBox.shrink(),
+    return  Scaffold(
+      //backgroundColor: Colors.transparent,
+      body: Image.asset(AppImages.splashScreen,
+      height: double.infinity,
+      width: double.infinity,
+      fit: BoxFit.cover,
+      ),
     );
   }
 }
