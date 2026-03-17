@@ -16,7 +16,7 @@ class LogInView extends GetView<LogInController> {
       backgroundColor: Color(0xffFAFAF8),
       body: SingleChildScrollView(
         child: Column(
-         // crossAxisAlignment: CrossAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: Get.height * 0.17),
             Image.asset(AppImages.logo),
@@ -54,7 +54,7 @@ class LogInView extends GetView<LogInController> {
                         color: Color(0xff6B6B6B),
                       ),
                     ),
-                    CommonTextField(tittle: 'Email Address',obsecure: false,),
+                    CommonTextField(tittle: 'Email Address', obsecure: false),
                     SizedBox(height: Get.height * 0.03),
                     Obx(
                       () => CommonTextField(
@@ -66,82 +66,85 @@ class LogInView extends GetView<LogInController> {
                         ),
                       ),
                     ),
-                    SizedBox(height: Get.height*0.02,),
+                    SizedBox(height: Get.height * 0.02),
                     Row(
-                children: [
-                  Obx(
-                    () => Checkbox(
-                      checkColor: Colors.white,
-                      activeColor: Color(0xff0F3D2E),
-                      value: controller.ischeck.value,
-                      onChanged: (value) => controller.togglechekc(value),
+                      children: [
+                        Obx(
+                          () => Checkbox(
+                            checkColor: Colors.white,
+                            activeColor: Color(0xff0F3D2E),
+                            value: controller.ischeck.value,
+                            onChanged: (value) => controller.togglechekc(value),
+                          ),
+                        ),
+                        Text(
+                          'Rememeber me',
+                          style: GoogleFonts.inter(
+                            color: Color(0xff6B6B6B),
+                            fontWeight: FontWeight.w400,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Expanded(child: SizedBox()),
+                        GestureDetector(
+                          onTap: () => Get.toNamed(AppPages.forgotpassword),
+                          child: Text(
+                            'Forgot Passord?',
+                            style: GoogleFonts.roboto(
+                              fontWeight: FontWeight.w700,
+                              fontSize: 14,
+                              color: Color(0xff0F3D2E),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
-                  ),
-                  Text('Rememeber me',
-                  style: GoogleFonts.inter( 
-                    color: Color(0xff6B6B6B),
-                    fontWeight: FontWeight.w400,
-                    fontSize: 14,
-                  ),
-                  ),
-                  Expanded(child: SizedBox()),
-                  GestureDetector(
-                    onTap:() => Get.toNamed(AppPages.forgotpassword),
-                    child: Text('Forgot Passord?',
-                    style: GoogleFonts.roboto( 
-                      fontWeight: FontWeight.w700,
-                      fontSize: 14,
-                      color: Color(0xff0F3D2E)
-                    ),
-                    ),
-                  )
-                ],
-              ),
-              SizedBox(height: Get.height*0.03,),
+                    SizedBox(height: Get.height * 0.03),
                     GestureDetector(
                       onTap: () => Get.toNamed(AppPages.mainscreen),
-                      child: CommonButton(tittle: 'Log In'))
+                      child: CommonButton(tittle: 'Log In'),
+                    ),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: Get.height*0.02,),
+            SizedBox(height: Get.height * 0.02),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
                   height: 1,
-                  width: Get.width*0.4,
+                  width: Get.width * 0.4,
                   color: Color(0xffE6E6E3),
                 ),
-                SizedBox(width: Get.width*0.01,),
+                SizedBox(width: Get.width * 0.01),
                 Text('OR'),
-                 SizedBox(width: Get.width*0.01,),
+                SizedBox(width: Get.width * 0.01),
                 Container(
                   height: 1,
-                  width: Get.width*0.4,
+                  width: Get.width * 0.4,
                   color: Color(0xffE6E6E3),
-                )
+                ),
               ],
             ),
-            SizedBox(height: Get.height*0.05,),
+            SizedBox(height: Get.height * 0.02),
             Image.asset(AppImages.loginwithgoogle),
-            SizedBox(height: Get.height*0.05,),
+            SizedBox(height: Get.height * 0.02),
             GestureDetector(
               onTap: () => Get.toNamed(AppPages.createnewaccount),
-              child: Text('Create New Account',
-              style: GoogleFonts.inter( 
-                fontWeight: FontWeight.w600,
-                fontSize: 16,
-                color: Color(0xff0F3D2E),
-                decoration: TextDecoration.underline
+              child: Text(
+                'Create New Account',
+                style: GoogleFonts.inter(
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                  color: Color(0xff0F3D2E),
+                  decoration: TextDecoration.underline,
+                ),
               ),
-              ),
-            )
+            ),
           ],
         ),
       ),
     );
   }
 }
-
