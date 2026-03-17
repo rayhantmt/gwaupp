@@ -16,7 +16,6 @@ class LogInView extends GetView<LogInController> {
       backgroundColor: Color(0xffFAFAF8),
       body: SingleChildScrollView(
         child: Column(
-          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: Get.height * 0.17),
             Image.asset(AppImages.logo),
