@@ -215,21 +215,13 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
                                             CrossAxisAlignment.start,
                                         children: [
                                           Text(
-                                            'US Bank',
-                                            style: GoogleFonts.inter(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 14,
-                                              color: Color(0xff1E1E1E),
-                                            ),
-                                          ),
-                                          Text(
-                                            'James Walker | Savings',
-                                            style: GoogleFonts.inter(
-                                              fontWeight: FontWeight.w400,
-                                              fontSize: 14,
-                                              color: Color(0xff6B6B6B),
-                                            ),
-                                          ),
+                                        'Bank',
+                                        style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 14,
+                                          color: Color(0xff1E1E1E),
+                                        ),
+                                      ),
                                         ],
                                       ),
                                       Spacer(),
