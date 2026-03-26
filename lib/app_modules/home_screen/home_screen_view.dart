@@ -461,7 +461,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                     ),
                   ),
                 ),
-                SizedBox(height: Get.height * 0.05),
+               // SizedBox(height: Get.height * 0.05),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(

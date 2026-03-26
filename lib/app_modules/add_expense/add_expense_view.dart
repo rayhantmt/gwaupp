@@ -272,7 +272,7 @@ class AddExpenseView extends GetView<AddExpenseController> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Repeat this transaction',
+                  'Recurring Transaction',
                   style: GoogleFonts.inter(
                     fontWeight: FontWeight.w400,
                     fontSize: 14,
