@@ -2,6 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:gwaupp/api_services/api_config.dart';
+import 'package:gwaupp/api_services/api_service.dart';
+import 'package:gwaupp/api_services/exceptions.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class OtpPageController extends GetxController {
   final otpController = TextEditingController();
@@ -68,81 +72,84 @@ class OtpPageController extends GetxController {
   }
 
 
-  // Future<void> verifyOtp() async {
-  //   final body = {"email": email, "otp": otp.value};
+  Future<void> verifyOtp() async {
+    final body = { "otp": otp.value};
 
-  //   isLoading.value = true; // Start loading
-  //   try {
-  //     final response = await ApiService.post(
-  //       endpoint: ApiConfig.verifyOtpendpoint,
-  //       body: body,
-  //     );
-  //     //final userId = response['data']['user']['id'];
+    isLoading.value = true; // Start loading
+    try {
+      final response = await ApiService.post(
+        endpoint: ApiConfig.verifyotp,
+        body: body,
+      );
+      final email = response['data']['email'];
+      print('email is $email');
 
-  //     print("OTP Verification Success: $response");
-  //     Get.toNamed(
-  //       AppPages.updatepassword,
-  //       arguments: email,
-  //     ); //arguments: {'userId': userId});
-  //   } on AppException catch (e) {
-  //     Get.snackbar(
-  //       'Verification Failed',
-  //       e.message,
-  //       backgroundColor: Colors.redAccent,
-  //       colorText: Colors.white,
-  //     );
-  //   } finally {
-  //     isLoading.value = false; // Stop loading
-  //   }
-  // }
+      print("OTP Verification Success: $response");
+      Get.toNamed(
+        AppPages.createyourprofile,
+        arguments: {
+          'email':email
+        }
+      ); //arguments: {'userId': userId});
+    } on AppException catch (e) {
+      Get.snackbar(
+        'Verification Failed',
+        e.message,
+        backgroundColor: Colors.redAccent,
+        colorText: Colors.white,
+      );
+    } finally {
+      isLoading.value = false; // Stop loading
+    }
+  }
 
-  // @override
-  // void onClose() {
-  //   timer?.cancel();
-  //   for (final c in otpControllers) {
-  //     c.dispose();
-  //   }
-  //   for (final f in otpFocusNodes) {
-  //     f.dispose();
-  //   }
-  //   super.onClose();
-  //   //   }Future<void> verifyOtp() async {
-  //   //   final body = {
-  //   //     "data": {"email": email, "otp": otp.value},
-  //   //   };
+  @override
+  void onClose() {
+    timer?.cancel();
+    for (final c in otpControllers) {
+      c.dispose();
+    }
+    for (final f in otpFocusNodes) {
+      f.dispose();
+    }
+    super.onClose();
+    //   }Future<void> verifyOtp() async {
+    //   final body = {
+    //     "data": {"email": email, "otp": otp.value},
+    //   };
 
-  //   //   isLoading.value = true; // Start loading
-  //   //   try {
-  //   //     final response = await ApiService.post(
-  //   //       endpoint: ApiConfig.otpendpoint,
-  //   //       body: body,
-  //   //     );
-  //   //  final userId = response['data']['user']['id'];
+    //   isLoading.value = true; // Start loading
+    //   try {
+    //     final response = await ApiService.post(
+    //       endpoint: ApiConfig.otpendpoint,
+    //       body: body,
+    //     );
+    //  final userId = response['data']['user']['id'];
 
-  //   //     print("OTP Verification Success: $response");
-  //   //     Get.toNamed(Approutes.changepassword, arguments: {'userId': userId});
-  //   //   } on AppException catch (e) {
-  //   //     Get.snackbar(
-  //   //       'Verification Failed',
-  //   //       e.message,
-  //   //       backgroundColor: Colors.redAccent,
-  //   //       colorText: Colors.white,
-  //   //     );
-  //   //   } finally {
-  //   //     isLoading.value = false; // Stop loading
-  //   //   }
-  //   // }
+    //     print("OTP Verification Success: $response");
+    //     Get.toNamed(Approutes.changepassword, arguments: {'userId': userId});
+    //   } on AppException catch (e) {
+    //     Get.snackbar(
+    //       'Verification Failed',
+    //       e.message,
+    //       backgroundColor: Colors.redAccent,
+    //       colorText: Colors.white,
+    //     );
+    //   } finally {
+    //     isLoading.value = false; // Stop loading
+    //   }
+    // }
 
-  //   //   @override
-  //   //   void onClose() {
-  //   //     timer?.cancel();
-  //   //     for (final c in otpControllers) {
-  //   //       c.dispose();
-  //   //     }
-  //   //     for (final f in otpFocusNodes) {
-  //   //       f.dispose();
-  //   //     }
-  //   //     super.onClose();
-  //   //   }
-  // }
+    //   @override
+    //   void onClose() {
+    //     timer?.cancel();
+    //     for (final c in otpControllers) {
+    //       c.dispose();
+    //     }
+    //     for (final f in otpFocusNodes) {
+    //       f.dispose();
+    //     }
+    //     super.onClose();
+    //   }
+  }
 }

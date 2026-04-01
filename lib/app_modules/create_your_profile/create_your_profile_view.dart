@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gwaupp/app_modules/create_your_profile/create_your_profile_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/common_widgets/common_text_field.dart';
 import 'package:gwaupp/utils/app_images.dart';
 import 'package:gwaupp/utils/app_pages.dart';
 
-class CreateYourProfileView extends StatelessWidget {
+class CreateYourProfileView extends GetView<CreateYourProfileController> {
   const CreateYourProfileView({super.key});
 
   @override
@@ -47,6 +48,7 @@ class CreateYourProfileView extends StatelessWidget {
                       color: Color(0xff1E1E1E)
                     ),
                     ),
+             
                     Text('Enter your first and last name.',
                     style: GoogleFonts.inter( 
                       fontWeight: FontWeight.w400,

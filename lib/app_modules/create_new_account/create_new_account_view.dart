@@ -53,9 +53,10 @@ class CreateNewAccountView extends GetView<CreateNewAccountController> {
                           color: Color(0xff6B6B6B),
                         ),
                       ),
-                      CommonTextField(tittle: 'Email Address', obsecure: false),
+                      CommonTextField(tittle: 'Email Address', obsecure: false,controller: controller.emailcontroller,),
                       Obx(
                         () => CommonTextField(
+                          controller: controller.passwordcontroller,
                           tittle: 'Password',
                           obsecure: controller.isObsecure.value,
                           suffix: GestureDetector(
@@ -107,8 +108,13 @@ class CreateNewAccountView extends GetView<CreateNewAccountController> {
               ),
               SizedBox(height: Get.height*0.25,),
               GestureDetector(
-                onTap: () => Get.toNamed(AppPages.otppage),
-                child: CommonButton(tittle: 'Send OTP')),
+               // onTap: () => Get.toNamed(AppPages.otppage),
+               onTap: () => controller.signup(),
+                child: Obx(() => controller.isLoading.value?Center(
+                  child: CircularProgressIndicator(
+                    color: Color(0xff0F3D2E),
+                  ),
+                ):CommonButton(tittle: 'Send OTP'),)),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/otp_page/otp_page_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
-import 'package:gwaupp/utils/app_pages.dart';
 
 class OtpPageView extends GetView<OtpPageController> {
   const OtpPageView({super.key});
@@ -55,9 +54,9 @@ class OtpPageView extends GetView<OtpPageController> {
                   const SizedBox(height: 24),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(6, (index) {
+                    children: List.generate(4, (index) {
                       return SizedBox(
-                        width: Get.width*0.11,
+                        width: Get.width*0.15,
                         height: Get.height*0.07,
                         child: TextField(
                           controller: controller.otpControllers[index],
@@ -122,8 +121,11 @@ class OtpPageView extends GetView<OtpPageController> {
             ),
             SizedBox(height: Get.height*0.35,),
             GestureDetector(
-              onTap: () => Get.toNamed(AppPages.createyourprofile),
-              child: CommonButton(tittle: 'Verify OTP'))
+              //onTap: () => Get.toNamed(AppPages.createyourprofile),
+              onTap: () => controller.verifyOtp(),
+              child: Obx(() => controller.isLoading.value?Center(child: CircularProgressIndicator(
+                color: const Color(0xff0F3D2E),
+              )):CommonButton(tittle: 'Verify OTP'),))
           ],
         ),
       ),
