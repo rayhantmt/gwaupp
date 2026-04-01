@@ -57,17 +57,20 @@ class CreateYourProfileView extends GetView<CreateYourProfileController> {
                     ),
                     ),
                     SizedBox(height: Get.height*0.03,),
-                    CommonTextField(tittle: 'First Name', obsecure: false),
+                    CommonTextField(tittle: 'First Name', obsecure: false,controller: controller.firstnamecontroller,),
                     SizedBox(height: Get.height*0.02,),
-                    CommonTextField(tittle: 'Last Name', obsecure: false)
+                    CommonTextField(tittle: 'Last Name', obsecure: false,controller:controller.lastnamecontroller,)
                   ],
                 ),
               ),
             ),
             SizedBox(height: Get.height*0.4,),
             GestureDetector(
-              onTap: () => Get.toNamed(AppPages.login),
-              child: CommonButton(tittle: 'Create Profile'))
+              //onTap: () => Get.toNamed(AppPages.login),
+              onTap: () => controller.createUser(),
+              child: Obx(() => controller.isLoading.value?CircularProgressIndicator(
+                color: Colors.red,
+              ):CommonButton(tittle: 'Create Profile'),))
           ],
         ),
       ),

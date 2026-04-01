@@ -17,7 +17,7 @@ class DioClient {
   Map<String, dynamic>? headers,
 }) async {
   try {
-    final response = await _dio.post(
+    final response = await _dio.put(
       url,
       data: data,
       options: Options(headers: headers),
