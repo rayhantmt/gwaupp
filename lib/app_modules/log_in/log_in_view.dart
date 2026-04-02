@@ -53,10 +53,13 @@ class LogInView extends GetView<LogInController> {
                         color: Color(0xff6B6B6B),
                       ),
                     ),
-                    CommonTextField(tittle: 'Email Address', obsecure: false),
+                    CommonTextField(tittle: 'Email Address', obsecure: false,
+                    controller: controller.emailcontroller,
+                    ),
                     SizedBox(height: Get.height * 0.03),
                     Obx(
                       () => CommonTextField(
+                        controller: controller.passwordcontroller,
                         tittle: 'Password',
                         obsecure: controller.isObsecure.value,
                         suffix: GestureDetector(
@@ -100,8 +103,11 @@ class LogInView extends GetView<LogInController> {
                     ),
                     SizedBox(height: Get.height * 0.03),
                     GestureDetector(
-                      onTap: () => Get.toNamed(AppPages.mainscreen),
-                      child: CommonButton(tittle: 'Log In'),
+                     // onTap: () => Get.toNamed(AppPages.mainscreen),
+                     onTap: () => controller.login(),
+                      child: Obx(() => controller.isLoading.value?Center(child: CircularProgressIndicator(
+                        color: Colors.red,
+                      )):CommonButton(tittle: 'Log In'),),
                     ),
                   ],
                 ),
