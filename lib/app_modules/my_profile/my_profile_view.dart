@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/common_widgets/profile_container.dart';
 import 'package:gwaupp/utils/app_images.dart';
@@ -224,7 +225,12 @@ class MyProfileView extends StatelessWidget {
               ),
             ),
             SizedBox(height: Get.height * 0.03),
-            Image.asset(AppImages.signout),
+            GestureDetector(
+              onTap: () {
+                GetStorage().erase();
+                Get.offAllNamed(AppPages.login);
+              },
+              child: Image.asset(AppImages.signout)),
           ],
         ),
       ),

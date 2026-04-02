@@ -97,7 +97,9 @@ class HomeScreenView extends GetView<HomeScreenController> {
                           ),
                         ),
                         Text(
-                          'Jmaes Walker',
+                          //'Jmaes Walker',
+                        //  controller.fullName ??
+                              "Please update name from profile",
                           style: GoogleFonts.montserrat(
                             fontWeight: FontWeight.w600,
                             fontSize: 22,
@@ -461,7 +463,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                     ),
                   ),
                 ),
-               // SizedBox(height: Get.height * 0.05),
+                // SizedBox(height: Get.height * 0.05),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
@@ -515,7 +517,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                     ],
                   ),
                 ),
-                SizedBox(height: Get.height*0.2,)
+                SizedBox(height: Get.height * 0.2),
               ],
             ),
           ),
