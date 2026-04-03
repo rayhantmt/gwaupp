@@ -38,14 +38,18 @@ class ChangeEmailView extends GetView<ChangeEmailController> {
               ],
             ),
             SizedBox(height: Get.height * 0.32),
-            CommonTextField(tittle: 'Set New Email', obsecure: false,
-            controller: controller.emailcontroller,
+            CommonTextField(
+              tittle: 'Set New Email',
+              obsecure: false,
+              controller: controller.emailcontroller,
             ),
             SizedBox(height: Get.height * 0.02),
             GestureDetector(
-              //onTap: () => Get.offNamed(AppPages.otpverificationemail),
               onTap: () => controller.sendotp(),
-              child:controller.isLoading.value?CircularProgressIndicator(color: AppImages.greencolor,): CommonButton(tittle: 'Send OTP')),
+              child: controller.isLoading.value
+                  ? CircularProgressIndicator(color: AppImages.greencolor)
+                  : CommonButton(tittle: 'Send OTP'),
+            ),
           ],
         ),
       ),
