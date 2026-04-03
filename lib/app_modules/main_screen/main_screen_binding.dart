@@ -8,6 +8,6 @@ class MainScreenBinding extends Bindings{
   void dependencies() {
    Get.lazyPut(() => MainScreenController(),);
    Get.lazyPut<InsightsController>(() => InsightsController(),);
-   Get.lazyPut<HomeScreenController>(() => HomeScreenController(),);
+   Get.put(HomeScreenController());
   }
 }

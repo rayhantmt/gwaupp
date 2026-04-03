@@ -37,13 +37,18 @@ class LogInController extends GetxController {
       final storage = GetStorage();
       final accessToken = response['data']['accessToken'];
       final user = response['data']['userData'];
-      storage.write('firstName', user['firstName']);
+      print('Data from the api');
+      print(user);
+      storage.write('firstname', user['firstName']);
+      storage.write('lastname', user['lastName']);
       storage.write('email', user['email']);
       storage.write('profileimg', user['imageUrl']);
       storage.write('token', accessToken);
       Get.offAllNamed(AppPages.mainscreen);
       print("Login success: $response");
       print(accessToken);
+      final name=storage.read('firstname');
+      print('Stored name$name');
     } on AppException catch (e) {
       Get.snackbar("Login Failed", e.message);
     } finally {

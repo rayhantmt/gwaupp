@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/home_screen/home_screen_controller.dart';
 import 'package:gwaupp/utils/app_images.dart';
@@ -10,6 +11,10 @@ class HomeScreenView extends GetView<HomeScreenController> {
 
   @override
   Widget build(BuildContext context) {
+    final firstname=GetStorage().read('firstname');
+    final lastname =GetStorage().read('lastname');
+    
+
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
       body: Stack(
@@ -98,8 +103,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                         ),
                         Text(
                           //'Jmaes Walker',
-                        //  controller.fullName ??
-                              "Please update name from profile",
+                       "$firstname $lastname" ,
                           style: GoogleFonts.montserrat(
                             fontWeight: FontWeight.w600,
                             fontSize: 22,
