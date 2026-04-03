@@ -124,7 +124,7 @@ class VerifyOtpForgotpassView extends GetView<VerifyOtpForgotpassController> {
             SizedBox(height: Get.height*0.35,),
             GestureDetector(
               onTap: () => Get.toNamed(AppPages.updatepassword,arguments: {
-                'otp':controller.otp.value
+                'otp':int.parse(controller.otp.value)
               }),
              // onTap: () => controller.verifyOtp(),
               child: controller.isLoading.value?Center(child: CircularProgressIndicator(color: AppImages.greencolor,)):CommonButton(tittle: 'Verify OTP'))

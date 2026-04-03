@@ -5,35 +5,29 @@ import 'package:gwaupp/api_services/api_service.dart';
 import 'package:gwaupp/api_services/exceptions.dart';
 import 'package:gwaupp/utils/app_pages.dart';
 
-class UpdatePasswordController extends GetxController{
+class UpdatePasswordController extends GetxController {
   RxBool isObsecure = true.obs;
   void toggle() {
-
     isObsecure.value = !isObsecure.value;
-  
   }
-  
 
   RxBool isObsecure2 = true.obs;
   void toggle2() {
-
     isObsecure2.value = !isObsecure2.value;
-  
   }
-  final passcontroller=TextEditingController();
-late String otp;
+
+  final passcontroller = TextEditingController();
+  late int otp;
   @override
   void onInit() {
     final arg = Get.arguments;
     otp = arg['otp'];
     super.onInit();
   }
-  RxBool isLoading=false.obs;
-  Future<void> verifyOtp() async {
 
-    final body = { "otp": otp,
-    'password':passcontroller.text
-    };
+  RxBool isLoading = false.obs;
+  Future<void> verifyOtp() async {
+    final body = {"otp": otp, 'password': passcontroller.text};
 
     isLoading.value = true; // Start loading
     try {
@@ -45,9 +39,7 @@ late String otp;
       print('email is $email');
 
       print("OTP Verification Success: $response");
-      Get.toNamed(
-        AppPages.login
-      ); 
+      Get.toNamed(AppPages.login);
     } on AppException catch (e) {
       Get.snackbar(
         'Verification Failed',
@@ -59,5 +51,4 @@ late String otp;
       isLoading.value = false; // Stop loading
     }
   }
-  
 }
