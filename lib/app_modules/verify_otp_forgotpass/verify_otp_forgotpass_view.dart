@@ -56,9 +56,9 @@ class VerifyOtpForgotpassView extends GetView<VerifyOtpForgotpassController> {
                   const SizedBox(height: 24),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(6, (index) {
+                    children: List.generate(4, (index) {
                       return SizedBox(
-                        width: Get.width*0.11,
+                        width: Get.width*0.15,
                         height: Get.height*0.07,
                         child: TextField(
                           controller: controller.otpControllers[index],
@@ -123,8 +123,11 @@ class VerifyOtpForgotpassView extends GetView<VerifyOtpForgotpassController> {
             ),
             SizedBox(height: Get.height*0.35,),
             GestureDetector(
-              onTap: () => Get.toNamed(AppPages.updatepassword),
-              child: CommonButton(tittle: 'Verify OTP'))
+              onTap: () => Get.toNamed(AppPages.updatepassword,arguments: {
+                'otp':controller.otp.value
+              }),
+             // onTap: () => controller.verifyOtp(),
+              child: controller.isLoading.value?Center(child: CircularProgressIndicator(color: AppImages.greencolor,)):CommonButton(tittle: 'Verify OTP'))
           ],
         ),
       ),

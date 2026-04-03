@@ -21,7 +21,8 @@ class UpdatePasswordView extends GetView<UpdatePasswordController> {
             SizedBox(height: Get.height * 0.06),
             GestureDetector(
               onTap: () => Get.back(),
-              child: Image.asset(AppImages.backIcon, height: Get.height * 0.06)),
+              child: Image.asset(AppImages.backIcon, height: Get.height * 0.06),
+            ),
             SizedBox(height: Get.height * 0.03),
             Container(
               height: Get.height * 0.3,
@@ -53,6 +54,7 @@ class UpdatePasswordView extends GetView<UpdatePasswordController> {
                     ),
                     Obx(
                       () => CommonTextField(
+                        controller: controller.passcontroller,
                         tittle: 'New Password',
                         obsecure: controller.isObsecure.value,
                         suffix: GestureDetector(
@@ -61,8 +63,9 @@ class UpdatePasswordView extends GetView<UpdatePasswordController> {
                         ),
                       ),
                     ),
-                     Obx(
+                    Obx(
                       () => CommonTextField(
+                        // controller: controller.passcontroller,
                         tittle: 'Confirm New Password',
                         obsecure: controller.isObsecure2.value,
                         suffix: GestureDetector(
@@ -76,8 +79,15 @@ class UpdatePasswordView extends GetView<UpdatePasswordController> {
               ),
             ),
             Expanded(child: SizedBox()),
-            CommonButton(tittle: 'Create New Password'),
-            SizedBox(height: Get.height*0.1,)
+            GestureDetector(
+              onTap: () => controller.verifyOtp(),
+              child: Obx(
+                () => controller.isLoading.value
+                    ? Center(child: CircularProgressIndicator(color: AppImages.greencolor))
+                    : CommonButton(tittle: 'Create New Password'),
+              ),
+            ),
+            SizedBox(height: Get.height * 0.1),
           ],
         ),
       ),
