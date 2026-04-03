@@ -5,17 +5,16 @@ import 'package:gwaupp/api_services/api_service.dart';
 import 'package:gwaupp/api_services/exceptions.dart';
 import 'package:gwaupp/utils/app_pages.dart';
 
-class CreateNewAccountController extends GetxController{
+class CreateNewAccountController extends GetxController {
   RxBool isObsecure = true.obs;
   void toggle() {
-
     isObsecure.value = !isObsecure.value;
-
   }
-  final emailcontroller=TextEditingController();
-  final passwordcontroller=TextEditingController();
-  RxBool isLoading=false.obs;
-    Future<void> signup() async {
+
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
+  RxBool isLoading = false.obs;
+  Future<void> signup() async {
     isLoading.value = true;
 
     final body = {
@@ -25,13 +24,12 @@ class CreateNewAccountController extends GetxController{
 
     try {
       final response = await ApiService.post(
-        endpoint: ApiConfig.signupurl, 
+        endpoint: ApiConfig.signupurl,
         body: body,
       );
-      
+
       Get.toNamed(AppPages.otppage);
       print("success: $response");
-      
     } on AppException catch (e) {
       Get.snackbar("Account Creation Failed", e.message);
     } finally {

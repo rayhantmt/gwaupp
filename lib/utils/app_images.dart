@@ -42,5 +42,6 @@ class AppImages {
   static const String editicon='assets/edit_icon.png';
   static const String deleteicon='assets/delete_icon.png';
   static const String privacybanner='assets/privacy_banner.png';
+  static const Color greencolor=Color(0xff0F3D2E);
 
 }

@@ -3,5 +3,6 @@ class ApiConfig {
   static const String signupurl='/api/v1/auth/create-account';
   static const String verifyotp='/api/v1/auth/verify-otp';
   static const String loginendpoint='/api/v1/auth/login';
+  static const String sendotp='/api/v1/auth/send-otp';
   
 }
