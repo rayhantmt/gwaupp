@@ -5,7 +5,6 @@ import 'package:gwaupp/app_modules/create_your_profile/create_your_profile_contr
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/common_widgets/common_text_field.dart';
 import 'package:gwaupp/utils/app_images.dart';
-import 'package:gwaupp/utils/app_pages.dart';
 
 class CreateYourProfileView extends GetView<CreateYourProfileController> {
   const CreateYourProfileView({super.key});
