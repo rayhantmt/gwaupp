@@ -43,6 +43,8 @@ class LogInController extends GetxController {
       storage.write('lastname', user['lastName']);
       storage.write('email', user['email']);
       storage.write('profileimg', user['imageUrl']);
+      storage.write('id', user['_id']);
+      storage.write('subscriptiontype', user['subscription_Type']);
       storage.write('token', accessToken);
       Get.offAllNamed(AppPages.mainscreen);
       print("Login success: $response");

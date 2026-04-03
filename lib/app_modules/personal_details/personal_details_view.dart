@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/personal_details/personal_details_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
@@ -12,7 +13,11 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
 
   @override
   Widget build(BuildContext context) {
+      final firstname=GetStorage().read('firstname');
+    final lastname =GetStorage().read('lastname');
+    final email =GetStorage().read('email');
     return Scaffold(
+      
       backgroundColor: AppImages.primarycolor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -21,9 +26,12 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
             SizedBox(height: Get.height * 0.06),
             Row(
               children: [
-                Icon(
-                  Icons.arrow_back_ios_new_rounded,
-                  color: Color(0xff1E1E1E),
+                GestureDetector(
+                  onTap: () => Get.back(),
+                  child: Icon(
+                    Icons.arrow_back_ios_new_rounded,
+                    color: Color(0xff1E1E1E),
+                  ),
                 ),
                 SizedBox(width: Get.width * 0.05),
                 Text(
@@ -147,7 +155,7 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'Adma smith',
+                              "$firstname $lastname",
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,
@@ -215,7 +223,7 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                                     borderRadius: BorderRadius.circular(12),
                                     color: Color(0xffF2FBF7)
                                   ),
-                                  child: Center(child: Text('something@gmail.com')),
+                                  child: Center(child: Text(email)),
                                 ),
                                 SizedBox(height: Get.height*0.03,),
                                 GestureDetector(
@@ -240,7 +248,7 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              'something@gmail.com',
+                             email,
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,

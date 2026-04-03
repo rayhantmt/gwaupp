@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'package:gwaupp/app_modules/verify_otp_forgotpass/verify_otp_forgotpass_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
@@ -126,8 +125,7 @@ class VerifyOtpForgotpassView extends GetView<VerifyOtpForgotpassController> {
               onTap: () => Get.toNamed(AppPages.updatepassword,arguments: {
                 'otp':int.parse(controller.otp.value)
               }),
-             // onTap: () => controller.verifyOtp(),
-              child: controller.isLoading.value?Center(child: CircularProgressIndicator(color: AppImages.greencolor,)):CommonButton(tittle: 'Verify OTP'))
+              child:Obx(() =>  controller.isLoading.value?Center(child: CircularProgressIndicator(color: AppImages.greencolor,)):CommonButton(tittle: 'Verify OTP'),))
           ],
         ),
       ),

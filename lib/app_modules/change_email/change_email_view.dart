@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gwaupp/app_modules/change_email/change_email_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/common_widgets/common_text_field.dart';
 import 'package:gwaupp/utils/app_images.dart';
-import 'package:gwaupp/utils/app_pages.dart';
 
-class ChangeEmailView extends StatelessWidget {
+class ChangeEmailView extends GetView<ChangeEmailController> {
   const ChangeEmailView({super.key});
 
   @override
@@ -38,11 +38,14 @@ class ChangeEmailView extends StatelessWidget {
               ],
             ),
             SizedBox(height: Get.height * 0.32),
-            CommonTextField(tittle: 'Set New Email', obsecure: false),
+            CommonTextField(tittle: 'Set New Email', obsecure: false,
+            controller: controller.emailcontroller,
+            ),
             SizedBox(height: Get.height * 0.02),
             GestureDetector(
-              onTap: () => Get.offNamed(AppPages.otpverificationemail),
-              child: CommonButton(tittle: 'Send OTP')),
+              //onTap: () => Get.offNamed(AppPages.otpverificationemail),
+              onTap: () => controller.sendotp(),
+              child:controller.isLoading.value?CircularProgressIndicator(color: AppImages.greencolor,): CommonButton(tittle: 'Send OTP')),
           ],
         ),
       ),

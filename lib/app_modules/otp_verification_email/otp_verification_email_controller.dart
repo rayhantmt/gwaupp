@@ -1,12 +1,14 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:gwaupp/api_services/api_config.dart';
+import 'package:gwaupp/api_services/api_service.dart';
+import 'package:gwaupp/api_services/exceptions.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class OtpVerificationEmailController extends GetxController {
-
-    final otpController = TextEditingController();
+  final otpController = TextEditingController();
+  late String email;
   RxString otp = ''.obs;
   RxBool isButtonEnabled = false.obs;
   RxInt secondsRemaining = 60.obs;
@@ -24,6 +26,10 @@ class OtpVerificationEmailController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
+    final arg = Get.arguments;
+    email = arg['email'];
+
     startTimer();
     for (var i = 0; i < 6; i++) {
       otpControllers[i].addListener(() {
@@ -52,13 +58,6 @@ class OtpVerificationEmailController extends GetxController {
     }
   }
 
-  // void verifyOtp() {
-  //   if (otp.value.length == 6) {
-  //     // Simulate API call
-  //     Get.snackbar("OTP Verified", "Proceeding to next step...");
-  //   }
-  // }
-
   void onOtpFieldChanged(String value, int index) {
     if (value.isNotEmpty && index < 5) {
       otpFocusNodes[index + 1].requestFocus();
@@ -69,82 +68,78 @@ class OtpVerificationEmailController extends GetxController {
     isButtonEnabled.value = otp.value.length == 6;
   }
 
+  Future<void> verifyOtp() async {
+    final body = {"email": email, "otp": int.parse(otp.value)};
 
-  // Future<void> verifyOtp() async {
-  //   final body = {"email": email, "otp": otp.value};
+    isLoading.value = true; // Start loading
+    try {
+      final response = await ApiService.post(
+        endpoint: ApiConfig.confirmchangeemail,
+        body: body,
+      );
 
-  //   isLoading.value = true; // Start loading
-  //   try {
-  //     final response = await ApiService.post(
-  //       endpoint: ApiConfig.verifyOtpendpoint,
-  //       body: body,
-  //     );
-  //     //final userId = response['data']['user']['id'];
+      Get.snackbar('Emmail Updated Successfully', response.toString());
+      print("OTP Verification Success: $response");
+      Get.toNamed(AppPages.myprofile);
+    } on AppException catch (e) {
+      Get.snackbar(
+        'Emaill Update Failed',
+        e.message,
+        backgroundColor: Colors.redAccent,
+        colorText: Colors.white,
+      );
+    } finally {
+      isLoading.value = false; // Stop loading
+    }
+  }
 
-  //     print("OTP Verification Success: $response");
-  //     Get.toNamed(
-  //       AppPages.updatepassword,
-  //       arguments: email,
-  //     ); //arguments: {'userId': userId});
-  //   } on AppException catch (e) {
-  //     Get.snackbar(
-  //       'Verification Failed',
-  //       e.message,
-  //       backgroundColor: Colors.redAccent,
-  //       colorText: Colors.white,
-  //     );
-  //   } finally {
-  //     isLoading.value = false; // Stop loading
-  //   }
-  // }
+  @override
+  void onClose() {
+    timer?.cancel();
+    for (final c in otpControllers) {
+      c.dispose();
+    }
+    for (final f in otpFocusNodes) {
+      f.dispose();
+    }
+    super.onClose();
+    //   }Future<void> verifyOtp() async {
+    //   final body = {
+    //     "data": {"email": email, "otp": otp.value},
+    //   };
 
-  // @override
-  // void onClose() {
-  //   timer?.cancel();
-  //   for (final c in otpControllers) {
-  //     c.dispose();
-  //   }
-  //   for (final f in otpFocusNodes) {
-  //     f.dispose();
-  //   }
-  //   super.onClose();
-  //   //   }Future<void> verifyOtp() async {
-  //   //   final body = {
-  //   //     "data": {"email": email, "otp": otp.value},
-  //   //   };
+    //   isLoading.value = true; // Start loading
+    //   try {
+    //     final response = await ApiService.post(
+    //       endpoint: ApiConfig.otpendpoint,
+    //       body: body,
+    //     );
+    //  final userId = response['data']['user']['id'];
 
-  //   //   isLoading.value = true; // Start loading
-  //   //   try {
-  //   //     final response = await ApiService.post(
-  //   //       endpoint: ApiConfig.otpendpoint,
-  //   //       body: body,
-  //   //     );
-  //   //  final userId = response['data']['user']['id'];
+    //     print("OTP Verification Success: $response");
+    //     Get.toNamed(Approutes.changepassword, arguments: {'userId': userId});
+    //   } on AppException catch (e) {
+    //     Get.snackbar(
+    //       'Verification Failed',
+    //       e.message,
+    //       backgroundColor: Colors.redAccent,
+    //       colorText: Colors.white,
+    //     );
+    //   } finally {
+    //     isLoading.value = false; // Stop loading
+    //   }
+    // }
 
-  //   //     print("OTP Verification Success: $response");
-  //   //     Get.toNamed(Approutes.changepassword, arguments: {'userId': userId});
-  //   //   } on AppException catch (e) {
-  //   //     Get.snackbar(
-  //   //       'Verification Failed',
-  //   //       e.message,
-  //   //       backgroundColor: Colors.redAccent,
-  //   //       colorText: Colors.white,
-  //   //     );
-  //   //   } finally {
-  //   //     isLoading.value = false; // Stop loading
-  //   //   }
-  //   // }
-
-  //   //   @override
-  //   //   void onClose() {
-  //   //     timer?.cancel();
-  //   //     for (final c in otpControllers) {
-  //   //       c.dispose();
-  //   //     }
-  //   //     for (final f in otpFocusNodes) {
-  //   //       f.dispose();
-  //   //     }
-  //   //     super.onClose();
-  //   //   }
-  // }
+    //   @override
+    //   void onClose() {
+    //     timer?.cancel();
+    //     for (final c in otpControllers) {
+    //       c.dispose();
+    //     }
+    //     for (final f in otpFocusNodes) {
+    //       f.dispose();
+    //     }
+    //     super.onClose();
+    //   }
+  }
 }

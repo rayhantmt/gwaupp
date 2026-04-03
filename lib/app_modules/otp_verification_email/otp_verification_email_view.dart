@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/otp_verification_email/otp_verification_email_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
-import 'package:gwaupp/utils/app_pages.dart';
 
 class OtpVerificationEmailView extends GetView<OtpVerificationEmailController> {
   const OtpVerificationEmailView({super.key});
@@ -22,7 +21,8 @@ class OtpVerificationEmailView extends GetView<OtpVerificationEmailController> {
             SizedBox(height: Get.height * 0.06),
             GestureDetector(
               onTap: () => Get.back(),
-              child: Image.asset(AppImages.backIcon, height: Get.height * 0.06)),
+              child: Image.asset(AppImages.backIcon, height: Get.height * 0.06),
+            ),
             SizedBox(height: Get.height * 0.05),
             Container(
               height: Get.height * 0.3,
@@ -55,10 +55,10 @@ class OtpVerificationEmailView extends GetView<OtpVerificationEmailController> {
                   const SizedBox(height: 24),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: List.generate(6, (index) {
+                    children: List.generate(4, (index) {
                       return SizedBox(
-                        width: Get.width*0.11,
-                        height: Get.height*0.07,
+                        width: Get.width * 0.15,
+                        height: Get.height * 0.07,
                         child: TextField(
                           controller: controller.otpControllers[index],
                           focusNode: controller.otpFocusNodes[index],
@@ -120,10 +120,15 @@ class OtpVerificationEmailView extends GetView<OtpVerificationEmailController> {
                 ],
               ),
             ),
-            SizedBox(height: Get.height*0.35,),
+            SizedBox(height: Get.height * 0.35),
             GestureDetector(
-              onTap: () => Get.toNamed(AppPages.myprofile),
-              child: CommonButton(tittle: 'Verify OTP'))
+              onTap: () => controller.verifyOtp(),
+              child: Obx(
+                () => controller.isLoading.value
+                    ? CircularProgressIndicator()
+                    : CommonButton(tittle: 'Verify OTP'),
+              ),
+            ),
           ],
         ),
       ),

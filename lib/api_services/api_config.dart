@@ -5,5 +5,7 @@ class ApiConfig {
   static const String loginendpoint='/api/v1/auth/login';
   static const String sendotp='/api/v1/auth/send-otp';
   static const String forgotpassotp='/api/v1/auth/reset-password';
+  static const String changeemail='/api/v1/auth/email-change-otp';
+  static const String confirmchangeemail='/api/v1/auth/change-email';
   
 }
