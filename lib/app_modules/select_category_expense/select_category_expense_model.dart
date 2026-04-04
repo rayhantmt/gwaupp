@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 //   RxBool isSelected;
 //   SelectCategoryExpenseModel({required this.isSelected, required this.category});
 // }
-import 'package:get/get.dart';
 
 class SelectCategoryExpenseModel {
   // --- UI field (pre-built) ---
