@@ -14,6 +14,7 @@ class MyProfileView extends StatelessWidget {
         final firstname=GetStorage().read('firstname');
     final lastname =GetStorage().read('lastname');
     final email =GetStorage().read('email');
+    final profileimage = GetStorage().read('profileimg');
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
       body: Padding(
@@ -55,7 +56,9 @@ class MyProfileView extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         radius: 35,
-                        backgroundImage: AssetImage(AppImages.profileImage),
+                        backgroundImage: AssetImage(
+                        profileimage ?? AppImages.noprofileimage,
+                      ),
                       ),
                       SizedBox(width: Get.width * 0.05),
                       Column(

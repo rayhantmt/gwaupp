@@ -13,11 +13,11 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
 
   @override
   Widget build(BuildContext context) {
-      final firstname=GetStorage().read('firstname');
-    final lastname =GetStorage().read('lastname');
-    final email =GetStorage().read('email');
+    final firstname = GetStorage().read('firstname');
+    final lastname = GetStorage().read('lastname');
+    final email = GetStorage().read('email');
+    final profileimage = GetStorage().read('profileimg');
     return Scaffold(
-      
       backgroundColor: AppImages.primarycolor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -58,7 +58,9 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CircleAvatar(
-                      backgroundImage: AssetImage(AppImages.profileImage),
+                      backgroundImage: AssetImage(
+                        profileimage ?? AppImages.noprofileimage,
+                      ),
                       radius: Get.height * 0.07,
                     ),
                     Text(
@@ -201,34 +203,38 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text('Change Email Address',
-                                style: GoogleFonts.montserrat( 
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 22,
-                                  color: Color(0xff2B2B2B)
+                                Text(
+                                  'Change Email Address',
+                                  style: GoogleFonts.montserrat(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 22,
+                                    color: Color(0xff2B2B2B),
+                                  ),
                                 ),
-                                ),
-                                SizedBox(height: Get.height*0.02,),
-                                Text('Cueent Email',
-                                style: GoogleFonts.inter( 
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 16,
-                                  color: Color(0xff1E1E1E)
-                                ),
+                                SizedBox(height: Get.height * 0.02),
+                                Text(
+                                  'Cueent Email',
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
+                                    color: Color(0xff1E1E1E),
+                                  ),
                                 ),
                                 Container(
-                                  height: Get.height*0.05,
+                                  height: Get.height * 0.05,
                                   width: double.infinity,
                                   decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(12),
-                                    color: Color(0xffF2FBF7)
+                                    color: Color(0xffF2FBF7),
                                   ),
                                   child: Center(child: Text(email)),
                                 ),
-                                SizedBox(height: Get.height*0.03,),
+                                SizedBox(height: Get.height * 0.03),
                                 GestureDetector(
-                                  onTap: () => Get.toNamed(AppPages.changeEmail),
-                                  child: CommonButton(tittle: 'Continue'))
+                                  onTap: () =>
+                                      Get.toNamed(AppPages.changeEmail),
+                                  child: CommonButton(tittle: 'Continue'),
+                                ),
                               ],
                             ),
                           ),
@@ -248,7 +254,7 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                             email,
+                              email,
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w400,
                                 fontSize: 14,
