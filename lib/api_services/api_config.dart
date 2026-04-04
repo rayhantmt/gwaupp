@@ -7,5 +7,5 @@ class ApiConfig {
   static const String forgotpassotp='/api/v1/auth/reset-password';
   static const String changeemail='/api/v1/auth/email-change-otp';
   static const String confirmchangeemail='/api/v1/auth/change-email';
-  
+  static const String getincomecategories='/api/v1/category/get-my-category?type=income';
 }
