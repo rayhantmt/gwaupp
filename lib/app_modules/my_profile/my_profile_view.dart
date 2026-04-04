@@ -57,7 +57,9 @@ class MyProfileView extends StatelessWidget {
                       CircleAvatar(
                         radius: 35,
                         backgroundImage: AssetImage(
-                        profileimage ?? AppImages.noprofileimage,
+                        (profileimage == null || profileimage!.isEmpty)
+                            ? AppImages.noprofileimage
+                            : profileimage!,
                       ),
                       ),
                       SizedBox(width: Get.width * 0.05),

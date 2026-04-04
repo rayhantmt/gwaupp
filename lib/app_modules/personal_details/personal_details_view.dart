@@ -59,7 +59,9 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                   children: [
                     CircleAvatar(
                       backgroundImage: AssetImage(
-                        profileimage ?? AppImages.noprofileimage,
+                        (profileimage == null || profileimage!.isEmpty)
+                            ? AppImages.noprofileimage
+                            : profileimage!,
                       ),
                       radius: Get.height * 0.07,
                     ),
