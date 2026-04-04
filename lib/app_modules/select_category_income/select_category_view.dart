@@ -11,6 +11,7 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
 
   @override
   Widget build(BuildContext context) {
+    controller.fetchCategories();
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
       body: Padding(
@@ -57,54 +58,66 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hint: Row(
-                  children: [
-                    SizedBox(width: Get.width * 0.05),
-                    Icon(Icons.search, color: Color(0xff6B6B6B)),
-                    SizedBox(width: Get.width * 0.05),
-                    Text(
-                      'Find Category',
-                      style: GoogleFonts.inter(
-                        fontWeight: FontWeight.w400,
-                        fontSize: 16,
-                        color: Color(0xff6B6B6B),
-                      ),
-                    ),
-                  ],
-                ),
-                  ),
-                ),
-              )
-            ),
-            // SizedBox(height: Get.height * 0.03),
-            SizedBox(
-              height: Get.height * 0.5,
-              child: ListView.builder(
-                itemCount: controller.categories.length,
-                itemBuilder: (context, index) => Obx(
-                  () => Container(
-                    height: Get.height * 0.04,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
+                        SizedBox(width: Get.width * 0.05),
+                        Icon(Icons.search, color: Color(0xff6B6B6B)),
+                        SizedBox(width: Get.width * 0.05),
                         Text(
-                          controller.categories[index].category,
+                          'Find Category',
                           style: GoogleFonts.inter(
                             fontWeight: FontWeight.w400,
                             fontSize: 16,
-                            color: Color(0xff2B2B2B),
+                            color: Color(0xff6B6B6B),
                           ),
-                        ),
-                        Checkbox(
-                          activeColor: Color(0xff0F3D2E),
-                          value: controller.categories[index].isSelected.value,
-                          onChanged: (value) =>
-                              controller.toggle(value!, index),
                         ),
                       ],
                     ),
                   ),
                 ),
               ),
+            ),
+            // SizedBox(height: Get.height * 0.03),
+            SizedBox(
+              height: Get.height * 0.55,
+              child: Obx(() => controller.isLoading.value
+                  ? Center(
+                    child: Row(
+                        children: [
+                          Text('Loading Categories'),
+                          LinearProgressIndicator(color: AppImages.greencolor),
+                        ],
+                      ),
+                  )
+                  : ListView.builder(
+                      itemCount: controller.categories.length,
+                      itemBuilder: (context, index) => Obx(
+                        () => Container(
+                          height: Get.height * 0.04,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
+                                controller.categories[index].category,
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 16,
+                                  color: Color(0xff2B2B2B),
+                                ),
+                              ),
+                              Checkbox(
+                                activeColor: Color(0xff0F3D2E),
+                                value: controller
+                                    .categories[index]
+                                    .isSelected
+                                    .value,
+                                onChanged: (value) =>
+                                    controller.toggle(value!, index),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),)
             ),
             SizedBox(height: Get.height * 0.13),
             GestureDetector(
@@ -161,7 +174,6 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                             ),
                           ),
                           child: TextFormField(
-                            
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 10),
                               hint: Row(
@@ -185,12 +197,11 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                             ),
                           ),
                         ),
-                        SizedBox(height: Get.height*0.05,),
-                        GestureDetector
-                        
-                        (
+                        SizedBox(height: Get.height * 0.05),
+                        GestureDetector(
                           onTap: () => Get.back(),
-                          child: CommonButton(tittle: 'Save & Apply'))
+                          child: CommonButton(tittle: 'Save & Apply'),
+                        ),
                       ],
                     ),
                   ),
@@ -201,7 +212,8 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
             SizedBox(height: Get.height * 0.03),
             GestureDetector(
               onTap: () => Get.offNamed(AppPages.addincome),
-              child: CommonButton(tittle: 'Apply Now')),
+              child: CommonButton(tittle: 'Apply Now'),
+            ),
           ],
         ),
       ),
