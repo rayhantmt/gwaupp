@@ -51,21 +51,29 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                   ),
                 ],
               ),
-              child: Row(
-                children: [
-                  SizedBox(width: Get.width * 0.05),
-                  Icon(Icons.search, color: Color(0xff6B6B6B)),
-                  SizedBox(width: Get.width * 0.05),
-                  Text(
-                    'Find Category',
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      color: Color(0xff6B6B6B),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hint: Row(
+                  children: [
+                    SizedBox(width: Get.width * 0.05),
+                    Icon(Icons.search, color: Color(0xff6B6B6B)),
+                    SizedBox(width: Get.width * 0.05),
+                    Text(
+                      'Find Category',
+                      style: GoogleFonts.inter(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16,
+                        color: Color(0xff6B6B6B),
+                      ),
                     ),
+                  ],
+                ),
                   ),
-                ],
-              ),
+                ),
+              )
             ),
             // SizedBox(height: Get.height * 0.03),
             SizedBox(
