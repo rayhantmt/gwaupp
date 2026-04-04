@@ -79,45 +79,49 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
             // SizedBox(height: Get.height * 0.03),
             SizedBox(
               height: Get.height * 0.64,
-              child: Obx(() => controller.isLoading.value
-                  ? Center(
-                    child: Row(
-                        children: [
-                          Text('Loading Categories'),
-                          LinearProgressIndicator(color: AppImages.greencolor),
-                        ],
-                      ),
-                  )
-                  : ListView.builder(
-                      itemCount: controller.categories.length,
-                      itemBuilder: (context, index) => Obx(
-                        () => Container(
-                          height: Get.height * 0.04,
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Text(
-                                controller.categories[index].category,
-                                style: GoogleFonts.inter(
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 16,
-                                  color: Color(0xff2B2B2B),
+              child: Obx(
+                () => controller.isLoading.value
+                    ? Center(
+                        child: Row(
+                          children: [
+                            Text('Loading Categories'),
+                            LinearProgressIndicator(
+                              color: AppImages.greencolor,
+                            ),
+                          ],
+                        ),
+                      )
+                    : ListView.builder(
+                        itemCount: controller.categories.length,
+                        itemBuilder: (context, index) => Obx(
+                          () => Container(
+                            height: Get.height * 0.04,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  controller.categories[index].category,
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 16,
+                                    color: Color(0xff2B2B2B),
+                                  ),
                                 ),
-                              ),
-                              Checkbox(
-                                activeColor: Color(0xff0F3D2E),
-                                value: controller
-                                    .categories[index]
-                                    .isSelected
-                                    .value,
-                                onChanged: (value) =>
-                                    controller.toggle(value!, index),
-                              ),
-                            ],
+                                Checkbox(
+                                  activeColor: Color(0xff0F3D2E),
+                                  value: controller
+                                      .categories[index]
+                                      .isSelected
+                                      .value,
+                                  onChanged: (value) =>
+                                      controller.toggle(value!, index),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ),
-                    ),)
+              ),
             ),
             //SizedBox(height: Get.height * 0.13),
             GestureDetector(
@@ -174,6 +178,7 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                             ),
                           ),
                           child: TextFormField(
+                            controller: controller.newcategorycontroller,
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 10),
                               hint: Row(
@@ -199,8 +204,22 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                         ),
                         SizedBox(height: Get.height * 0.05),
                         GestureDetector(
-                          onTap: () => Get.back(),
-                          child: CommonButton(tittle: 'Save & Apply'),
+                          //onTap: () => Get.back(),
+                         // onTap: () => controller.addNewCategory(),
+                         onTap: () {
+                           controller.addNewCategory();
+                           controller.fetchCategories();
+                           Get.back();
+                         },
+                          child: Obx(
+                            () => controller.isLoading2.value
+                                ? Center(
+                                    child: CircularProgressIndicator(
+                                      color: AppImages.greencolor,
+                                    ),
+                                  )
+                                : CommonButton(tittle: 'Save & Apply'),
+                          ),
                         ),
                       ],
                     ),
