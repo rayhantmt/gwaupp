@@ -52,46 +52,26 @@ class SelectCategoryExpenseView
                   ),
                 ],
               ),
-              child: Row(
-                children: [
-                  SizedBox(width: Get.width * 0.05),
-                  Icon(Icons.search, color: Color(0xff6B6B6B)),
-                  SizedBox(width: Get.width * 0.05),
-                  Text(
-                    'Find Category',
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      color: Color(0xff6B6B6B),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            // SizedBox(height: Get.height * 0.03),
-            SizedBox(
-              height: Get.height * 0.5,
-              child: ListView.builder(
-                itemCount: controller.categories.length,
-                itemBuilder: (context, index) => Obx(
-                  () => Container(
-                    height: Get.height * 0.04,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: TextFormField(
+                  controller: controller.searchController, // 🔁 add this
+                  onChanged: (value) =>
+                      controller.searchCategory(value), // 🔁 add this
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hint: Row(
                       children: [
+                        SizedBox(width: Get.width * 0.05),
+                        Icon(Icons.search, color: Color(0xff6B6B6B)),
+                        SizedBox(width: Get.width * 0.05),
                         Text(
-                          controller.categories[index].category,
+                          'Find Category',
                           style: GoogleFonts.inter(
                             fontWeight: FontWeight.w400,
                             fontSize: 16,
-                            color: Color(0xff2B2B2B),
+                            color: Color(0xff6B6B6B),
                           ),
-                        ),
-                        Checkbox(
-                          activeColor: Color(0xff0F3D2E),
-                          value: controller.categories[index].isSelected.value,
-                          onChanged: (value) =>
-                              controller.toggle(value!, index),
                         ),
                       ],
                     ),
@@ -99,7 +79,54 @@ class SelectCategoryExpenseView
                 ),
               ),
             ),
-            SizedBox(height: Get.height * 0.13),
+            // SizedBox(height: Get.height * 0.03),
+            SizedBox(
+              height: Get.height * 0.64,
+              child: Obx(
+                () => controller.isLoading.value
+                    ? Center(
+                        child: Row(
+                          children: [
+                            Text('Loading Categories'),
+                            LinearProgressIndicator(
+                              color: AppImages.greencolor,
+                            ),
+                          ],
+                        ),
+                      )
+                    : ListView.builder(
+                        itemCount: controller.categories.length,
+                        itemBuilder: (context, index) => Obx(
+                          () => Container(
+                            height: Get.height * 0.04,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  controller.categories[index].category,
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 16,
+                                    color: Color(0xff2B2B2B),
+                                  ),
+                                ),
+                                Checkbox(
+                                  activeColor: Color(0xff0F3D2E),
+                                  value: controller
+                                      .categories[index]
+                                      .isSelected
+                                      .value,
+                                  onChanged: (value) =>
+                                      controller.toggle(value!, index),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+              ),
+            ),
+            //SizedBox(height: Get.height * 0.13),
             GestureDetector(
               onTap: () => showModalBottomSheet(
                 context: context,
@@ -179,8 +206,20 @@ class SelectCategoryExpenseView
                         ),
                         SizedBox(height: Get.height * 0.05),
                         GestureDetector(
-                          onTap: () => Get.back(),
-                          child: CommonButton(tittle: 'Save & Apply'),
+                          onTap: () {
+                            controller.addNewCategory();
+                            controller.fetchCategories();
+                            Get.back();
+                          },
+                          child: Obx(
+                            () => controller.isLoading2.value
+                                ? Center(
+                                    child: CircularProgressIndicator(
+                                      color: AppImages.greencolor,
+                                    ),
+                                  )
+                                : CommonButton(tittle: 'Save & Apply'),
+                          ),
                         ),
                       ],
                     ),

@@ -55,6 +55,9 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
               child: Padding(
                 padding: const EdgeInsets.only(left: 20),
                 child: TextFormField(
+                  controller: controller.searchController, // 🔁 add this
+                  onChanged: (value) =>
+                      controller.searchCategory(value), // 🔁 add this
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     hint: Row(
@@ -204,13 +207,11 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                         ),
                         SizedBox(height: Get.height * 0.05),
                         GestureDetector(
-                          //onTap: () => Get.back(),
-                         // onTap: () => controller.addNewCategory(),
-                         onTap: () {
-                           controller.addNewCategory();
-                           controller.fetchCategories();
-                           Get.back();
-                         },
+                          onTap: () {
+                            controller.addNewCategory();
+                            controller.fetchCategories();
+                            Get.back();
+                          },
                           child: Obx(
                             () => controller.isLoading2.value
                                 ? Center(

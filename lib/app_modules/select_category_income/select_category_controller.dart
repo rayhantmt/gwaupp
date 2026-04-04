@@ -1,20 +1,3 @@
-// import 'package:get/get_rx/get_rx.dart';
-// import 'package:get/get_state_manager/get_state_manager.dart';
-// import 'package:gwaupp/app_modules/select_category_income/select_category_model.dart';
-
-// class SelectCategoryController extends GetxController {
-//   var categories = <SelectCategoryModel>[
-//     SelectCategoryModel(category: 'Monthly Salary', isSelected: false.obs),
-//     SelectCategoryModel(category: 'Bsuiness Income', isSelected: false.obs),
-//     SelectCategoryModel(category: 'Rental Income', isSelected: false.obs),
-//     SelectCategoryModel(category: 'Gift Received', isSelected: false.obs),
-//     SelectCategoryModel(category: 'Consulting Fees', isSelected: false.obs),
-//     SelectCategoryModel(category: 'Service Charge', isSelected: false.obs),
-//   ];
-//   void toggle(bool b, int i) {
-//     categories[i].isSelected.value = b;
-//   }
-// }
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
@@ -24,10 +7,18 @@ import 'package:gwaupp/api_services/exceptions.dart';
 import 'package:gwaupp/app_modules/select_category_income/select_category_model.dart';
 
 class SelectCategoryController extends GetxController {
+  // ── displayed list (filtered by search) ──
   var categories = <SelectCategoryModel>[].obs;
 
+  // ── source of truth (never touched after fetch) ──
+  var allCategories = <SelectCategoryModel>[].obs;
+
   var isLoading = false.obs;
+  var isLoading2 = false.obs;
   var errorMessage = ''.obs;
+
+  final newcategorycontroller = TextEditingController();
+  final searchController = TextEditingController();
 
   @override
   void onInit() {
@@ -52,11 +43,19 @@ class SelectCategoryController extends GetxController {
         final List userCategories = data['result'] ?? [];
         final List defaultCategories = data['DEFAULT_CATEGORIES'] ?? [];
 
-        // merge both into single categories list
-        categories.value = [
+        final merged = [
           ...userCategories.map((e) => SelectCategoryModel.fromApi(e)),
           ...defaultCategories.map((e) => SelectCategoryModel.fromDefault(e)),
         ];
+
+        // store in both — allCategories is source, categories is what UI sees
+        allCategories.value = merged;
+        categories.value = merged;
+
+        // re-apply search if user had typed something before refresh
+        if (searchController.text.trim().isNotEmpty) {
+          searchCategory(searchController.text);
+        }
       }
     } catch (e) {
       errorMessage.value = e.toString();
@@ -65,8 +64,6 @@ class SelectCategoryController extends GetxController {
     }
   }
 
-  final newcategorycontroller = TextEditingController();
-  RxBool isLoading2 = false.obs;
   Future<void> addNewCategory() async {
     final token = GetStorage().read('token');
     final body = {
@@ -74,7 +71,7 @@ class SelectCategoryController extends GetxController {
       "type": "income",
     };
 
-    isLoading2.value = true; // Start loading
+    isLoading2.value = true;
     try {
       final response = await ApiService.post(
         endpoint: ApiConfig.addnewcategory,
@@ -82,22 +79,39 @@ class SelectCategoryController extends GetxController {
         headers: {'Authorization': token, 'Content-Type': 'application/json'},
       );
 
-      Get.snackbar('Category Added Successfully', response.toString());
+      newcategorycontroller.clear();
+      Get.snackbar('Success', 'Category added successfully');
       print("Category Added: $response");
-     // Get.back();
     } on AppException catch (e) {
       Get.snackbar(
-        'Category Adding failed',
+        'Failed',
         e.message,
         backgroundColor: Colors.redAccent,
         colorText: Colors.white,
       );
     } finally {
-      isLoading2.value = false; // Stop loading
+      isLoading2.value = false;
+    }
+  }
+
+  void searchCategory(String query) {
+    if (query.trim().isEmpty) {
+      categories.value = allCategories;
+    } else {
+      categories.value = allCategories
+          .where((e) => e.category.toLowerCase().contains(query.toLowerCase()))
+          .toList();
     }
   }
 
   void toggle(bool b, int i) {
     categories[i].isSelected.value = b;
+  }
+
+  @override
+  void onClose() {
+    newcategorycontroller.dispose();
+    searchController.dispose();
+    super.onClose();
   }
 }

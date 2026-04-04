@@ -8,5 +8,6 @@ class ApiConfig {
   static const String changeemail='/api/v1/auth/email-change-otp';
   static const String confirmchangeemail='/api/v1/auth/change-email';
   static const String getincomecategories='/api/v1/category/get-my-category?type=income';
+   static const String getexpensecategories='/api/v1/category/get-my-category?type=expense';
   static const String addnewcategory='/api/v1/category/create-category';
 }
