@@ -11,6 +11,9 @@ class MyProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        final firstname=GetStorage().read('firstname');
+    final lastname =GetStorage().read('lastname');
+    final email =GetStorage().read('email');
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
       body: Padding(
@@ -59,7 +62,7 @@ class MyProfileView extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Adam Smith',
+                          '$firstname $lastname',
                             style: GoogleFonts.inter(
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
@@ -67,7 +70,7 @@ class MyProfileView extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            'adam_s854',
+                            email,
                             style: GoogleFonts.manrope(
                               fontWeight: FontWeight.w500,
                               fontSize: 14,
