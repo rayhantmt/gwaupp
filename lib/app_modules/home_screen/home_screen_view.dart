@@ -11,9 +11,9 @@ class HomeScreenView extends GetView<HomeScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    final firstname=GetStorage().read('firstname');
-    final lastname =GetStorage().read('lastname');
-    
+    final firstname = GetStorage().read('firstname');
+    final lastname = GetStorage().read('lastname');
+    final profileimage = GetStorage().read('profileimg');
 
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
@@ -87,7 +87,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                               onTap: () => Get.toNamed(AppPages.myprofile),
                               child: CircleAvatar(
                                 backgroundImage: AssetImage(
-                                  AppImages.profileImage,
+                                  profileimage ?? AppImages.noprofileimage,
                                 ),
                               ),
                             ),
@@ -103,7 +103,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                         ),
                         Text(
                           //'Jmaes Walker',
-                       "$firstname $lastname" ,
+                          "$firstname $lastname",
                           style: GoogleFonts.montserrat(
                             fontWeight: FontWeight.w600,
                             fontSize: 22,
