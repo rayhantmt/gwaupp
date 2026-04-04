@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:gwaupp/api_services/api_config.dart';
 import 'package:gwaupp/api_services/api_service.dart';
 import 'package:gwaupp/api_services/exceptions.dart';
@@ -69,13 +70,18 @@ class OtpVerificationEmailController extends GetxController {
   }
 
   Future<void> verifyOtp() async {
+    final token=GetStorage().read('token');
     final body = {"email": email, "otp": int.parse(otp.value)};
 
     isLoading.value = true; // Start loading
     try {
-      final response = await ApiService.post(
+      final response = await ApiService.patch(
         endpoint: ApiConfig.confirmchangeemail,
         body: body,
+        headers: {
+          'Authorization':token,
+          'Content-Type': 'application/json',
+        }
       );
 
       Get.snackbar('Emmail Updated Successfully', response.toString());
@@ -103,43 +109,5 @@ class OtpVerificationEmailController extends GetxController {
       f.dispose();
     }
     super.onClose();
-    //   }Future<void> verifyOtp() async {
-    //   final body = {
-    //     "data": {"email": email, "otp": otp.value},
-    //   };
-
-    //   isLoading.value = true; // Start loading
-    //   try {
-    //     final response = await ApiService.post(
-    //       endpoint: ApiConfig.otpendpoint,
-    //       body: body,
-    //     );
-    //  final userId = response['data']['user']['id'];
-
-    //     print("OTP Verification Success: $response");
-    //     Get.toNamed(Approutes.changepassword, arguments: {'userId': userId});
-    //   } on AppException catch (e) {
-    //     Get.snackbar(
-    //       'Verification Failed',
-    //       e.message,
-    //       backgroundColor: Colors.redAccent,
-    //       colorText: Colors.white,
-    //     );
-    //   } finally {
-    //     isLoading.value = false; // Stop loading
-    //   }
-    // }
-
-    //   @override
-    //   void onClose() {
-    //     timer?.cancel();
-    //     for (final c in otpControllers) {
-    //       c.dispose();
-    //     }
-    //     for (final f in otpFocusNodes) {
-    //       f.dispose();
-    //     }
-    //     super.onClose();
-    //   }
   }
 }
