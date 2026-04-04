@@ -78,7 +78,7 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
             ),
             // SizedBox(height: Get.height * 0.03),
             SizedBox(
-              height: Get.height * 0.55,
+              height: Get.height * 0.64,
               child: Obx(() => controller.isLoading.value
                   ? Center(
                     child: Row(
@@ -119,7 +119,7 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                       ),
                     ),)
             ),
-            SizedBox(height: Get.height * 0.13),
+            //SizedBox(height: Get.height * 0.13),
             GestureDetector(
               onTap: () => showModalBottomSheet(
                 context: context,
