@@ -32,5 +32,12 @@ class AddExpenseController extends GetxController{
   void togglerepeated (bool b){
 repeatedTrans.value=b;
   }
+  late String selectedcat;
+  @override
+  void onInit() {
+   selectedcat= Get.arguments??'Select a category';
+   print(selectedcat);
+    super.onInit();
+  }
 
 }

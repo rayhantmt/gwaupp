@@ -126,7 +126,9 @@ class SelectCategoryExpenseController extends GetxController {
   // void toggle(bool b, int i) {
   //   categories[i].isSelected.value = b;
   // }
-  void toggle(bool value, int index) {
+   late String selectedcategory ;
+  void toggle(bool value, int index,String category) {
+ 
   // 1. If the user is unchecking the only selected item, let them
   if (!value) {
     categories[index].isSelected.value = false;
@@ -137,9 +139,10 @@ class SelectCategoryExpenseController extends GetxController {
   for (var category in categories) {
     category.isSelected.value = false;
   }
-
+ 
   // 3. Set the clicked one to true
   categories[index].isSelected.value = true;
+ 
 }
 
   @override

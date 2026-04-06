@@ -118,8 +118,14 @@ class SelectCategoryExpenseView
                                       .categories[index]
                                       .isSelected
                                       .value,
-                                  onChanged: (value) =>
-                                      controller.toggle(value!, index),
+                                  onChanged: (value){ controller.toggle(
+                                    value!,
+                                    index,
+                                    controller.categories[index].category,
+                                  );
+                                  controller.selectedcategory=controller.categories[index].category;
+                                  print(controller.categories[index].category);
+                                  }
                                 ),
                                 GestureDetector(
                                   onTap: () => controller.deleteCategory(
@@ -247,7 +253,12 @@ class SelectCategoryExpenseView
             ),
             SizedBox(height: Get.height * 0.03),
             GestureDetector(
-              onTap: () => Get.offNamed(AppPages.addexpense),
+              onTap: () => Get.offNamed(
+                AppPages.addexpense,
+                arguments: {'selected': controller.selectedcategory},
+
+              ),
+             // onTap: () => print(controller.selectedcategory),
               child: CommonButton(tittle: 'Apply Now'),
             ),
           ],

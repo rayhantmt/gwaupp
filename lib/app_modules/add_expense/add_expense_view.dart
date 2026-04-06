@@ -148,7 +148,7 @@ class AddExpenseView extends GetView<AddExpenseController> {
                       ),
                       SizedBox(width: Get.width * 0.05),
                       Text(
-                        'Select a category',
+                        controller.selectedcat,
                         style: GoogleFonts.inter(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
