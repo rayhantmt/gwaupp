@@ -96,6 +96,7 @@ class SelectCategoryExpenseController extends GetxController {
       );
 
       newcategorycontroller.clear();
+      fetchCategories();
       Get.snackbar('Success', 'Category added successfully');
       print("Category Added: $response");
     } on AppException catch (e) {
