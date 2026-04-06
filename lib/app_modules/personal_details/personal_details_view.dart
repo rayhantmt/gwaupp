@@ -137,21 +137,31 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                                   ),
                                 ),
                                 CommonTextField(
+                                  controller: controller.firstnamecontroller,
                                   tittle: 'First Name',
                                   obsecure: false,
                                 ),
                                 CommonTextField(
+                                  controller: controller.lastnamecontroller,
                                   tittle: 'Last Name',
                                   obsecure: false,
                                 ),
                                 SizedBox(height: Get.height * 0.03),
                                 GestureDetector(
-                                  onTap: () {controller.updateName();
-                                  Get.back();
+                                  onTap: () {
+                                    controller.updateName();
+                                    Get.back();
                                   },
-                                  child: Obx(() => controller.isLoading2.value?Center(child: CircularProgressIndicator(
-                                    color: AppImages.greencolor,
-                                  )):CommonButton(tittle: 'Save Changes'))),
+                                  child: Obx(
+                                    () => controller.isLoading2.value
+                                        ? Center(
+                                            child: CircularProgressIndicator(
+                                              color: AppImages.greencolor,
+                                            ),
+                                          )
+                                        : CommonButton(tittle: 'Save Changes'),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
