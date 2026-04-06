@@ -110,6 +110,7 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                                     color: Color(0xff2B2B2B),
                                   ),
                                 ),
+                                Spacer(),
                                 Checkbox(
                                   activeColor: Color(0xff0F3D2E),
                                   value: controller
@@ -118,6 +119,20 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                                       .value,
                                   onChanged: (value) =>
                                       controller.toggle(value!, index),
+                                ),
+                                 GestureDetector(
+                                  onTap: () => controller.deleteCategory(
+                                    controller.categories[index].id!,
+                                  ),
+                                  child: SizedBox(
+                                    child: Obx(
+                                      () => controller.isLoading3.value
+                                          ? CircularProgressIndicator(
+                                              color: Colors.red,
+                                            )
+                                          : Icon(Icons.delete),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),

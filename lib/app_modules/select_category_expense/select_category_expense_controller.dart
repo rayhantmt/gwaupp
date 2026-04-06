@@ -138,16 +138,14 @@ class SelectCategoryExpenseController extends GetxController {
 
   Future<void> deleteCategory(String id) async {
     isLoading3.value = false;
-final token=GetStorage().read('token');
-    final body = { "":""};
+    final token = GetStorage().read('token');
+    final body = {"": ""};
 
     try {
       final response = await ApiService.delete(
-        endpoint: '${ApiConfig.deletecategory}$id' ,
+        endpoint: '${ApiConfig.deletecategory}$id',
         body: body,
-        headers: {
-          "Authorization":token
-        }
+        headers: {"Authorization": token},
       );
 
       print("Category Deletion success: $response");
