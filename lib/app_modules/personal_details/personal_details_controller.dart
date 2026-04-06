@@ -59,7 +59,7 @@ class PersonalDetailsController extends GetxController {
       );
 
       print(' User Created: ${response.data}');
-      globalController.updatprofileimage(profileImage.value!.path);
+      globalController.updatprofileimage(response.data['data']['imageUrl']);
       Get.snackbar('Success', 'Profile image uploaded successfully');
     } on BadRequestException catch (e) {
       // Caught by our custom DioClient logic
