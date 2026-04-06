@@ -43,6 +43,6 @@ class AppImages {
   static const String deleteicon='assets/delete_icon.png';
   static const String privacybanner='assets/privacy_banner.png';
   static const Color greencolor=Color(0xff0F3D2E);
-  static const String noprofileimage='assets/no_profile_picture.png';
+  static const String noprofileimage='https://i.postimg.cc/pdtcv4h5/no-profile-picture.png';
 
 }

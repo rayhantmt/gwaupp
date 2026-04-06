@@ -86,7 +86,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                             GestureDetector(
                               onTap: () => Get.toNamed(AppPages.myprofile),
                               child: CircleAvatar(
-                               backgroundImage: AssetImage(
+                               backgroundImage: NetworkImage(
                         (profileimage == null || profileimage!.isEmpty)
                             ? AppImages.noprofileimage
                             : profileimage!,

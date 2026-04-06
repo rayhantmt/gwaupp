@@ -110,7 +110,7 @@ class SelectCategoryExpenseView
                                     color: Color(0xff2B2B2B),
                                   ),
                                 ),
-                                Checkbox(
+                                Spacer(),                                Checkbox(
                                   activeColor: Color(0xff0F3D2E),
                                   value: controller
                                       .categories[index]
@@ -119,6 +119,7 @@ class SelectCategoryExpenseView
                                   onChanged: (value) =>
                                       controller.toggle(value!, index),
                                 ),
+                                Icon(Icons.delete)
                               ],
                             ),
                           ),

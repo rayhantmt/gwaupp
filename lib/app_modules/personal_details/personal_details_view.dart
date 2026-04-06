@@ -63,7 +63,7 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                               color: AppImages.greencolor,
                             )
                           : CircleAvatar(
-                              backgroundImage: AssetImage(
+                              backgroundImage: NetworkImage(
                                 (profileimage == null || profileimage!.isEmpty)
                                     ? AppImages.noprofileimage
                                     : profileimage!,

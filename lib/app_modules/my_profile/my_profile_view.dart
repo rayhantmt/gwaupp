@@ -56,7 +56,7 @@ class MyProfileView extends StatelessWidget {
                     children: [
                       CircleAvatar(
                         radius: 35,
-                        backgroundImage: AssetImage(
+                        backgroundImage: NetworkImage(
                         (profileimage == null || profileimage!.isEmpty)
                             ? AppImages.noprofileimage
                             : profileimage!,
