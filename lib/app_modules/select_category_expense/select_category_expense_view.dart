@@ -99,6 +99,7 @@ class SelectCategoryExpenseView
                         itemBuilder: (context, index) => Obx(
                           () => Container(
                             height: Get.height * 0.04,
+                            width: double.infinity,
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
@@ -110,7 +111,8 @@ class SelectCategoryExpenseView
                                     color: Color(0xff2B2B2B),
                                   ),
                                 ),
-                                Spacer(),                                Checkbox(
+                                Spacer(),
+                                Checkbox(
                                   activeColor: Color(0xff0F3D2E),
                                   value: controller
                                       .categories[index]
@@ -119,7 +121,20 @@ class SelectCategoryExpenseView
                                   onChanged: (value) =>
                                       controller.toggle(value!, index),
                                 ),
-                                Icon(Icons.delete)
+                                GestureDetector(
+                                  onTap: () => controller.deleteCategory(
+                                    controller.categories[index].id!,
+                                  ),
+                                  child: SizedBox(
+                                    child: Obx(
+                                      () => controller.isLoading3.value
+                                          ? CircularProgressIndicator(
+                                              color: Colors.red,
+                                            )
+                                          : Icon(Icons.delete),
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),

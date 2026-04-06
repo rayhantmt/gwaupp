@@ -10,4 +10,5 @@ class ApiConfig {
   static const String getincomecategories='/api/v1/category/get-my-category?type=income';
    static const String getexpensecategories='/api/v1/category/get-my-category?type=expense';
   static const String addnewcategory='/api/v1/category/create-category';
+  static const String deletecategory ='/api/v1/category/delete-my-category/';
 }

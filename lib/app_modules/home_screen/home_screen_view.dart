@@ -15,7 +15,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
     // final firstname = GetStorage().read('firstname');
     // final lastname = GetStorage().read('lastname');
     final serviecController=Get.find<GlobalServicesController>();
-    final profileimage = serviecController.profileimg.value;//GetStorage().read('profileimg');
+   // final profileimage = serviecController.profileimg.value;//GetStorage().read('profileimg');
 
     return Scaffold(
       backgroundColor: AppImages.primarycolor,

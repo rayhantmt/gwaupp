@@ -61,7 +61,9 @@ class SelectCategoryExpenseController extends GetxController {
 
         final merged = [
           ...userCategories.map((e) => SelectCategoryExpenseModel.fromApi(e)),
-          ...defaultCategories.map((e) => SelectCategoryExpenseModel.fromDefault(e)),
+          ...defaultCategories.map(
+            (e) => SelectCategoryExpenseModel.fromDefault(e),
+          ),
         ];
 
         // store in both — allCategories is source, categories is what UI sees
@@ -130,5 +132,30 @@ class SelectCategoryExpenseController extends GetxController {
     newcategorycontroller.dispose();
     searchController.dispose();
     super.onClose();
+  }
+
+  RxBool isLoading3 = false.obs;
+
+  Future<void> deleteCategory(String id) async {
+    isLoading3.value = false;
+final token=GetStorage().read('token');
+    final body = { "":""};
+
+    try {
+      final response = await ApiService.delete(
+        endpoint: '${ApiConfig.deletecategory}$id' ,
+        body: body,
+        headers: {
+          "Authorization":token
+        }
+      );
+
+      print("Category Deletion success: $response");
+      fetchCategories();
+    } on AppException catch (e) {
+      Get.snackbar("Login Failed", e.message);
+    } finally {
+      isLoading3.value = false;
+    }
   }
 }
