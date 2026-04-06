@@ -132,6 +132,7 @@ class SelectCategoryController extends GetxController {
       fetchCategories();
     } on AppException catch (e) {
       Get.snackbar("Login Failed", e.message);
+    
     } finally {
       isLoading3.value = false;
     }

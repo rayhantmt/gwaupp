@@ -123,9 +123,24 @@ class SelectCategoryExpenseController extends GetxController {
     }
   }
 
-  void toggle(bool b, int i) {
-    categories[i].isSelected.value = b;
+  // void toggle(bool b, int i) {
+  //   categories[i].isSelected.value = b;
+  // }
+  void toggle(bool value, int index) {
+  // 1. If the user is unchecking the only selected item, let them
+  if (!value) {
+    categories[index].isSelected.value = false;
+    return;
   }
+
+  // 2. Loop through all categories and set them to false
+  for (var category in categories) {
+    category.isSelected.value = false;
+  }
+
+  // 3. Set the clicked one to true
+  categories[index].isSelected.value = true;
+}
 
   @override
   void onClose() {
