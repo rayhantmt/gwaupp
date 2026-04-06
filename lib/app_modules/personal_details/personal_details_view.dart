@@ -57,13 +57,19 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    CircleAvatar(
-                      backgroundImage: AssetImage(
-                        (profileimage == null || profileimage!.isEmpty)
-                            ? AppImages.noprofileimage
-                            : profileimage!,
-                      ),
-                      radius: Get.height * 0.07,
+                    Obx(
+                      () => controller.isLoading.value
+                          ? CircularProgressIndicator(
+                              color: AppImages.greencolor,
+                            )
+                          : CircleAvatar(
+                              backgroundImage: AssetImage(
+                                (profileimage == null || profileimage!.isEmpty)
+                                    ? AppImages.noprofileimage
+                                    : profileimage!,
+                              ),
+                              radius: Get.height * 0.07,
+                            ),
                     ),
                     Text(
                       'Must be JPG,JPEG or PNG',
@@ -139,7 +145,13 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                                   obsecure: false,
                                 ),
                                 SizedBox(height: Get.height * 0.03),
-                                CommonButton(tittle: 'Save Changes'),
+                                GestureDetector(
+                                  onTap: () {controller.updateName();
+                                  Get.back();
+                                  },
+                                  child: Obx(() => controller.isLoading2.value?Center(child: CircularProgressIndicator(
+                                    color: AppImages.greencolor,
+                                  )):CommonButton(tittle: 'Save Changes'))),
                               ],
                             ),
                           ),

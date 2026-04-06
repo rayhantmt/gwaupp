@@ -181,6 +181,7 @@ class SelectCategoryExpenseView
                             ),
                           ),
                           child: TextFormField(
+                            controller: controller.newcategorycontroller,
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 10),
                               hint: Row(
