@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/common_widgets/profile_container.dart';
+import 'package:gwaupp/global_services/global_services.dart';
 import 'package:gwaupp/utils/app_images.dart';
 import 'package:gwaupp/utils/app_pages.dart';
 
@@ -11,10 +12,12 @@ class MyProfileView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-        final firstname=GetStorage().read('firstname');
-    final lastname =GetStorage().read('lastname');
-    final email =GetStorage().read('email');
-    final profileimage = GetStorage().read('profileimg');
+    //     final firstname=GetStorage().read('firstname');
+    // final lastname =GetStorage().read('lastname');
+    final globalController = Get.find<GlobalServicesController>();
+    final email = GetStorage().read('email');
+    final profileimage =
+        globalController.profileimg.value; //GetStorage().read('profileimg');
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
       body: Padding(
@@ -54,24 +57,26 @@ class MyProfileView extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Row(
                     children: [
-                      CircleAvatar(
+                    Obx(() =>   CircleAvatar(
                         radius: 35,
                         backgroundImage: NetworkImage(
-                        (profileimage == null || profileimage!.isEmpty)
-                            ? AppImages.noprofileimage
-                            : profileimage!,
-                      ),
-                      ),
+                          (globalController.profileimg.value == null || globalController.profileimg.value!.isEmpty)
+                              ? AppImages.noprofileimage
+                              : globalController.profileimg.value!,
+                        ),
+                      ),),
                       SizedBox(width: Get.width * 0.05),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
-                          '$firstname $lastname',
-                            style: GoogleFonts.inter(
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                              color: Color(0xff1E1E1E),
+                          Obx(
+                            () => Text(
+                              '${globalController.firstName} ${globalController.lastName}',
+                              style: GoogleFonts.inter(
+                                fontWeight: FontWeight.w600,
+                                fontSize: 16,
+                                color: Color(0xff1E1E1E),
+                              ),
                             ),
                           ),
                           Text(
@@ -238,7 +243,8 @@ class MyProfileView extends StatelessWidget {
                 GetStorage().erase();
                 Get.offAllNamed(AppPages.login);
               },
-              child: Image.asset(AppImages.signout)),
+              child: Image.asset(AppImages.signout),
+            ),
           ],
         ),
       ),

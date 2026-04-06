@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/personal_details/personal_details_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/common_widgets/common_text_field.dart';
+import 'package:gwaupp/global_services/global_services.dart';
 import 'package:gwaupp/utils/app_images.dart';
 import 'package:gwaupp/utils/app_pages.dart';
 
@@ -13,10 +14,12 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
 
   @override
   Widget build(BuildContext context) {
-    final firstname = GetStorage().read('firstname');
-    final lastname = GetStorage().read('lastname');
+    // final firstname = GetStorage().read('firstname');
+    // final lastname = GetStorage().read('lastname');
+    final serviceController = Get.find<GlobalServicesController>();
     final email = GetStorage().read('email');
-    final profileimage = GetStorage().read('profileimg');
+    final profileimage =
+        serviceController.profileimg.value; //GetStorage().read('profileimg');
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
       body: Padding(
@@ -64,9 +67,9 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                             )
                           : CircleAvatar(
                               backgroundImage: NetworkImage(
-                                (profileimage == null || profileimage!.isEmpty)
+                                (serviceController.profileimg.value == null || serviceController.profileimg.value!.isEmpty)
                                     ? AppImages.noprofileimage
-                                    : profileimage!,
+                                    : serviceController.profileimg.value!,
                               ),
                               radius: Get.height * 0.07,
                             ),
@@ -180,12 +183,14 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              "$firstname $lastname",
-                              style: GoogleFonts.inter(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 14,
-                                color: Color(0xff1E1E1E),
+                            Obx(
+                              () => Text(
+                                "${serviceController.firstName} ${serviceController.lastName}",
+                                style: GoogleFonts.inter(
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 14,
+                                  color: Color(0xff1E1E1E),
+                                ),
                               ),
                             ),
                             Icon(

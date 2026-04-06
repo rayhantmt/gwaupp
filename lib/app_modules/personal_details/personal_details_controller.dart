@@ -7,6 +7,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:gwaupp/api_services/api_config.dart';
 import 'package:gwaupp/api_services/dio_service.dart';
 import 'package:gwaupp/api_services/exceptions.dart';
+import 'package:gwaupp/global_services/global_services.dart';
 import 'package:image_picker/image_picker.dart';
 
 class PersonalDetailsController extends GetxController {
@@ -37,6 +38,7 @@ class PersonalDetailsController extends GetxController {
   Future<void> uploadProfileImage() async {
     final token = GetStorage().read('token');
     final email = GetStorage().read('email');
+     final globalController=Get.find<GlobalServicesController>();
     isLoading.value = true;
 
     try {
@@ -57,6 +59,7 @@ class PersonalDetailsController extends GetxController {
       );
 
       print(' User Created: ${response.data}');
+      globalController.updatprofileimage(profileImage.value!.path);
       Get.snackbar('Success', 'Profile image uploaded successfully');
     } on BadRequestException catch (e) {
       // Caught by our custom DioClient logic
@@ -94,6 +97,8 @@ class PersonalDetailsController extends GetxController {
         data: formData,
       );
       final data = response.data['data'];
+      final globalController=Get.find<GlobalServicesController>();
+      globalController.updateUserData(firstnamecontroller.text, lastnamecontroller.text);
       print('Nmae Updated: ${response.data}');
       Get.snackbar('Success', 'Name Updatd Successfully');
     } on BadRequestException catch (e) {

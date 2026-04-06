@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/home_screen/home_screen_controller.dart';
+import 'package:gwaupp/global_services/global_services.dart';
 import 'package:gwaupp/utils/app_images.dart';
 import 'package:gwaupp/utils/app_pages.dart';
 
@@ -11,9 +12,10 @@ class HomeScreenView extends GetView<HomeScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    final firstname = GetStorage().read('firstname');
-    final lastname = GetStorage().read('lastname');
-    final profileimage = GetStorage().read('profileimg');
+    // final firstname = GetStorage().read('firstname');
+    // final lastname = GetStorage().read('lastname');
+    final serviecController=Get.find<GlobalServicesController>();
+    final profileimage = serviecController.profileimg.value;//GetStorage().read('profileimg');
 
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
@@ -85,13 +87,14 @@ class HomeScreenView extends GetView<HomeScreenController> {
                             SizedBox(width: Get.width * 0.03),
                             GestureDetector(
                               onTap: () => Get.toNamed(AppPages.myprofile),
-                              child: CircleAvatar(
-                               backgroundImage: NetworkImage(
-                        (profileimage == null || profileimage!.isEmpty)
-                            ? AppImages.noprofileimage
-                            : profileimage!,
-                      ),
-                              ),
+                              child: Obx(() => CircleAvatar(
+                                backgroundImage: NetworkImage(
+                                  (serviecController.profileimg.value == null ||
+                                          serviecController.profileimg.value!.isEmpty)
+                                      ? AppImages.noprofileimage
+                                      : serviecController.profileimg.value!,
+                                ),
+                              ),)
                             ),
                           ],
                         ),
@@ -103,15 +106,15 @@ class HomeScreenView extends GetView<HomeScreenController> {
                             color: Colors.white,
                           ),
                         ),
-                        Text(
+                        Obx(() => Text(
                           //'Jmaes Walker',
-                          "$firstname $lastname",
+                          "${serviecController.firstName} ${serviecController.lastName}",
                           style: GoogleFonts.montserrat(
                             fontWeight: FontWeight.w600,
                             fontSize: 22,
                             color: Colors.white,
                           ),
-                        ),
+                        ),),
                         SizedBox(height: Get.height * 0.03),
                         Container(
                           height: Get.height * 0.2,
