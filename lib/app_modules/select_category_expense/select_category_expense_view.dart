@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gwaupp/app_modules/add_expense/add_expense_controller.dart';
 import 'package:gwaupp/app_modules/select_category_expense/select_category_expense_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
@@ -253,11 +254,14 @@ class SelectCategoryExpenseView
             ),
             SizedBox(height: Get.height * 0.03),
             GestureDetector(
-              onTap: () => Get.offNamed(
+              onTap: () { Get.offNamed(
                 AppPages.addexpense,
-                arguments: {'selected': controller.selectedcategory},
+                //arguments: {'selected': controller.selectedcategory},
 
-              ),
+              );
+              final ac=Get.find<AddExpenseController>();
+              ac.selectedcat.value=controller.selectedcategory;
+              },
              // onTap: () => print(controller.selectedcategory),
               child: CommonButton(tittle: 'Apply Now'),
             ),
