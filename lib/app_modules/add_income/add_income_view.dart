@@ -190,10 +190,10 @@ class AddIncomeView extends GetView<AddIncomeController> {
                     ],
                   ),
                   SizedBox(height: 24),
-                  IndexedStack(
-                    index: selected,
-                    children: [CashContent(), CreditContent(), BankContent()],
-                  ),
+                  // IndexedStack(
+                  //   index: selected,
+                  //   children: [CashContent(), CreditContent(), BankContent()],
+                  // ),
                 ],
               );
             }),
@@ -205,6 +205,7 @@ class AddIncomeView extends GetView<AddIncomeController> {
                 border: Border.all(width: 1, color: Color(0xffD8D9E0)),
               ),
               child: TextFormField(
+                controller: controller.amountcontroller,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.only(left: 10),
                   border: InputBorder.none,
@@ -254,6 +255,7 @@ class AddIncomeView extends GetView<AddIncomeController> {
                 border: Border.all(width: 1, color: Color(0xffD8D9E0)),
               ),
               child: TextFormField(
+                controller: controller.notecontroller,
                 decoration: InputDecoration(
                   border: InputBorder.none,
                   contentPadding: EdgeInsets.only(left: 10),
@@ -292,7 +294,13 @@ class AddIncomeView extends GetView<AddIncomeController> {
               ],
             ),
             SizedBox(height: Get.height*0.05,),
-            CommonButton(tittle: 'Add Income')
+            GestureDetector(
+              onTap: () => controller.addIncome(),
+              child: Obx(() => controller.isLoading2.value?Center(
+                child: CircularProgressIndicator(
+                  color: AppImages.greencolor,
+                ),
+              ):CommonButton(tittle: 'Add Income')))
           ],
         ),
       ),
