@@ -204,6 +204,7 @@ class AddExpenseView extends GetView<AddExpenseController> {
                 border: Border.all(width: 1, color: Color(0xffD8D9E0)),
               ),
               child: TextFormField(
+                controller: controller.amountcontroller,
                 decoration: InputDecoration(
                   contentPadding: EdgeInsets.only(left: 10),
                   border: InputBorder.none,
