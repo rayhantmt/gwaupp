@@ -43,9 +43,16 @@ class AddExpenseController extends GetxController {
   }
 
   var selectedMethod = 0.obs; // 0=Cash, 1=Credit, 2=Bank
-
+var selectedMethodName = 'Cash'.obs;
   void selectMethod(int index) {
     selectedMethod.value = index;
+    if (index == 0) {
+      selectedMethodName.value = 'Cash';
+    } else if (index == 1) {
+      selectedMethodName.value = 'Credit';
+    } else if (index == 2) {
+      selectedMethodName.value = 'Bank';
+    }
   }
 
   RxBool repeatedTrans = false.obs;
@@ -62,7 +69,7 @@ class AddExpenseController extends GetxController {
       "date_time": "2026-04-07T10:30:00.000Z",
       "type": "expense",
       "category": selectedcat.value,
-      "payment_method": "cash",
+      "payment_method": selectedMethodName.value,
       "amount": amountcontroller.text,
       "note": notecontroller.text,
       "repeat": repeatedTrans.value,
