@@ -189,10 +189,10 @@ class AddExpenseView extends GetView<AddExpenseController> {
                     ],
                   ),
                   SizedBox(height: 24),
-                  IndexedStack(
-                    index: selected,
-                    children: [CashContent(), CreditContent(), BankContent()],
-                  ),
+                  // IndexedStack(
+                  //   index: selected,
+                  //   children: [CashContent(), CreditContent(), BankContent()],
+                  // ),
                 ],
               );
             }),
