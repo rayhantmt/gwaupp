@@ -148,14 +148,14 @@ class AddIncomeView extends GetView<AddIncomeController> {
                         height: Get.height * 0.035,
                       ),
                       SizedBox(width: Get.width * 0.05),
-                      Text(
-                        'Select a category',
+                     Obx(() =>  Text(
+                       controller.selectedcat.value,
                         style: GoogleFonts.inter(
                           fontWeight: FontWeight.w400,
                           fontSize: 14,
                           color: Color(0xff6B6B6B),
                         ),
-                      ),
+                      ),),
                       Spacer(),
                       Icon(
                         Icons.arrow_forward_ios_rounded,

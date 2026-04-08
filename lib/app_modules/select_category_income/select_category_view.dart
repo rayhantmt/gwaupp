@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gwaupp/app_modules/add_income/add_income_controller.dart';
 import 'package:gwaupp/app_modules/select_category_income/select_category_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
@@ -117,10 +118,16 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
                                       .categories[index]
                                       .isSelected
                                       .value,
-                                  onChanged: (value) =>
-                                      controller.toggle(value!, index),
+                                  onChanged: (value) { controller.toggle(
+                                    value!,
+                                    index,
+                                    controller.categories[index].category,
+                                  );
+                                  controller.selectedcategory=controller.categories[index].category;
+                                  print(controller.categories[index].category);
+                                  }
                                 ),
-                                 GestureDetector(
+                                GestureDetector(
                                   onTap: () => controller.deleteCategory(
                                     controller.categories[index].id!,
                                   ),
@@ -246,7 +253,12 @@ class SelectCategoryView extends GetView<SelectCategoryController> {
             ),
             SizedBox(height: Get.height * 0.03),
             GestureDetector(
-              onTap: () => Get.offNamed(AppPages.addincome),
+              onTap: () {
+                Get.offNamed(AppPages.addincome);
+                final ac = Get.find<AddIncomeController>();
+                ac.selectedcat.value = controller.selectedcategory;
+                
+              },
               child: CommonButton(tittle: 'Apply Now'),
             ),
           ],

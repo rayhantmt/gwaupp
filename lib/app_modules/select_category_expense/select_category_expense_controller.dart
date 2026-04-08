@@ -169,7 +169,7 @@ class SelectCategoryExpenseController extends GetxController {
       print("Category Deletion success: $response");
       fetchCategories();
     } on AppException catch (e) {
-      Get.snackbar("Login Failed", e.message);
+      Get.snackbar("Delete Failed", e.message);
     } finally {
       isLoading3.value = false;
     }

@@ -104,8 +104,24 @@ class SelectCategoryController extends GetxController {
     }
   }
 
-  void toggle(bool b, int i) {
-    categories[i].isSelected.value = b;
+  // void toggle(bool b, int i) {
+  //   categories[i].isSelected.value = b;
+  // }
+  late String selectedcategory;
+  void toggle(bool value, int index, String category) {
+    // 1. If the user is unchecking the only selected item, let them
+    if (!value) {
+      categories[index].isSelected.value = false;
+      return;
+    }
+
+    // 2. Loop through all categories and set them to false
+    for (var category in categories) {
+      category.isSelected.value = false;
+    }
+
+    // 3. Set the clicked one to true
+    categories[index].isSelected.value = true;
   }
 
   @override
@@ -114,7 +130,8 @@ class SelectCategoryController extends GetxController {
     searchController.dispose();
     super.onClose();
   }
-    RxBool isLoading3 = false.obs;
+
+  RxBool isLoading3 = false.obs;
 
   Future<void> deleteCategory(String id) async {
     isLoading3.value = false;
@@ -131,8 +148,7 @@ class SelectCategoryController extends GetxController {
       print("Category Deletion success: $response");
       fetchCategories();
     } on AppException catch (e) {
-      Get.snackbar("Login Failed", e.message);
-    
+      Get.snackbar("Delete Failed", e.message);
     } finally {
       isLoading3.value = false;
     }

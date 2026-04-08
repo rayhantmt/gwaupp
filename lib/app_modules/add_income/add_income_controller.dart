@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
 class AddIncomeController extends GetxController{
+   var selectedcat = 'Select'.obs;
   Rx<DateTime?> startDate = Rx<DateTime?>(null);
   Rx<TimeOfDay?> startTime = Rx<TimeOfDay?>(null);
     String get formattedDateRange {
