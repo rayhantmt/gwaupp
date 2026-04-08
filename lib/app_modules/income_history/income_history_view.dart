@@ -137,7 +137,9 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
             //SizedBox(height: Get.height * 0.02),
             SizedBox(
               height: Get.height * 0.7,
-              child: ListView.builder(
+              child: Obx(() => controller.isLoading.value?Center(child: CircularProgressIndicator(
+                color: AppImages.greencolor,
+              )):ListView.builder(
                 itemCount: controller.inconedata.length,
                 itemBuilder: (context, index) {
                   return Padding(
@@ -287,7 +289,7 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                     ),
                   );
                 },
-              ),
+              ),)
             ),
             SizedBox(height: Get.height * 0.03),
             GestureDetector(
