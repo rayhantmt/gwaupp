@@ -140,7 +140,7 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
               child: Obx(() => controller.isLoading.value?Center(child: CircularProgressIndicator(
                 color: AppImages.greencolor,
               )):ListView.builder(
-                itemCount: controller.inconedata.length,
+                itemCount: controller.filteredData.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 10),
@@ -166,10 +166,10 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                           children: [
                             Row(
                               children: [
-                                Text(controller.inconedata[index].formattedDatetime),
+                                Text(controller.filteredData[index].formattedDatetime),
                                 Spacer(),
                                 Text(
-                                  '\$${controller.inconedata[index].amount}',
+                                  '\$${controller.filteredData[index].amount}',
                                   style: GoogleFonts.montserrat(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 18,
@@ -179,7 +179,7 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                               ],
                             ),
                             Text(
-                              controller.inconedata[index].tittle,
+                              controller.filteredData[index].tittle,
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 14,
@@ -197,7 +197,7 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                   ),
                                 ),
                                 Text(
-                                  controller.inconedata[index].note,
+                                  controller.filteredData[index].note,
                                   style: GoogleFonts.inter(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 14,
@@ -206,7 +206,7 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                 ),
                               ],
                             ),
-                            controller.inconedata[index].bank==TransType.bank
+                            controller.filteredData[index].bank==TransType.bank
                                 ? Row(
                                     children: [
                                       Image.asset(
@@ -233,7 +233,7 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                     ],
                                   )
                                 : 
-                                controller.inconedata[index].bank==TransType.cash?
+                                controller.filteredData[index].bank==TransType.cash?
                                 Row(
                                     children: [
                                       Image.asset(
