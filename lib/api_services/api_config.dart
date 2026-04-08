@@ -14,4 +14,5 @@ class ApiConfig {
   static const String addexpenseorincome='/api/v1/in_ex/create-in_ex';
   static const String getincome='/api/v1/in_ex/get-my-in_ex?type=income';
   static const String getexpense='/api/v1/in_ex/get-my-in_ex?type=expense';
+  static const String deleteincomeorexpense='/api/v1/in_ex/delete-my-in_ex/';
 }

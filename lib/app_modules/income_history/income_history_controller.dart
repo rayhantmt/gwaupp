@@ -2,6 +2,7 @@
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:gwaupp/api_services/api_config.dart';
+import 'package:gwaupp/api_services/exceptions.dart';
 import 'package:gwaupp/app_modules/income_history/income_history_model.dart';
 import 'package:gwaupp/api_services/api_service.dart';
 import 'package:intl/intl.dart';
@@ -96,4 +97,27 @@ List<IncomeHistoryModel> get filteredData {
     return true;
   }).toList();
 }
+
+RxBool isLoading3 = false.obs;
+
+  Future<void> deleteIncome(String id) async {
+    isLoading3.value = false;
+    final token = GetStorage().read('token');
+    final body = {"": ""};
+
+    try {
+      final response = await ApiService.delete(
+        endpoint: '${ApiConfig.deleteincomeorexpense}$id',
+        body: body,
+        headers: {"Authorization": token},
+      );
+
+      print("Income Deletion success: $response");
+    fetchIncomeHistory();
+    } on AppException catch (e) {
+      Get.snackbar("Delete Failed", e.message);
+    } finally {
+      isLoading3.value = false;
+    }
+  }
 }

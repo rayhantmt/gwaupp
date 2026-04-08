@@ -137,159 +137,189 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
             //SizedBox(height: Get.height * 0.02),
             SizedBox(
               height: Get.height * 0.7,
-              child: Obx(() => controller.isLoading.value?Center(child: CircularProgressIndicator(
-                color: AppImages.greencolor,
-              )):ListView.builder(
-                itemCount: controller.filteredData.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Container(
-                      height: Get.height * 0.2,
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            blurRadius: 12,
-                            color: Color(0xff333333).withOpacity(0.15),
-                            // spreadRadius: 12
-                          ),
-                        ],
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Row(
-                              children: [
-                                Text(controller.filteredData[index].formattedDatetime),
-                                Spacer(),
-                                Text(
-                                  '\$${controller.filteredData[index].amount}',
-                                  style: GoogleFonts.montserrat(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 18,
-                                    color: Color(0xff0F3D2E),
+              child: Obx(
+                () => controller.isLoading.value
+                    ? Center(
+                        child: CircularProgressIndicator(
+                          color: AppImages.greencolor,
+                        ),
+                      )
+                    : ListView.builder(
+                        itemCount: controller.filteredData.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 10),
+                            child: Container(
+                              height: Get.height * 0.2,
+                              width: double.infinity,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(12),
+                                boxShadow: [
+                                  BoxShadow(
+                                    blurRadius: 12,
+                                    color: Color(0xff333333).withOpacity(0.15),
+                                    // spreadRadius: 12
                                   ),
+                                ],
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.symmetric(
+                                  horizontal: 10,
                                 ),
-                              ],
-                            ),
-                            Text(
-                              controller.filteredData[index].tittle,
-                              style: GoogleFonts.inter(
-                                fontWeight: FontWeight.w600,
-                                fontSize: 14,
-                                color: Color(0xff1E1E1E),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceAround,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Text(
+                                          controller
+                                              .filteredData[index]
+                                              .formattedDatetime,
+                                        ),
+                                        Spacer(),
+                                        Text(
+                                          '\$${controller.filteredData[index].amount}',
+                                          style: GoogleFonts.montserrat(
+                                            fontWeight: FontWeight.w600,
+                                            fontSize: 18,
+                                            color: Color(0xff0F3D2E),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Text(
+                                      controller.filteredData[index].tittle,
+                                      style: GoogleFonts.inter(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 14,
+                                        color: Color(0xff1E1E1E),
+                                      ),
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          'Note: ',
+                                          style: GoogleFonts.inter(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 14,
+                                            color: Color(0xff6B6B6B),
+                                          ),
+                                        ),
+                                        Text(
+                                          controller.filteredData[index].note,
+                                          style: GoogleFonts.inter(
+                                            fontWeight: FontWeight.w400,
+                                            fontSize: 14,
+                                            color: Color(0xff1E1E1E),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    controller.filteredData[index].bank ==
+                                            TransType.bank
+                                        ? Row(
+                                            children: [
+                                              Image.asset(
+                                                AppImages.bankicon,
+                                                height: Get.height * 0.05,
+                                              ),
+                                              Text(
+                                                'Bank',
+                                                style: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 14,
+                                                  color: Color(0xff1E1E1E),
+                                                ),
+                                              ),
+                                              Spacer(),
+                                              GestureDetector(
+                                                onTap: () => controller.deleteIncome(controller.filteredData[index].id!),
+                                                child: CircleAvatar(
+                                                  radius: 20,
+                                                  backgroundColor: Color(
+                                                    0xffFCECEB,
+                                                  ),
+                                                  child: Icon(
+                                                    Icons.delete_outline_rounded,
+                                                    color: Color(0xffC84B4B),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : controller.filteredData[index].bank ==
+                                              TransType.cash
+                                        ? Row(
+                                            children: [
+                                              Image.asset(
+                                                AppImages.cashicon,
+                                                height: Get.height * 0.05,
+                                              ),
+                                              Text(
+                                                'Cash',
+                                                style: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 14,
+                                                  color: Color(0xff1E1E1E),
+                                                ),
+                                              ),
+                                              Spacer(),
+                                            GestureDetector(
+                                                onTap: () => controller.deleteIncome(controller.filteredData[index].id!),
+                                                child: CircleAvatar(
+                                                  radius: 20,
+                                                  backgroundColor: Color(
+                                                    0xffFCECEB,
+                                                  ),
+                                                  child: Icon(
+                                                    Icons.delete_outline_rounded,
+                                                    color: Color(0xffC84B4B),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          )
+                                        : Row(
+                                            children: [
+                                              Image.asset(
+                                                AppImages.crediticon,
+                                                height: Get.height * 0.05,
+                                              ),
+                                              Text(
+                                                'Credit',
+                                                style: GoogleFonts.inter(
+                                                  fontWeight: FontWeight.w400,
+                                                  fontSize: 14,
+                                                  color: Color(0xff1E1E1E),
+                                                ),
+                                              ),
+                                              Spacer(),
+                                              GestureDetector(
+                                                onTap: () => controller.deleteIncome(controller.filteredData[index].id!),
+                                                child: CircleAvatar(
+                                                  radius: 20,
+                                                  backgroundColor: Color(
+                                                    0xffFCECEB,
+                                                  ),
+                                                  child: Icon(
+                                                    Icons.delete_outline_rounded,
+                                                    color: Color(0xffC84B4B),
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                  ],
+                                ),
                               ),
                             ),
-                            Row(
-                              children: [
-                                Text(
-                                  'Note: ',
-                                  style: GoogleFonts.inter(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14,
-                                    color: Color(0xff6B6B6B),
-                                  ),
-                                ),
-                                Text(
-                                  controller.filteredData[index].note,
-                                  style: GoogleFonts.inter(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 14,
-                                    color: Color(0xff1E1E1E),
-                                  ),
-                                ),
-                              ],
-                            ),
-                            controller.filteredData[index].bank==TransType.bank
-                                ? Row(
-                                    children: [
-                                      Image.asset(
-                                        AppImages.bankicon,
-                                        height: Get.height * 0.05,
-                                      ),
-                                      Text(
-                                        'Bank',
-                                        style: GoogleFonts.inter(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 14,
-                                          color: Color(0xff1E1E1E),
-                                        ),
-                                      ),
-                                      Spacer(),
-                                      CircleAvatar(
-                                        radius: 20,
-                                        backgroundColor: Color(0xffFCECEB),
-                                        child: Icon(
-                                          Icons.delete_outline_rounded,
-                                          color: Color(0xffC84B4B),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                : 
-                                controller.filteredData[index].bank==TransType.cash?
-                                Row(
-                                    children: [
-                                      Image.asset(
-                                        AppImages.cashicon,
-                                        height: Get.height * 0.05,
-                                      ),
-                                      Text(
-                                        'Cash',
-                                        style: GoogleFonts.inter(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 14,
-                                          color: Color(0xff1E1E1E),
-                                        ),
-                                      ),
-                                      Spacer(),
-                                      CircleAvatar(
-                                        radius: 20,
-                                        backgroundColor: Color(0xffFCECEB),
-                                        child: Icon(
-                                          Icons.delete_outline_rounded,
-                                          color: Color(0xffC84B4B),
-                                        ),
-                                      ),
-                                    ],
-                                  ):  Row(
-                                    children: [
-                                      Image.asset(
-                                        AppImages.crediticon,
-                                        height: Get.height * 0.05,
-                                      ),
-                                      Text(
-                                        'Credit',
-                                        style: GoogleFonts.inter(
-                                          fontWeight: FontWeight.w400,
-                                          fontSize: 14,
-                                          color: Color(0xff1E1E1E),
-                                        ),
-                                      ),
-                                      Spacer(),
-                                      CircleAvatar(
-                                        radius: 20,
-                                        backgroundColor: Color(0xffFCECEB),
-                                        child: Icon(
-                                          Icons.delete_outline_rounded,
-                                          color: Color(0xffC84B4B),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                          ],
-                        ),
+                          );
+                        },
                       ),
-                    ),
-                  );
-                },
-              ),)
+              ),
             ),
             SizedBox(height: Get.height * 0.03),
             GestureDetector(
