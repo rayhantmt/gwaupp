@@ -12,4 +12,6 @@ class ApiConfig {
   static const String addnewcategory='/api/v1/category/create-category';
   static const String deletecategory ='/api/v1/category/delete-my-category/';
   static const String addexpenseorincome='/api/v1/in_ex/create-in_ex';
+  static const String getincome='/api/v1/in_ex/get-my-in_ex?type=income';
+  static const String getexpense='/api/v1/in_ex/get-my-in_ex?type=expense';
 }
