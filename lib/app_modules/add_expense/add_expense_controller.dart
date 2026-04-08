@@ -42,8 +42,26 @@ class AddExpenseController extends GetxController {
     return '$hour:$minute $period';
   }
 
+  String get iso8601DateTime {
+    // Return an empty string or null if either value isn't selected yet
+    if (startDate.value == null || startTime.value == null) return '';
+
+    // 1. Create a combined DateTime object
+    final combinedDateTime = DateTime(
+      startDate.value!.year,
+      startDate.value!.month,
+      startDate.value!.day,
+      startTime.value!.hour,
+      startTime.value!.minute,
+    );
+
+    // 2. Convert to UTC and get ISO 8601 string
+    // Output: 2026-04-07T10:30:00.000Z
+    return combinedDateTime.toUtc().toIso8601String();
+  }
+
   var selectedMethod = 0.obs; // 0=Cash, 1=Credit, 2=Bank
-var selectedMethodName = 'Cash'.obs;
+  var selectedMethodName = 'Cash'.obs;
   void selectMethod(int index) {
     selectedMethod.value = index;
     if (index == 0) {
@@ -63,10 +81,10 @@ var selectedMethodName = 'Cash'.obs;
   final amountcontroller = TextEditingController();
   final notecontroller = TextEditingController();
   var isLoading2 = false.obs;
-  Future<void> addNewCategory() async {
+  Future<void> addExpense() async {
     final token = GetStorage().read('token');
     final body = {
-      "date_time": "2026-04-07T10:30:00.000Z",
+      "date_time": iso8601DateTime,
       "type": "expense",
       "category": selectedcat.value,
       "payment_method": selectedMethodName.value,
@@ -78,7 +96,7 @@ var selectedMethodName = 'Cash'.obs;
     isLoading2.value = true;
     try {
       final response = await ApiService.post(
-        endpoint: ApiConfig.addnewcategory,
+        endpoint: ApiConfig.addexpenseorincome,
         body: body,
         headers: {'Authorization': token, 'Content-Type': 'application/json'},
       );
