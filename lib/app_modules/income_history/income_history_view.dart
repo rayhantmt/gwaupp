@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/income_history/income_history_controller.dart';
+import 'package:gwaupp/app_modules/income_history/income_history_model.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
 import 'package:gwaupp/utils/app_pages.dart';
@@ -135,7 +136,7 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
             ),
             //SizedBox(height: Get.height * 0.02),
             SizedBox(
-              height: Get.height*0.7,
+              height: Get.height * 0.7,
               child: ListView.builder(
                 itemCount: controller.inconedata.length,
                 itemBuilder: (context, index) {
@@ -203,14 +204,14 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                 ),
                               ],
                             ),
-                            controller.inconedata[index].bank
+                            controller.inconedata[index].bank==TransType.bank
                                 ? Row(
                                     children: [
                                       Image.asset(
                                         AppImages.bankicon,
                                         height: Get.height * 0.05,
                                       ),
-                                       Text(
+                                      Text(
                                         'Bank',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w400,
@@ -229,7 +230,9 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                       ),
                                     ],
                                   )
-                                : Row(
+                                : 
+                                controller.inconedata[index].bank==TransType.cash?
+                                Row(
                                     children: [
                                       Image.asset(
                                         AppImages.cashicon,
@@ -253,7 +256,31 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                         ),
                                       ),
                                     ],
-                                  ),
+                                  ):  Row(
+                                    children: [
+                                      Image.asset(
+                                        AppImages.crediticon,
+                                        height: Get.height * 0.05,
+                                      ),
+                                      Text(
+                                        'Credit',
+                                        style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 14,
+                                          color: Color(0xff1E1E1E),
+                                        ),
+                                      ),
+                                      Spacer(),
+                                      CircleAvatar(
+                                        radius: 20,
+                                        backgroundColor: Color(0xffFCECEB),
+                                        child: Icon(
+                                          Icons.delete_outline_rounded,
+                                          color: Color(0xffC84B4B),
+                                        ),
+                                      ),
+                                    ],
+                                  )
                           ],
                         ),
                       ),
@@ -262,10 +289,11 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                 },
               ),
             ),
-            SizedBox(height: Get.height*0.03,),
+            SizedBox(height: Get.height * 0.03),
             GestureDetector(
               onTap: () => Get.toNamed(AppPages.addincome),
-              child: CommonButton(tittle: 'Add Income'))
+              child: CommonButton(tittle: 'Add Income'),
+            ),
           ],
         ),
       ),

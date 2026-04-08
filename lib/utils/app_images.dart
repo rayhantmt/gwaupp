@@ -44,5 +44,6 @@ class AppImages {
   static const String privacybanner='assets/privacy_banner.png';
   static const Color greencolor=Color(0xff0F3D2E);
   static const String noprofileimage='https://i.postimg.cc/pdtcv4h5/no-profile-picture.png';
+  static const String crediticon='assets/credit_icon.png';
 
 }
