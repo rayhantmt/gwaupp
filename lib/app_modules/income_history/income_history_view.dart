@@ -166,7 +166,7 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                           children: [
                             Row(
                               children: [
-                                Text(controller.inconedata[index].datetime),
+                                Text(controller.inconedata[index].formattedDatetime),
                                 Spacer(),
                                 Text(
                                   '\$${controller.inconedata[index].amount}',

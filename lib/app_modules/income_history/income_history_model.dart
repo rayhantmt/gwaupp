@@ -15,6 +15,8 @@
 // }
 
 // enum TransType { bank, credit, cash }
+import 'package:intl/intl.dart';
+
 class IncomeHistoryModel {
   // ✅ Existing fields — unchanged
   final String datetime;
@@ -64,6 +66,12 @@ class IncomeHistoryModel {
       createdAt: json['createdAt'],
       updatedAt: json['updatedAt'],
     );
+  }
+  String get formattedDatetime {
+    if (datetime.isEmpty) return '';
+    final parsed = DateTime.tryParse(datetime);
+    if (parsed == null) return datetime; // fallback to raw string if parse fails
+    return DateFormat('M/dd/yy h:mm a').format(parsed.toLocal());
   }
 
   static TransType _parseTransType(String? method) {
