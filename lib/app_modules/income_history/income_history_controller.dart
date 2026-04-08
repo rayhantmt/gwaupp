@@ -1,4 +1,3 @@
-
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:gwaupp/api_services/api_config.dart';
@@ -38,7 +37,7 @@ class IncomeHistoryController extends GetxController {
   }
 
   Future<void> fetchIncomeHistory() async {
-    final token=GetStorage().read('token');
+    final token = GetStorage().read('token');
     try {
       isLoading.value = true;
       errorMessage.value = '';
@@ -46,14 +45,15 @@ class IncomeHistoryController extends GetxController {
       final response = await ApiService.get(
         endpoint: ApiConfig.getincome,
         headers: {
-          'Authorization':token
-        } // 🔁 replace with your actual endpoint
+          'Authorization': token,
+        }, // 🔁 replace with your actual endpoint
       );
 
       if (response['success'] == true) {
         final List data = response['data'];
-        inconedata.value =
-            data.map((item) => IncomeHistoryModel.fromJson(item)).toList();
+        inconedata.value = data
+            .map((item) => IncomeHistoryModel.fromJson(item))
+            .toList();
       } else {
         errorMessage.value = response['message'] ?? 'Something went wrong';
       }
@@ -63,42 +63,63 @@ class IncomeHistoryController extends GetxController {
       isLoading.value = false;
     }
   }
+
   // ✅ Filtered list — used in UI instead of inconedata directly
-List<IncomeHistoryModel> get filteredData {
-  if (startDate.value == null && endDate.value == null) {
-    return inconedata; // no filter applied, return all
+  List<IncomeHistoryModel> get filteredData {
+    if (startDate.value == null && endDate.value == null) {
+      return inconedata; // no filter applied, return all
+    }
+
+    return inconedata.where((item) {
+      if (item.datetime.isEmpty) return false;
+      final itemDate = DateTime.tryParse(item.datetime)?.toLocal();
+      if (itemDate == null) return false;
+
+      // Strip time — compare dates only
+      final itemDateOnly = DateTime(
+        itemDate.year,
+        itemDate.month,
+        itemDate.day,
+      );
+
+      if (startDate.value != null && endDate.value != null) {
+        final start = DateTime(
+          startDate.value!.year,
+          startDate.value!.month,
+          startDate.value!.day,
+        );
+        final end = DateTime(
+          endDate.value!.year,
+          endDate.value!.month,
+          endDate.value!.day,
+        );
+        return itemDateOnly.isAfter(start.subtract(Duration(days: 1))) &&
+            itemDateOnly.isBefore(end.add(Duration(days: 1)));
+      }
+
+      if (startDate.value != null) {
+        final start = DateTime(
+          startDate.value!.year,
+          startDate.value!.month,
+          startDate.value!.day,
+        );
+        return itemDateOnly.isAfter(start.subtract(Duration(days: 1)));
+      }
+
+      if (endDate.value != null) {
+        final end = DateTime(
+          endDate.value!.year,
+          endDate.value!.month,
+          endDate.value!.day,
+        );
+        return itemDateOnly.isBefore(end.add(Duration(days: 1)));
+      }
+
+      return true;
+    }).toList();
   }
 
-  return inconedata.where((item) {
-    if (item.datetime.isEmpty) return false;
-    final itemDate = DateTime.tryParse(item.datetime)?.toLocal();
-    if (itemDate == null) return false;
-
-    // Strip time — compare dates only
-    final itemDateOnly = DateTime(itemDate.year, itemDate.month, itemDate.day);
-
-    if (startDate.value != null && endDate.value != null) {
-      final start = DateTime(startDate.value!.year, startDate.value!.month, startDate.value!.day);
-      final end = DateTime(endDate.value!.year, endDate.value!.month, endDate.value!.day);
-      return itemDateOnly.isAfter(start.subtract(Duration(days: 1))) &&
-             itemDateOnly.isBefore(end.add(Duration(days: 1)));
-    }
-
-    if (startDate.value != null) {
-      final start = DateTime(startDate.value!.year, startDate.value!.month, startDate.value!.day);
-      return itemDateOnly.isAfter(start.subtract(Duration(days: 1)));
-    }
-
-    if (endDate.value != null) {
-      final end = DateTime(endDate.value!.year, endDate.value!.month, endDate.value!.day);
-      return itemDateOnly.isBefore(end.add(Duration(days: 1)));
-    }
-
-    return true;
-  }).toList();
-}
-
-RxBool isLoading3 = false.obs;
+  RxBool isLoading3 = false.obs;
 
   Future<void> deleteIncome(String id) async {
     isLoading3.value = false;
@@ -113,7 +134,7 @@ RxBool isLoading3 = false.obs;
       );
 
       print("Income Deletion success: $response");
-    fetchIncomeHistory();
+      fetchIncomeHistory();
     } on AppException catch (e) {
       Get.snackbar("Delete Failed", e.message);
     } finally {

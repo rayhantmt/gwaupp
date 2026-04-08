@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/expense_history/expense_history_controller.dart';
+import 'package:gwaupp/app_modules/expense_history/expense_history_model.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
 import 'package:gwaupp/utils/app_pages.dart';
@@ -135,9 +136,11 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
             ),
             //SizedBox(height: Get.height * 0.02),
             SizedBox(
-              height: Get.height*0.7,
-              child: ListView.builder(
-                itemCount: controller.inconedata.length,
+              height: Get.height * 0.7,
+              child: Obx(() => controller.isLoading.value?Center(child: CircularProgressIndicator(
+                color: AppImages.greencolor,
+              )):ListView.builder(
+                itemCount: controller.filteredData.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 10),
@@ -163,10 +166,10 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
                           children: [
                             Row(
                               children: [
-                                Text(controller.inconedata[index].datetime),
+                                Text(controller.filteredData[index].formattedDatetime),
                                 Spacer(),
                                 Text(
-                                  '\$${controller.inconedata[index].amount}',
+                                  '\$${controller.filteredData[index].amount}',
                                   style: GoogleFonts.montserrat(
                                     fontWeight: FontWeight.w600,
                                     fontSize: 18,
@@ -176,7 +179,7 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
                               ],
                             ),
                             Text(
-                              controller.inconedata[index].tittle,
+                              controller.filteredData[index].tittle,
                               style: GoogleFonts.inter(
                                 fontWeight: FontWeight.w600,
                                 fontSize: 14,
@@ -194,7 +197,7 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
                                   ),
                                 ),
                                 Text(
-                                  controller.inconedata[index].note,
+                                  controller.filteredData[index].note,
                                   style: GoogleFonts.inter(
                                     fontWeight: FontWeight.w400,
                                     fontSize: 14,
@@ -203,18 +206,15 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
                                 ),
                               ],
                             ),
-                            controller.inconedata[index].bank
+                            controller.filteredData[index].bank ==
+                                    TransType.bank
                                 ? Row(
                                     children: [
                                       Image.asset(
                                         AppImages.bankicon,
                                         height: Get.height * 0.05,
                                       ),
-                                      Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
+                                      Text(
                                         'Bank',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w400,
@@ -222,20 +222,25 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
                                           color: Color(0xff1E1E1E),
                                         ),
                                       ),
-                                        ],
-                                      ),
                                       Spacer(),
-                                      CircleAvatar(
-                                        radius: 20,
-                                        backgroundColor: Color(0xffFCECEB),
-                                        child: Icon(
-                                          Icons.delete_outline_rounded,
-                                          color: Color(0xffC84B4B),
+                                      GestureDetector(
+                                        onTap: () => controller.deleteIncome(
+                                          controller.filteredData[index].id!,
+                                        ),
+                                        child: CircleAvatar(
+                                          radius: 20,
+                                          backgroundColor: Color(0xffFCECEB),
+                                          child: Icon(
+                                            Icons.delete_outline_rounded,
+                                            color: Color(0xffC84B4B),
+                                          ),
                                         ),
                                       ),
                                     ],
                                   )
-                                : Row(
+                                : controller.filteredData[index].bank ==
+                                      TransType.cash
+                                ? Row(
                                     children: [
                                       Image.asset(
                                         AppImages.cashicon,
@@ -250,12 +255,47 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
                                         ),
                                       ),
                                       Spacer(),
-                                      CircleAvatar(
-                                        radius: 20,
-                                        backgroundColor: Color(0xffFCECEB),
-                                        child: Icon(
-                                          Icons.delete_outline_rounded,
-                                          color: Color(0xffC84B4B),
+                                      GestureDetector(
+                                        onTap: () => controller.deleteIncome(
+                                          controller.filteredData[index].id!,
+                                        ),
+                                        child: CircleAvatar(
+                                          radius: 20,
+                                          backgroundColor: Color(0xffFCECEB),
+                                          child: Icon(
+                                            Icons.delete_outline_rounded,
+                                            color: Color(0xffC84B4B),
+                                          ),
+                                        ),
+                                      ),
+                                    ],
+                                  )
+                                : Row(
+                                    children: [
+                                      Image.asset(
+                                        AppImages.crediticon,
+                                        height: Get.height * 0.05,
+                                      ),
+                                      Text(
+                                        'Credit',
+                                        style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 14,
+                                          color: Color(0xff1E1E1E),
+                                        ),
+                                      ),
+                                      Spacer(),
+                                      GestureDetector(
+                                        onTap: () => controller.deleteIncome(
+                                          controller.filteredData[index].id!,
+                                        ),
+                                        child: CircleAvatar(
+                                          radius: 20,
+                                          backgroundColor: Color(0xffFCECEB),
+                                          child: Icon(
+                                            Icons.delete_outline_rounded,
+                                            color: Color(0xffC84B4B),
+                                          ),
                                         ),
                                       ),
                                     ],
@@ -266,12 +306,13 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
                     ),
                   );
                 },
-              ),
+              ),)
             ),
-            SizedBox(height: Get.height*0.03,),
+            SizedBox(height: Get.height * 0.03),
             GestureDetector(
               onTap: () => Get.toNamed(AppPages.addexpense),
-              child: CommonButton(tittle: 'Add Expense'))
+              child: CommonButton(tittle: 'Add Expense'),
+            ),
           ],
         ),
       ),
