@@ -1,39 +1,64 @@
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
+import 'package:gwaupp/api_services/api_service.dart';
 import 'package:gwaupp/app_modules/insights/insights_model.dart';
 
-class InsightsController extends GetxController{
-  RxBool isexpense=true.obs;
-  void toggle(){
-    isexpense.value=!isexpense.value;
+class InsightsController extends GetxController {
+  RxBool isexpense = true.obs;
+  void toggle() {
+    isexpense.value = !isexpense.value;
   }
- 
-  var page=0.obs;
-  void togglepage(int i){
-    page.value=i;
+
+  var page = 0.obs;
+  void togglepage(int i) {
+    page.value = i;
   }
-  var monthlyDataList = <MonthlyData>[].obs;
 
   @override
   void onInit() {
+    fetchBusinessData();
     super.onInit();
-    loadDummyData();
   }
 
-  void loadDummyData() {
-    monthlyDataList.assignAll([
-      MonthlyData(month: "Jan", value: 30),
-      MonthlyData(month: "Feb", value: 50),
-      MonthlyData(month: "Mar", value: 20),
-      MonthlyData(month: "Apr", value: 80),
-      MonthlyData(month: "May", value: 60),
-      MonthlyData(month: "Jun", value: 40),
-    ]);
+  var businessdata = <BusinessData>[].obs;
+  var monthlyDataList = <MonthlyData>[].obs;
+  var totalIncome = 0.obs;
+  var isLoading = false.obs;
+
+  Future<void> fetchBusinessData() async {
+     final token = GetStorage().read('token');
+    try {
+      isLoading(true);
+      final response = await ApiService.get(endpoint: '/api/v1/in_ex/insights?type=income&quarter=Q1',
+       headers: {'Authorization': token, },
+      
+      );
+
+      if (response != null && response['success'] == true) {
+        final data = response['data'];
+
+        // total
+        totalIncome.value = (data['total'] as num?)?.toInt() ?? 0;
+
+        // category summary → businessdata
+        final List categorySummary = data['categorySummary'] ?? [];
+        businessdata.assignAll(
+          categorySummary.map((e) => BusinessData.fromJson(e)).toList(),
+        );
+
+        // chart data → monthlyDataList
+        final List chartData = data['chartData'] ?? [];
+        monthlyDataList.assignAll(
+          chartData.map((e) => MonthlyData.fromJson(e)).toList(),
+        );
+        print(response);
+        print(monthlyDataList.iterator);
+        print(businessdata.iterator);
+      }
+    } catch (e) {
+      print('fetchBusinessData error: $e');
+    } finally {
+      isLoading(false);
+    }
   }
-  var businessdata=<BusinessData>[
-    BusinessData(tittle: 'Business Income', lastmonthIncome: 2000, thismonthIncome: 3192, profit: true,profilorlosspercent: 12),
-     BusinessData(tittle: 'Consulting Fees', lastmonthIncome: 1500, thismonthIncome: 1192, profit: false,profilorlosspercent: 3),
-      BusinessData(tittle: 'Monthly salary', lastmonthIncome: 10000, thismonthIncome: 10000, profit: false,profilorlosspercent: 7),
-       BusinessData(tittle: 'Bonus Income', lastmonthIncome: 100, thismonthIncome: 500, profit: true,profilorlosspercent: 3),
-        BusinessData(tittle: 'Side Business Income', lastmonthIncome: 300, thismonthIncome: 100, profit: false,profilorlosspercent: 13),
-  ].obs;
 }

@@ -12,7 +12,7 @@ class InsightsView extends GetView<InsightsController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
-      body: Padding(
+      body: Obx(() => controller.isLoading.value?Center(child: CircularProgressIndicator()):Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: SingleChildScrollView(
           child: Column(
@@ -336,7 +336,7 @@ class InsightsView extends GetView<InsightsController> {
             ],
           ),
         ),
-      ),
+      ),)
     );
   }
 }
