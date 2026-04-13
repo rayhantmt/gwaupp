@@ -20,7 +20,6 @@ class InsightsView extends GetView<InsightsController> {
               SizedBox(height: Get.height * 0.06),
               Row(
                 children: [
-                  // Icon(Icons.arrow_back_ios_new, color: Colors.black),
                   SizedBox(width: Get.width * 0.02),
                   Text(
                     'Insights',
