@@ -5,7 +5,9 @@ import 'package:gwaupp/app_modules/insights/insights_model.dart';
 
 class InsightsController extends GetxController {
   RxBool isexpense = true.obs;
-  void toggle() {
+  void toggle(String type) {
+    apitype.value=type;
+    fetchBusinessData();
     isexpense.value = !isexpense.value;
   }
 
@@ -22,6 +24,7 @@ class InsightsController extends GetxController {
     super.onInit();
   }
  var selected='Q1'.obs;
+ var apitype='income'.obs;
   var businessdata = <BusinessData>[].obs;
   var monthlyDataList = <MonthlyData>[].obs;
   var totalIncome = 0.obs;
@@ -31,7 +34,7 @@ class InsightsController extends GetxController {
      final token = GetStorage().read('token');
     try {
       isLoading(true);
-      final response = await ApiService.get(endpoint: '/api/v1/in_ex/insights?type=income&quarter=$selected',
+      final response = await ApiService.get(endpoint: '/api/v1/in_ex/insights?type=$apitype&quarter=$selected',
        headers: {'Authorization': token, },
       
       );

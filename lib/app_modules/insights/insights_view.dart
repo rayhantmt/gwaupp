@@ -42,7 +42,7 @@ class InsightsView extends GetView<InsightsController> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             GestureDetector(
-                              onTap: () => controller.toggle(),
+                              onTap: () => controller.toggle('expense'),
                               child: Container(
                                 height: Get.height * 0.05,
                                 width: Get.width * 0.4,
@@ -65,7 +65,7 @@ class InsightsView extends GetView<InsightsController> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () => controller.toggle(),
+                              onTap: () => controller.toggle('income'),
                               child: Container(
                                 height: Get.height * 0.05,
                                 width: Get.width * 0.4,
