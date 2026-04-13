@@ -10,7 +10,9 @@ class InsightsController extends GetxController {
   }
 
   var page = 0.obs;
-  void togglepage(int i) {
+  void togglepage(int i,String select) {
+    selected.value=select;
+    fetchBusinessData();
     page.value = i;
   }
 
@@ -19,7 +21,7 @@ class InsightsController extends GetxController {
     fetchBusinessData();
     super.onInit();
   }
-
+ var selected='Q1'.obs;
   var businessdata = <BusinessData>[].obs;
   var monthlyDataList = <MonthlyData>[].obs;
   var totalIncome = 0.obs;
@@ -29,7 +31,7 @@ class InsightsController extends GetxController {
      final token = GetStorage().read('token');
     try {
       isLoading(true);
-      final response = await ApiService.get(endpoint: '/api/v1/in_ex/insights?type=income&quarter=Q1',
+      final response = await ApiService.get(endpoint: '/api/v1/in_ex/insights?type=income&quarter=$selected',
        headers: {'Authorization': token, },
       
       );

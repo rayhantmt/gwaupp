@@ -14,7 +14,9 @@ class InsightsView extends GetView<InsightsController> {
       backgroundColor: AppImages.primarycolor,
       body: Obx(
         () => controller.isLoading.value
-            ? Center(child: CircularProgressIndicator())
+            ? Center(
+                child: CircularProgressIndicator(color: AppImages.greencolor),
+              )
             : Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: SingleChildScrollView(
@@ -94,7 +96,7 @@ class InsightsView extends GetView<InsightsController> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             GestureDetector(
-                              onTap: () => controller.togglepage(0),
+                              onTap: () => controller.togglepage(0, 'Q1'),
                               child: Container(
                                 height: Get.height * 0.05,
                                 width: Get.width * 0.2,
@@ -119,7 +121,7 @@ class InsightsView extends GetView<InsightsController> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () => controller.togglepage(1),
+                              onTap: () => controller.togglepage(1, 'Q2'),
                               child: Container(
                                 height: Get.height * 0.05,
                                 width: Get.width * 0.2,
@@ -144,7 +146,7 @@ class InsightsView extends GetView<InsightsController> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () => controller.togglepage(2),
+                              onTap: () => controller.togglepage(2, 'Q3'),
                               child: Container(
                                 height: Get.height * 0.05,
                                 width: Get.width * 0.2,
@@ -169,7 +171,7 @@ class InsightsView extends GetView<InsightsController> {
                               ),
                             ),
                             GestureDetector(
-                              onTap: () => controller.togglepage(3),
+                              onTap: () => controller.togglepage(3, 'Q4'),
                               child: Container(
                                 height: Get.height * 0.05,
                                 width: Get.width * 0.2,
@@ -199,83 +201,100 @@ class InsightsView extends GetView<InsightsController> {
                       SizedBox(height: Get.height * 0.05),
                       Container(
                         height: Get.height * 0.25,
+                        width: double.infinity,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(16),
                           color: Color(0xffEDF1F3),
                         ),
-                        child: BarChart(
-  BarChartData(
-    borderData: FlBorderData(show: false),
-    backgroundColor: Colors.white,
-    alignment: BarChartAlignment.spaceAround,
-    maxY: controller.monthlyDataList
-            .map((e) => e.value)
-            .reduce((a, b) => a > b ? a : b) + 10,
+                        child: Obx(() => controller.monthlyDataList.isEmpty?Center(child: Text('No Data Available')):BarChart(
+                          BarChartData(
+                            borderData: FlBorderData(show: false),
+                            backgroundColor: Colors.white,
+                            alignment: BarChartAlignment.spaceAround,
+                            maxY:
+                                controller.monthlyDataList
+                                    .map((e) => e.value)
+                                    .reduce((a, b) => a > b ? a : b) +
+                                10,
 
-    // ✅ ADD THIS — tooltip customization
-    barTouchData: BarTouchData(
-      enabled: true,
-      touchTooltipData: BarTouchTooltipData(
-        getTooltipColor: (group) => Color(0xff62636C), // dark background
-       // tooltipRoundedRadius: 10,
-        tooltipPadding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        getTooltipItem: (group, groupIndex, rod, rodIndex) {
-          final data = controller.monthlyDataList[group.x];
-          return BarTooltipItem(
-            // Line 1 — Quarter label
-            '${data.quarter}: ${data.quarterLabel}\n',
-            GoogleFonts.inter(
-              fontWeight: FontWeight.w400,
-              fontSize: 10,
-              color: Color(0xffFFFFFF),
-            ),
-            children: [
-              // Line 2 — Category
-              TextSpan(
-                text: '${data.category}\n',
-                style: GoogleFonts.inter(
-              fontWeight: FontWeight.w400,
-              fontSize: 10,
-              color: Color(0xffFFFFFF),
-            ),
-              ),
-              // Line 3 — Value + percent (customize as needed)
-              TextSpan(
-                text: '\$${data.value.toInt()}:${data.quarter}',
-                style: GoogleFonts.inter(
-              fontWeight: FontWeight.w400,
-              fontSize: 10,
-              color: Color(0xffFFFFFF),
-            ),
-              ),
-            ],
-          );
-        },
-      ),
-    ),
+                            // ✅ ADD THIS — tooltip customization
+                            barTouchData: BarTouchData(
+                              enabled: true,
+                              touchTooltipData: BarTouchTooltipData(
+                                getTooltipColor: (group) =>
+                                    Color(0xff62636C), // dark background
+                                // tooltipRoundedRadius: 10,
+                                tooltipPadding: EdgeInsets.symmetric(
+                                  horizontal: 12,
+                                  vertical: 8,
+                                ),
+                                getTooltipItem: (group, groupIndex, rod, rodIndex) {
+                                  final data =
+                                      controller.monthlyDataList[group.x];
+                                  return BarTooltipItem(
+                                    // Line 1 — Quarter label
+                                    '${data.quarter}: ${data.quarterLabel}\n',
+                                    GoogleFonts.inter(
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 10,
+                                      color: Color(0xffFFFFFF),
+                                    ),
+                                    children: [
+                                      // Line 2 — Category
+                                      TextSpan(
+                                        text: '${data.category}\n',
+                                        style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 10,
+                                          color: Color(0xffFFFFFF),
+                                        ),
+                                      ),
+                                      // Line 3 — Value + percent (customize as needed)
+                                      TextSpan(
+                                        text:
+                                            '\$${data.value.toInt()}:${data.quarter}',
+                                        style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w400,
+                                          fontSize: 10,
+                                          color: Color(0xffFFFFFF),
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                },
+                              ),
+                            ),
 
-    barGroups: controller.monthlyDataList.map((data) {
-      return BarChartGroupData(
-        x: controller.monthlyDataList.indexOf(data),
-        barRods: [
-          BarChartRodData(
-            toY: data.value,
-            color: Color(0xff317B62),
-            width: 18,
-            borderRadius: BorderRadius.circular(2),
-          ),
-        ],
-      );
-    }).toList(),
+                            barGroups: controller.monthlyDataList.map((data) {
+                              return BarChartGroupData(
+                                x: controller.monthlyDataList.indexOf(data),
+                                barRods: [
+                                  BarChartRodData(
+                                    toY: data.value,
+                                    color: Color(0xff317B62),
+                                    width: 18,
+                                    borderRadius: BorderRadius.circular(2),
+                                  ),
+                                ],
+                              );
+                            }).toList(),
 
-    titlesData: FlTitlesData(
-      leftTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-      bottomTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-      topTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-      rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
-    ),
-  ),
-),
+                            titlesData: FlTitlesData(
+                              leftTitles: AxisTitles(
+                                sideTitles: SideTitles(showTitles: false),
+                              ),
+                              bottomTitles: AxisTitles(
+                                sideTitles: SideTitles(showTitles: false),
+                              ),
+                              topTitles: AxisTitles(
+                                sideTitles: SideTitles(showTitles: false),
+                              ),
+                              rightTitles: AxisTitles(
+                                sideTitles: SideTitles(showTitles: false),
+                              ),
+                            ),
+                          ),
+                        ),)
                         // child: BarChart(
                         //   BarChartData(
                         //     //gridData: FlGridData(show: false),
