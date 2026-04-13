@@ -422,7 +422,7 @@ class InsightsView extends GetView<InsightsController> {
                                           style: GoogleFonts.inter(
                                             fontWeight: FontWeight.w600,
                                             fontSize: 12,
-                                            color: Color(0xffC84B4B),
+                                            color: controller.businessdata[index].profit?AppImages.greencolor:Color(0xffC84B4B),
                                           ),
                                         ),
                                       ],

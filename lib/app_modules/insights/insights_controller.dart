@@ -24,7 +24,7 @@ class InsightsController extends GetxController {
     super.onInit();
   }
  var selected='Q1'.obs;
- var apitype='income'.obs;
+ var apitype='expense'.obs;
   var businessdata = <BusinessData>[].obs;
   var monthlyDataList = <MonthlyData>[].obs;
   var totalIncome = 0.obs;
