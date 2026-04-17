@@ -17,6 +17,8 @@ class HomeScreenController extends GetxController {
       DateTime(selectedYear.value, selectedMonth.value),
     );
     displayLabel.value = '$monthName ${selectedYear.value}';
+   print(selectedMonth.value);
+   print(selectedYear.value);
   }
 
   void updateMonth(int month) {
