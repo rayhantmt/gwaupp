@@ -15,7 +15,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
     final serviecController = Get.find<GlobalServicesController>();
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
-      body: Stack(
+      body: Obx(() => controller.isLoading.value?Center(child: CircularProgressIndicator(color: AppImages.greencolor,),):Stack(
         children: [
           Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -177,40 +177,6 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                       ),
                                     ),
                                     SizedBox(width: Get.width * 0.06),
-                                    // Container(
-                                    //   height: Get.height * 0.04,
-                                    //   width: Get.width * 0.3,
-                                    //   decoration: BoxDecoration(
-                                    //     borderRadius: BorderRadius.circular(8),
-                                    //     border: Border.all(
-                                    //       width: 1,
-                                    //       color: Color(0xffC9A24D),
-                                    //     ),
-                                    //   ),
-                                    //   child: Padding(
-                                    //     padding: const EdgeInsets.only(
-                                    //       left: 5,
-                                    //       right: 5,
-                                    //     ),
-                                    //     child: Row(
-                                    //       children: [
-                                    //         Text(
-                                    //           'Feb 2026',
-                                    //           style: GoogleFonts.inter(
-                                    //             fontWeight: FontWeight.w600,
-                                    //             color: Color(0xffC9A24D),
-                                    //             fontSize: 14,
-                                    //           ),
-                                    //         ),
-                                    //         Image.asset(
-                                    //           AppImages.arrowdown,
-                                    //           height: Get.height * 0.04,
-                                    //         ),
-                                    //       ],
-                                    //     ),
-                                    //   ),
-                                    // ),
-                                    // In your view — replace your existing Container with this:
                                     Obx(
                                       () => GestureDetector(
                                         onTap: () =>
@@ -581,7 +547,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
             ),
           ),
         ],
-      ),
+      ),)
     );
   }
 }
