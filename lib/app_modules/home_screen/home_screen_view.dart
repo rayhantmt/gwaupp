@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:gwaupp/app_modules/home_screen/home_screen_controller.dart';
+import 'package:gwaupp/common_widgets/date_filter_picker.dart';
 import 'package:gwaupp/global_services/global_services.dart';
 import 'package:gwaupp/utils/app_images.dart';
 import 'package:gwaupp/utils/app_pages.dart';
@@ -11,7 +12,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
 
   @override
   Widget build(BuildContext context) {
-    final serviecController=Get.find<GlobalServicesController>();
+    final serviecController = Get.find<GlobalServicesController>();
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
       body: Stack(
@@ -82,14 +83,20 @@ class HomeScreenView extends GetView<HomeScreenController> {
                             SizedBox(width: Get.width * 0.03),
                             GestureDetector(
                               onTap: () => Get.toNamed(AppPages.myprofile),
-                              child: Obx(() => CircleAvatar(
-                                backgroundImage: NetworkImage(
-                                  (serviecController.profileimg.value == null ||
-                                          serviecController.profileimg.value!.isEmpty)
-                                      ? AppImages.noprofileimage
-                                      : serviecController.profileimg.value!,
+                              child: Obx(
+                                () => CircleAvatar(
+                                  backgroundImage: NetworkImage(
+                                    (serviecController.profileimg.value ==
+                                                null ||
+                                            serviecController
+                                                .profileimg
+                                                .value!
+                                                .isEmpty)
+                                        ? AppImages.noprofileimage
+                                        : serviecController.profileimg.value!,
+                                  ),
                                 ),
-                              ),)
+                              ),
                             ),
                           ],
                         ),
@@ -101,15 +108,17 @@ class HomeScreenView extends GetView<HomeScreenController> {
                             color: Colors.white,
                           ),
                         ),
-                        Obx(() => Text(
-                          //'Jmaes Walker',
-                          "${serviecController.firstName} ${serviecController.lastName}",
-                          style: GoogleFonts.montserrat(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 22,
-                            color: Colors.white,
+                        Obx(
+                          () => Text(
+                            //'Jmaes Walker',
+                            "${serviecController.firstName} ${serviecController.lastName}",
+                            style: GoogleFonts.montserrat(
+                              fontWeight: FontWeight.w600,
+                              fontSize: 22,
+                              color: Colors.white,
+                            ),
                           ),
-                        ),),
+                        ),
                         SizedBox(height: Get.height * 0.03),
                         Container(
                           height: Get.height * 0.2,
@@ -168,36 +177,82 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                       ),
                                     ),
                                     SizedBox(width: Get.width * 0.06),
-                                    Container(
-                                      height: Get.height * 0.04,
-                                      width: Get.width * 0.3,
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(8),
-                                        border: Border.all(
-                                          width: 1,
-                                          color: Color(0xffC9A24D),
-                                        ),
-                                      ),
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                          left: 5,
-                                          right: 5,
-                                        ),
-                                        child: Row(
-                                          children: [
-                                            Text(
-                                              'Feb 2026',
-                                              style: GoogleFonts.inter(
-                                                fontWeight: FontWeight.w600,
-                                                color: Color(0xffC9A24D),
-                                                fontSize: 14,
-                                              ),
+                                    // Container(
+                                    //   height: Get.height * 0.04,
+                                    //   width: Get.width * 0.3,
+                                    //   decoration: BoxDecoration(
+                                    //     borderRadius: BorderRadius.circular(8),
+                                    //     border: Border.all(
+                                    //       width: 1,
+                                    //       color: Color(0xffC9A24D),
+                                    //     ),
+                                    //   ),
+                                    //   child: Padding(
+                                    //     padding: const EdgeInsets.only(
+                                    //       left: 5,
+                                    //       right: 5,
+                                    //     ),
+                                    //     child: Row(
+                                    //       children: [
+                                    //         Text(
+                                    //           'Feb 2026',
+                                    //           style: GoogleFonts.inter(
+                                    //             fontWeight: FontWeight.w600,
+                                    //             color: Color(0xffC9A24D),
+                                    //             fontSize: 14,
+                                    //           ),
+                                    //         ),
+                                    //         Image.asset(
+                                    //           AppImages.arrowdown,
+                                    //           height: Get.height * 0.04,
+                                    //         ),
+                                    //       ],
+                                    //     ),
+                                    //   ),
+                                    // ),
+                                    // In your view — replace your existing Container with this:
+                                    Obx(
+                                      () => GestureDetector(
+                                        onTap: () =>
+                                            openMonthYearPicker(controller),
+                                        child: Container(
+                                          height: Get.height * 0.04,
+                                          width: Get.width * 0.3,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(
+                                              8,
                                             ),
-                                            Image.asset(
-                                              AppImages.arrowdown,
-                                              height: Get.height * 0.04,
+                                            border: Border.all(
+                                              width: 1,
+                                              color: const Color(0xffC9A24D),
                                             ),
-                                          ],
+                                          ),
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(
+                                              left: 5,
+                                              right: 5,
+                                            ),
+                                            child: Row(
+                                              children: [
+                                                Text(
+                                                  controller
+                                                      .displayLabel
+                                                      .value, // ← reactive label
+                                                  style: GoogleFonts.inter(
+                                                    fontWeight: FontWeight.w600,
+                                                    color: const Color(
+                                                      0xffC9A24D,
+                                                    ),
+                                                    fontSize: 14,
+                                                  ),
+                                                ),
+                                                Image.asset(
+                                                  AppImages.arrowdown,
+                                                  height: Get.height * 0.04,
+                                                ),
+                                              ],
+                                            ),
+                                          ),
                                         ),
                                       ),
                                     ),

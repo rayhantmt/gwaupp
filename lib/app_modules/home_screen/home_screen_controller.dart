@@ -1,16 +1,36 @@
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 
-class HomeScreenController extends GetxController{
-  // var   firstname=''.obs;
-  // var lastname=''.obs;
-  // String get fullName => '${firstname.value} ${lastname.value}';
-  // @override
-  // void onInit() {
-  //   firstname = GetStorage().read('firstname');
-  //   lastname=GetStorage().read('lastname');
-  //   print('This is firstname $firstname');
-  //   print('This is lastname $lastname');
-  //   super.onInit();
+class HomeScreenController extends GetxController {
+  final RxInt selectedMonth = DateTime.now().month.obs;
+  final RxInt selectedYear = DateTime.now().year.obs;
+  final RxString displayLabel = ''.obs;
 
-  // }
+  @override
+  void onInit() {
+    super.onInit();
+    _updateLabel();
+  }
+
+  void _updateLabel() {
+    final monthName = DateFormat('MMM').format(
+      DateTime(selectedYear.value, selectedMonth.value),
+    );
+    displayLabel.value = '$monthName ${selectedYear.value}';
+  }
+
+  void updateMonth(int month) {
+    selectedMonth.value = month;
+    _updateLabel();
+  }
+
+  void updateYear(int year) {
+    selectedYear.value = year;
+    _updateLabel();
+  }
+
+  Map<String, String> get apiHeaders => {
+    'x-month': selectedMonth.value.toString().padLeft(2, '0'),
+    'x-year': selectedYear.value.toString(),
+  };
 }
