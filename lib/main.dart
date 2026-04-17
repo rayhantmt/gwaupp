@@ -17,15 +17,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        localizationsDelegates: const [
-    MonthYearPickerLocalizations.delegate, // ← add this
-    GlobalMaterialLocalizations.delegate,
-    GlobalWidgetsLocalizations.delegate,
-    GlobalCupertinoLocalizations.delegate,
-  ],
-  supportedLocales: const [
-    Locale('en', ''),
-  ],
+      localizationsDelegates: const [
+        MonthYearPickerLocalizations.delegate, // ← add this
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: const [Locale('en', '')],
 
       debugShowCheckedModeBanner: false,
       home: const SplashView(),
