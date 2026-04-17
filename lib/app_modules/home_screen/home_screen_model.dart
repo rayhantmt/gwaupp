@@ -44,7 +44,7 @@ class AnalyticsModel {
       spendingTarget: (data['spendingTarget']?['target_amount'] as num?)?.toDouble() ?? 0.0,
       spendingSpent: (data['spendingTarget']?['spent'] as num?)?.toDouble() ?? 0.0,
       spendingRemaining: (data['spendingTarget']?['remaining'] as num?)?.toDouble() ?? 0.0,
-      topCategory: data['topSpendingCategory']?['category'] ?? '',
+      topCategory: data['topSpendingCategory']?['category'] ?? 'No data available',
       topCategoryAmount: (data['topSpendingCategory']?['amount'] as num?)?.toDouble() ?? 0.0,
     );
   }
