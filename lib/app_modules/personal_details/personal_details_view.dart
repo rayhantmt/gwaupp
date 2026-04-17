@@ -117,7 +117,7 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
                       onTap: () => showModalBottomSheet(
                         context: context,
                         builder: (context) => Container(
-                          height: Get.height * 0.35,
+                          height: Get.height * 0.35, 
                           width: double.infinity,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.only(
