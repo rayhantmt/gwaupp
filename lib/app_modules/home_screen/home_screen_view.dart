@@ -301,7 +301,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                             Row(
                                               children: [
                                                 Text(
-                                                  '${controller.incomeChangePercent}%',
+                                                  '${controller.expenseChangePercent}%',
                                                   style: GoogleFonts.inter(
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: 12,
