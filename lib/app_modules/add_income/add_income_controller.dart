@@ -89,7 +89,7 @@ repeatedTrans.value=b;
     } on AppException catch (e) {
       Get.snackbar(
         'Failed',
-        e.message,
+        'Input all the fields first',
         backgroundColor: Colors.redAccent,
         colorText: Colors.white,
       );
