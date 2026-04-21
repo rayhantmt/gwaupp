@@ -446,17 +446,26 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                     ),
                                   ),
                                   Row(
+                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
-                                        'Expense progress',
+                                       'Low',
                                         style: GoogleFonts.inter(
-                                          fontWeight: FontWeight.w400,
+                                          fontWeight: FontWeight.w600,
                                           fontSize: 14,
-                                          color: Color(0xff6B6B6B),
+                                          color: Color(0xff1E1E1E),
                                         ),
                                       ),
                                       Text(
-                                       controller.overspent.value,
+                                       'Medium',
+                                        style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 14,
+                                          color: Color(0xff1E1E1E),
+                                        ),
+                                      ),
+                                       Text(
+                                       'High',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 14,
