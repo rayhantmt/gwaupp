@@ -2,17 +2,17 @@
 class AnalyticsModel {
   final int year;
   final int month;
-  final double netSavingsAmount;
+  final String netSavingsAmount;
   final double netSavingsChangePercent;
-  final double incomeAmount;
+  final String incomeAmount;
   final double incomeChangePercent;
-  final double expenseAmount;
+  final String expenseAmount;
   final double expenseChangePercent;
-  final double spendingTarget;
-  final double spendingSpent;
-  final double spendingRemaining;
+  final String spendingTarget;
+  final String spendingSpent;
+  final String spendingRemaining;
   final String topCategory;
-  final double topCategoryAmount;
+  final String topCategoryAmount;
 
   AnalyticsModel({
     required this.year,
@@ -35,17 +35,17 @@ class AnalyticsModel {
     return AnalyticsModel(
       year: data['period']?['year'] ?? 0,
       month: data['period']?['month'] ?? 0,
-      netSavingsAmount: (data['netSavings']?['amount'] as num?)?.toDouble() ?? 0.0,
+      netSavingsAmount: (data['netSavings']?['amount'] as String?)?.toString() ?? '0.00',
       netSavingsChangePercent: (data['netSavings']?['changePercent'] as num?)?.toDouble() ?? 0.0,
-      incomeAmount: (data['income']?['amount'] as num?)?.toDouble() ?? 0.0,
+      incomeAmount: (data['income']?['amount'] as String?)?.toString() ?? '0.00',
       incomeChangePercent: (data['income']?['changePercent'] as num?)?.toDouble() ?? 0.0,
-      expenseAmount: (data['expense']?['amount'] as num?)?.toDouble() ?? 0.0,
+      expenseAmount: (data['expense']?['amount'] as String?)?.toString() ?? '0.00',
       expenseChangePercent: (data['expense']?['changePercent'] as num?)?.toDouble() ?? 0.0,
-      spendingTarget: (data['spendingTarget']?['target_amount'] as num?)?.toDouble() ?? 0.0,
-      spendingSpent: (data['spendingTarget']?['spent'] as num?)?.toDouble() ?? 0.0,
-      spendingRemaining: (data['spendingTarget']?['remaining'] as num?)?.toDouble() ?? 0.0,
+      spendingTarget: (data['spendingTarget']?['target_amount'] as String?)?.toString() ?? '0.00',
+      spendingSpent: (data['spendingTarget']?['spent'] as String?)?.toString() ?? '0.00',
+      spendingRemaining: (data['spendingTarget']?['remaining'] as String?)?.toString() ?? '0.00',
       topCategory: data['topSpendingCategory']?['category'] ?? 'No data available',
-      topCategoryAmount: (data['topSpendingCategory']?['amount'] as num?)?.toDouble() ?? 0.0,
+      topCategoryAmount: (data['topSpendingCategory']?['amount'] as String?)?.toString() ?? '0.00',
     );
   }
 }

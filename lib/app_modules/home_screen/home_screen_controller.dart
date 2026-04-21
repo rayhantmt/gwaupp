@@ -87,17 +87,17 @@ class HomeScreenController extends GetxController {
   final RxBool isLoading = false.obs;
 
   // --- Analytics observables ---
-  final RxDouble netSavingsAmount = 0.0.obs;
+  final RxString netSavingsAmount = '0.00'.obs;
   final RxDouble netSavingsChangePercent = 0.0.obs;
-  final RxDouble incomeAmount = 0.0.obs;
+  final RxString incomeAmount = '0.00'.obs;
   final RxDouble incomeChangePercent = 0.0.obs;
-  final RxDouble expenseAmount = 0.0.obs;
+  final RxString expenseAmount = '0.00'.obs;
   final RxDouble expenseChangePercent = 0.0.obs;
-  final RxDouble spendingTarget = 0.0.obs;
-  final RxDouble spendingSpent = 0.0.obs;
-  final RxDouble spendingRemaining = 0.0.obs;
+  final RxString spendingTarget = '0.00'.obs;
+  final RxString spendingSpent = '0.00'.obs;
+  final RxString spendingRemaining = '0.00'.obs;
   final RxString topCategory = ''.obs;
-  final RxDouble topCategoryAmount = 0.0.obs;
+  final RxString topCategoryAmount = '0.00'.obs;
 
   @override
   void onInit() {
