@@ -13,6 +13,7 @@ class AnalyticsModel {
   final String spendingRemaining;
   final String topCategory;
   final String topCategoryAmount;
+  final String overspent;
 
   AnalyticsModel({
     required this.year,
@@ -28,6 +29,7 @@ class AnalyticsModel {
     required this.spendingRemaining,
     required this.topCategory,
     required this.topCategoryAmount,
+    required this.overspent,
   });
 
  factory AnalyticsModel.fromJson(Map<String, dynamic> json) {
@@ -36,6 +38,7 @@ class AnalyticsModel {
       year: data['period']?['year'] ?? 0,
       month: data['period']?['month'] ?? 0,
       netSavingsAmount: (data['netSavings']?['amount'] as String?)?.toString() ?? '0.00',
+      overspent: (data['netSavings']?['overExpense'] as String?)?.toString() ?? '0.00',
       netSavingsChangePercent: (data['netSavings']?['changePercent'] as num?)?.toDouble() ?? 0.0,
       incomeAmount: (data['income']?['amount'] as String?)?.toString() ?? '0.00',
       incomeChangePercent: (data['income']?['changePercent'] as num?)?.toDouble() ?? 0.0,

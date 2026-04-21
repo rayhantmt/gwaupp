@@ -98,6 +98,7 @@ class HomeScreenController extends GetxController {
   final RxString spendingRemaining = '0.00'.obs;
   final RxString topCategory = ''.obs;
   final RxString topCategoryAmount = '0.00'.obs;
+  final RxString overspent='0.00'.obs;
 
   @override
   void onInit() {
@@ -154,6 +155,7 @@ class HomeScreenController extends GetxController {
     spendingRemaining.value = model.spendingRemaining;
     topCategory.value = model.topCategory;
     topCategoryAmount.value = model.topCategoryAmount;
+    overspent.value=model.overspent;
   }
 
   Map<String, String> get apiHeaders => {

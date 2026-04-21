@@ -448,7 +448,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                   Row(
                                     children: [
                                       Text(
-                                        'Remaining amount',
+                                        'Overspent amount',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w400,
                                           fontSize: 14,
@@ -456,7 +456,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         ),
                                       ),
                                       Text(
-                                        '\$260',
+                                       controller.overspent.value,
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 14,
