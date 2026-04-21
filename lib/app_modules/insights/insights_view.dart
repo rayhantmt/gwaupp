@@ -389,7 +389,7 @@ class InsightsView extends GetView<InsightsController> {
                                       ),
                                     ),
                                     Text(
-                                      'last month',
+                                      'last quarter',
                                       style: GoogleFonts.inter(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 12,
@@ -428,7 +428,7 @@ class InsightsView extends GetView<InsightsController> {
                                       ],
                                     ),
                                     Text(
-                                      'VS last month',
+                                      'VS last quarter',
                                       style: GoogleFonts.inter(
                                         fontWeight: FontWeight.w400,
                                         fontSize: 12,

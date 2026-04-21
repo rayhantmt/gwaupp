@@ -163,8 +163,8 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  controller.netSavingsAmount
-                                                      .toString(),
+                                                  '\$${controller.netSavingsAmount
+                                                      .toString()}',
                                                   style: GoogleFonts.montserrat(
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: 24,
@@ -264,8 +264,8 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                             Column(
                                               children: [
                                                 Text(
-                                                  controller.incomeAmount
-                                                      .toString(),
+                                                  '\$${controller.incomeAmount
+                                                      .toString()}',
                                                   style: GoogleFonts.montserrat(
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: 22,
@@ -314,8 +314,8 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                 Column(
                                                   children: [
                                                     Text(
-                                                      controller.expenseAmount
-                                                          .toString(),
+                                                      '\$${controller.expenseAmount
+                                                          .toString()}',
                                                       style:
                                                           GoogleFonts.montserrat(
                                                             fontWeight:
