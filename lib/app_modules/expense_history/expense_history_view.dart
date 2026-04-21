@@ -45,36 +45,6 @@ class ExpenseHistoryView extends GetView<ExpenseHistoryController> {
               ],
             ),
             SizedBox(height: Get.height * 0.02),
-            // GestureDetector(
-            //   onTap: () async {
-            //     DateTime? pickeddate = await showDatePicker(
-            //       context: context,
-            //       firstDate: DateTime.now(),
-            //       lastDate: DateTime(3000),
-            //     );
-            //     controller.datecontroller.value = pickeddate!;
-            //   },
-            //   child: Container(
-            //     height: Get.height * 0.05,
-            //     width: Get.width * 0.6,
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(100),
-            //       color: Color(0xffFFFFFF),
-            //       border: Border.all(width: 1, color: Color(0xffE6E6E3)),
-            //     ),
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       children: [
-            //         Icon(
-            //           Icons.calendar_month_outlined,
-            //           color: Color(0xff6B6B6B),
-            //         ),
-            //         Text(controller.datecontroller.value.toString()),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // In your widget
             GestureDetector(
               onTap: () async {
                 // Pick START date
