@@ -83,7 +83,7 @@ class MainScreenView extends GetView<MainScreenController> {
                             children: [
                               // Image.asset(
                               //   AppImages.newexpense,
-      
+                    
                               //   height: Get.height * 0.035,
                               //   color: controller.pagetype.value == 1
                               //       ? Color(0xff0F3D2E)
