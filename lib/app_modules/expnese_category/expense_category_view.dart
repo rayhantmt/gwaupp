@@ -7,8 +7,7 @@ import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
 import 'package:gwaupp/utils/app_pages.dart';
 
-class ExpenseCategoryView
-    extends GetView<ExpenseCategoryController> {
+class ExpenseCategoryView extends GetView<ExpenseCategoryController> {
   const ExpenseCategoryView({super.key});
 
   @override
@@ -119,14 +118,18 @@ class ExpenseCategoryView
                                       .categories[index]
                                       .isSelected
                                       .value,
-                                  onChanged: (value){ controller.toggle(
-                                    value!,
-                                    index,
-                                    controller.categories[index].category,
-                                  );
-                                  controller.selectedcategory=controller.categories[index].category;
-                                  print(controller.categories[index].category);
-                                  }
+                                  onChanged: (value) {
+                                    controller.toggle(
+                                      value!,
+                                      index,
+                                      controller.categories[index].category,
+                                    );
+                                    controller.selectedcategory =
+                                        controller.categories[index].category;
+                                    print(
+                                      controller.categories[index].category,
+                                    );
+                                  },
                                 ),
                                 GestureDetector(
                                   onTap: () => controller.deleteCategory(
@@ -254,15 +257,16 @@ class ExpenseCategoryView
             ),
             SizedBox(height: Get.height * 0.03),
             GestureDetector(
-              onTap: () { Get.offNamed(
-                AppPages.addexpense,
-                //arguments: {'selected': controller.selectedcategory},
+              onTap: () {
+                Get.offNamed(
+                  AppPages.addexpense,
 
-              );
-              final ac=Get.find<AddExpenseController>();
-              ac.selectedcat.value=controller.selectedcategory;
+                  //arguments: {'selected': controller.selectedcategory},
+                );
+                final ac = Get.find<AddExpenseController>();
+                ac.selectedcat.value = controller.selectedcategory;
               },
-             // onTap: () => print(controller.selectedcategory),
+              // onTap: () => print(controller.selectedcategory),
               child: CommonButton(tittle: 'Apply Now'),
             ),
           ],
