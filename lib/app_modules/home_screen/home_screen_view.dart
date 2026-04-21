@@ -396,10 +396,6 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         ),
                                       ),
                                       Spacer(),
-                                      // Image.asset(
-                                      //   AppImages.edit,
-                                      //   height: Get.height * 0.03,
-                                      // ),
                                     ],
                                   ),
                                   Row(
