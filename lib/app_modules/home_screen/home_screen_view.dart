@@ -538,7 +538,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                       ),
                                       Spacer(),
                                       Text(
-                                        controller.topCategoryAmount.toString(),
+                                       '\$${ controller.topCategoryAmount.toString()}',
                                         style: GoogleFonts.montserrat(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 24,
