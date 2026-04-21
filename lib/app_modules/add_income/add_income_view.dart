@@ -233,11 +233,7 @@ class AddIncomeView extends GetView<AddIncomeController> {
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
                         children: [
-                          // Image.asset(
-                          //   AppImages.enteramount,
-                          //   color: Color(0xff6B6B6B),
-                          //   height: Get.height * 0.035,
-                          // ),
+                      
                           SizedBox(width: Get.width * 0.05),
                           Text(
                             'Enter amount',
