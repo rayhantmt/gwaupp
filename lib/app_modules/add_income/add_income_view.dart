@@ -226,17 +226,18 @@ class AddIncomeView extends GetView<AddIncomeController> {
                 child: TextFormField(
                   controller: controller.amountcontroller,
                   decoration: InputDecoration(
+                    prefixText: '\$',
                     contentPadding: EdgeInsets.only(left: 10),
                     border: InputBorder.none,
                     hint: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
                         children: [
-                          Image.asset(
-                            AppImages.enteramount,
-                            color: Color(0xff6B6B6B),
-                            height: Get.height * 0.035,
-                          ),
+                          // Image.asset(
+                          //   AppImages.enteramount,
+                          //   color: Color(0xff6B6B6B),
+                          //   height: Get.height * 0.035,
+                          // ),
                           SizedBox(width: Get.width * 0.05),
                           Text(
                             'Enter amount',
