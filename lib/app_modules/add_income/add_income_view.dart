@@ -214,10 +214,6 @@ class AddIncomeView extends GetView<AddIncomeController> {
                       ],
                     ),
                     SizedBox(height: 24),
-                    // IndexedStack(
-                    //   index: selected,
-                    //   children: [CashContent(), CreditContent(), BankContent()],
-                    // ),
                   ],
                 );
               }),
