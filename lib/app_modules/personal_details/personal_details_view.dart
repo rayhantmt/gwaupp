@@ -13,9 +13,7 @@ class PersonalDetailsView extends GetView<PersonalDetailsController> {
   const PersonalDetailsView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    // final firstname = GetStorage().read('firstname');
-    // final lastname = GetStorage().read('lastname');
+  Widget build(BuildContext context) {      
     final serviceController = Get.find<GlobalServicesController>();
     final email = GetStorage().read('email');
     final profileimage =
