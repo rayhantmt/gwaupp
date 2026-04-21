@@ -14,7 +14,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
   @override
   Widget build(BuildContext context) {
     final serviecController = Get.find<GlobalServicesController>();
-    final con=Get.find<MainScreenController>();
+    final con = Get.find<MainScreenController>();
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
       body: Obx(
@@ -165,8 +165,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                   CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  '\$${controller.netSavingsAmount
-                                                      .toString()}',
+                                                  '\$${controller.netSavingsAmount.toString()}',
                                                   style: GoogleFonts.montserrat(
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: 24,
@@ -266,8 +265,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                             Column(
                                               children: [
                                                 Text(
-                                                  '\$${controller.incomeAmount
-                                                      .toString()}',
+                                                  '\$${controller.incomeAmount.toString()}',
                                                   style: GoogleFonts.montserrat(
                                                     fontWeight: FontWeight.w600,
                                                     fontSize: 22,
@@ -316,8 +314,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                 Column(
                                                   children: [
                                                     Text(
-                                                      '\$${controller.expenseAmount
-                                                          .toString()}',
+                                                      '\$${controller.expenseAmount.toString()}',
                                                       style:
                                                           GoogleFonts.montserrat(
                                                             fontWeight:
@@ -410,7 +407,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                       ),
                                       Spacer(),
                                       Text(
-                                       '${controller.expenseChangePercent.value.toString()}%',
+                                        '${controller.expenseChangePercent.value.toString()}%',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 14,
@@ -430,22 +427,39 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                       children: [
                                         Container(
                                           height: Get.height * 0.02,
-                                          width: Get.width * controller.expenseChangePercent.value/100,
+                                          width:
+                                              Get.width *
+                                              controller
+                                                  .expenseChangePercent
+                                                  .value /
+                                              100,
                                           decoration: BoxDecoration(
                                             borderRadius: BorderRadius.circular(
                                               100,
                                             ),
-                                            color: Color(0xffC9A24D),
+                                            color:
+                                                controller
+                                                        .expenseChangePercent
+                                                        .value >
+                                                    70
+                                                ? const Color(0xffE63939)
+                                                : controller
+                                                          .expenseChangePercent
+                                                          .value >
+                                                      40
+                                                ? const Color(0xffE3A008)
+                                                : const Color(0xff317B62),
                                           ),
                                         ),
                                       ],
                                     ),
                                   ),
                                   Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
-                                       'Low',
+                                        'Low',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 14,
@@ -453,15 +467,15 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         ),
                                       ),
                                       Text(
-                                       'Medium',
+                                        'Medium',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 14,
                                           color: Color(0xff1E1E1E),
                                         ),
                                       ),
-                                       Text(
-                                       'High',
+                                      Text(
+                                        'High',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 14,
@@ -535,9 +549,10 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                   ),
                                   GestureDetector(
                                     onTap: () {
-                                      con.pagetype.value=2;
+                                      con.pagetype.value = 2;
                                     },
-                                    child: Image.asset(AppImages.viewbreakdown)),
+                                    child: Image.asset(AppImages.viewbreakdown),
+                                  ),
                                 ],
                               ),
                             ),
