@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:gwaupp/app_modules/add_income/add_income_controller.dart';
 import 'package:gwaupp/app_modules/incone_category/income_category_controller.dart';
-import 'package:gwaupp/app_modules/select_category_income/select_category_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
-import 'package:gwaupp/utils/app_pages.dart';
 
 class IncomeCategoryView extends GetView<IncomeCategoryController> {
   const IncomeCategoryView({super.key});
