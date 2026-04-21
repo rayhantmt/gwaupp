@@ -31,12 +31,10 @@ class MainScreenView extends GetView<MainScreenController> {
             child: Obx(
               () => Container(
                 decoration: BoxDecoration(
-                  //color: Color(0xffFFFFFF),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(32),
                     topRight: Radius.circular(32),
                   ),
-                  // border: Border.all(width: 0.5, color: Color(0xff6C6E79)),
                 ),
                 height: Get.height * 0.15,
                 width: double.infinity,
