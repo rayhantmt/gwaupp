@@ -56,15 +56,6 @@ class AddIncomeView extends GetView<AddIncomeController> {
                 children: [
                   GestureDetector(
                     onTap: () async {
-                      // DateTime? pickedStart = await showDatePicker(
-                      //  // barrierColor: AppImages.greencolor,
-
-                      //   context: context,
-                      //   initialDate: controller.startDate.value ?? DateTime.now(),
-                      //   firstDate: DateTime.now(),
-                      //   lastDate: DateTime(3000),
-                      //   helpText: 'Select date',
-                      // );
                       DateTime? pickedStart = await showDatePicker(
                         context: context,
                         initialDate:
