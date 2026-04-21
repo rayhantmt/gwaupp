@@ -442,6 +442,7 @@ class InsightsView extends GetView<InsightsController> {
                           ),
                         ),
                       ),
+                      SizedBox(height: Get.height*0.5,)
                     ],
                   ),
                 ),
