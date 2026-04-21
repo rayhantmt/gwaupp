@@ -1,15 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:gwaupp/app_modules/add_income/add_income_controller.dart';
 import 'package:gwaupp/app_modules/incone_category/income_category_controller.dart';
+import 'package:gwaupp/app_modules/select_category_income/select_category_controller.dart';
 import 'package:gwaupp/common_widgets/common_button.dart';
 import 'package:gwaupp/utils/app_images.dart';
+import 'package:gwaupp/utils/app_pages.dart';
 
 class IncomeCategoryView extends GetView<IncomeCategoryController> {
   const IncomeCategoryView({super.key});
 
   @override
   Widget build(BuildContext context) {
+    controller.fetchCategories();
     return Scaffold(
       backgroundColor: AppImages.primarycolor,
       body: Padding(
@@ -36,7 +40,7 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
                 ),
               ],
             ),
-            SizedBox(height: Get.height * 0.02),
+            SizedBox(height: Get.height * 0.03),
             Container(
               height: Get.height * 0.05,
               width: double.infinity,
@@ -50,75 +54,102 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
                   ),
                 ],
               ),
-              child: Row(
-                children: [
-                  SizedBox(width: Get.width * 0.05),
-                  Icon(Icons.search, color: Color(0xff6B6B6B)),
-                  SizedBox(width: Get.width * 0.05),
-                  Text(
-                    'Find Category',
-                    style: GoogleFonts.inter(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 16,
-                      color: Color(0xff6B6B6B),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: Get.height * 0.02),
-            Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              height: Get.height * (controller.categories.length / 1.2) / 10,
-              child: ListView.builder(
-                padding: EdgeInsets.zero,
-                //shrinkWrap: true,
-                itemCount: controller.categories.length,
-                itemBuilder: (context, index) => Container(
-                  height: Get.height * 0.09,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              controller.categories[index].type,
-                              style: GoogleFonts.inter(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 16,
-                                color: Color(0xff2B2B2B),
-                              ),
-                            ),
-                            Spacer(),
-                            Image.asset(AppImages.editicon,
-                            height: Get.height*0.05,
-                            ),
-                            SizedBox(width: Get.width*0.01,),
-                            Image.asset(AppImages.deleteicon,
-                            height: Get.height*0.05,
-                            )
-                          ],
+              child: Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: TextFormField(
+                  controller: controller.searchController, // 🔁 add this
+                  onChanged: (value) =>
+                      controller.searchCategory(value), // 🔁 add this
+                  decoration: InputDecoration(
+                    border: InputBorder.none,
+                    hint: Row(
+                      children: [
+                        SizedBox(width: Get.width * 0.05),
+                        Icon(Icons.search, color: Color(0xff6B6B6B)),
+                        SizedBox(width: Get.width * 0.05),
+                        Text(
+                          'Find Category',
+                          style: GoogleFonts.inter(
+                            fontWeight: FontWeight.w400,
+                            fontSize: 16,
+                            color: Color(0xff6B6B6B),
+                          ),
                         ),
-                      ),
-                      SizedBox(height: Get.height * 0.02),
-                      Divider(
-                        height: 1,
-                        indent: 1,
-                        endIndent: 1,
-                        color: Color(0xffE6E6E3),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-            SizedBox(height: Get.height * 0.13),
+            // SizedBox(height: Get.height * 0.03),
+            SizedBox(
+              height: Get.height * 0.64,
+              child: Obx(
+                () => controller.isLoading.value
+                    ? Center(
+                        child: Row(
+                          children: [
+                            Text('Loading Categories'),
+                            LinearProgressIndicator(
+                              color: AppImages.greencolor,
+                            ),
+                          ],
+                        ),
+                      )
+                    : ListView.builder(
+                        itemCount: controller.categories.length,
+                        itemBuilder: (context, index) => Obx(
+                          () => Container(
+                            height: Get.height * 0.04,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Text(
+                                  controller.categories[index].category,
+                                  style: GoogleFonts.inter(
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 16,
+                                    color: Color(0xff2B2B2B),
+                                  ),
+                                ),
+                                Spacer(),
+                                Checkbox(
+                                  activeColor: Color(0xff0F3D2E),
+                                  value: controller
+                                      .categories[index]
+                                      .isSelected
+                                      .value,
+                                  onChanged: (value) { controller.toggle(
+                                    value!,
+                                    index,
+                                    controller.categories[index].category,
+                                  );
+                                  controller.selectedcategory=controller.categories[index].category;
+                                  print(controller.categories[index].category);
+                                  }
+                                ),
+                                GestureDetector(
+                                  onTap: () => controller.deleteCategory(
+                                    controller.categories[index].id!,
+                                  ),
+                                  child: SizedBox(
+                                    child: Obx(
+                                      () => controller.isLoading3.value
+                                          ? CircularProgressIndicator(
+                                              color: Colors.red,
+                                            )
+                                          : Icon(Icons.delete),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+              ),
+            ),
+            //SizedBox(height: Get.height * 0.13),
             GestureDetector(
               onTap: () => showModalBottomSheet(
                 context: context,
@@ -173,6 +204,7 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
                             ),
                           ),
                           child: TextFormField(
+                            controller: controller.newcategorycontroller,
                             decoration: InputDecoration(
                               contentPadding: EdgeInsets.only(left: 10),
                               hint: Row(
@@ -197,7 +229,22 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
                           ),
                         ),
                         SizedBox(height: Get.height * 0.05),
-                        CommonButton(tittle: 'Save & Apply'),
+                        GestureDetector(
+                          onTap: () {
+                            controller.addNewCategory();
+                            controller.fetchCategories();
+                            Get.back();
+                          },
+                          child: Obx(
+                            () => controller.isLoading2.value
+                                ? Center(
+                                    child: CircularProgressIndicator(
+                                      color: AppImages.greencolor,
+                                    ),
+                                  )
+                                : CommonButton(tittle: 'Save & Apply'),
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -206,9 +253,11 @@ class IncomeCategoryView extends GetView<IncomeCategoryController> {
               child: Image.asset(AppImages.addNewCategory),
             ),
             SizedBox(height: Get.height * 0.03),
+          
           ],
         ),
       ),
     );
   }
 }
+
