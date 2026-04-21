@@ -384,11 +384,11 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                   Row(
                                     children: [
                                       Image.asset(
-                                        AppImages.target,
+                                        AppImages.expenseprogress,
                                         height: Get.height * 0.03,
                                       ),
                                       Text(
-                                        'Overspent',
+                                        'Expense progress',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 16,
@@ -413,14 +413,14 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         ),
                                       ),
                                       Spacer(),
-                                      // Text(
-                                      //   '\$560/\$820',
-                                      //   style: GoogleFonts.inter(
-                                      //     fontWeight: FontWeight.w600,
-                                      //     fontSize: 14,
-                                      //     color: Color(0xff1E1E1E),
-                                      //   ),
-                                      // ),
+                                      Text(
+                                       '${controller.expenseChangePercent.value.toString()}%',
+                                        style: GoogleFonts.inter(
+                                          fontWeight: FontWeight.w600,
+                                          fontSize: 14,
+                                          color: Color(0xff1E1E1E),
+                                        ),
+                                      ),
                                     ],
                                   ),
                                   Container(
@@ -448,7 +448,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                   Row(
                                     children: [
                                       Text(
-                                        'Overspent amount',
+                                        'Expense progress',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w400,
                                           fontSize: 14,
