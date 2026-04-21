@@ -388,7 +388,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         height: Get.height * 0.03,
                                       ),
                                       Text(
-                                        'Spending Target',
+                                        'Overspent',
                                         style: GoogleFonts.inter(
                                           fontWeight: FontWeight.w600,
                                           fontSize: 16,
@@ -396,10 +396,10 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         ),
                                       ),
                                       Spacer(),
-                                      Image.asset(
-                                        AppImages.edit,
-                                        height: Get.height * 0.03,
-                                      ),
+                                      // Image.asset(
+                                      //   AppImages.edit,
+                                      //   height: Get.height * 0.03,
+                                      // ),
                                     ],
                                   ),
                                   Row(
@@ -413,14 +413,14 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                         ),
                                       ),
                                       Spacer(),
-                                      Text(
-                                        '\$560/\$820',
-                                        style: GoogleFonts.inter(
-                                          fontWeight: FontWeight.w600,
-                                          fontSize: 14,
-                                          color: Color(0xff1E1E1E),
-                                        ),
-                                      ),
+                                      // Text(
+                                      //   '\$560/\$820',
+                                      //   style: GoogleFonts.inter(
+                                      //     fontWeight: FontWeight.w600,
+                                      //     fontSize: 14,
+                                      //     color: Color(0xff1E1E1E),
+                                      //   ),
+                                      // ),
                                     ],
                                   ),
                                   Container(
