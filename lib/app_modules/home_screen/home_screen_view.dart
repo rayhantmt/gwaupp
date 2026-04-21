@@ -200,7 +200,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                     ),
                                                 child: Container(
                                                   height: Get.height * 0.04,
-                                                  width: Get.width * 0.3,
+                                                  width: Get.width * 0.25,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -240,7 +240,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                         Image.asset(
                                                           AppImages.arrowdown,
                                                           height:
-                                                              Get.height * 0.04,
+                                                              Get.height * 0.02,
                                                         ),
                                                       ],
                                                     ),
