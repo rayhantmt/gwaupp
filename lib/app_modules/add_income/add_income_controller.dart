@@ -6,27 +6,31 @@ import 'package:gwaupp/api_services/api_service.dart';
 import 'package:gwaupp/api_services/exceptions.dart';
 import 'package:intl/intl.dart';
 
-class AddIncomeController extends GetxController{
-   var selectedcat = 'Select'.obs;
+class AddIncomeController extends GetxController {
+  var selectedcat = 'Select'.obs;
   Rx<DateTime?> startDate = Rx<DateTime?>(null);
   Rx<TimeOfDay?> startTime = Rx<TimeOfDay?>(null);
-    String get formattedDateRange {
-    if (startDate.value == null ) {
+  String get formattedDateRange {
+    if (startDate.value == null) {
       return 'Select date';
     }
     final start = startDate.value != null
         ? DateFormat('MM/dd/yy').format(startDate.value!)
         : '?';
-    
+
     return '$start';
   }
+
   String get formattedStartTime {
-  if (startTime.value == null) return ' Time';
-  final hour = startTime.value!.hourOfPeriod == 0 ? 12 : startTime.value!.hourOfPeriod;
-  final minute = startTime.value!.minute.toString().padLeft(2, '0');
-  final period = startTime.value!.period == DayPeriod.am ? 'AM' : 'PM';
-  return '$hour:$minute $period';
-}
+    if (startTime.value == null) return ' Time';
+    final hour = startTime.value!.hourOfPeriod == 0
+        ? 12
+        : startTime.value!.hourOfPeriod;
+    final minute = startTime.value!.minute.toString().padLeft(2, '0');
+    final period = startTime.value!.period == DayPeriod.am ? 'AM' : 'PM';
+    return '$hour:$minute $period';
+  }
+
   String get iso8601DateTime {
     // Return an empty string or null if either value isn't selected yet
     if (startDate.value == null || startTime.value == null) return '';
@@ -46,10 +50,10 @@ class AddIncomeController extends GetxController{
   }
 
   var selectedMethod = 0.obs; // 0=Cash, 1=Credit, 2=Bank
-var selectedMethodName = 'Cash'.obs;
+  var selectedMethodName = 'Cash'.obs;
   void selectMethod(int index) {
     selectedMethod.value = index;
-     if (index == 0) {
+    if (index == 0) {
       selectedMethodName.value = 'Cash';
     } else if (index == 1) {
       selectedMethodName.value = 'Credit';
@@ -57,9 +61,10 @@ var selectedMethodName = 'Cash'.obs;
       selectedMethodName.value = 'Bank';
     }
   }
-  RxBool repeatedTrans=false.obs;
-  void togglerepeated (bool b){
-repeatedTrans.value=b;
+
+  RxBool repeatedTrans = false.obs;
+  void togglerepeated(bool b) {
+    repeatedTrans.value = b;
   }
 
   final amountcontroller = TextEditingController();
@@ -87,6 +92,7 @@ repeatedTrans.value=b;
       Get.snackbar('Success', 'Income added successfully');
       print("Expense Added: $response");
     } on AppException catch (e) {
+      print(e);
       Get.snackbar(
         'Failed',
         'Input all the fields first',

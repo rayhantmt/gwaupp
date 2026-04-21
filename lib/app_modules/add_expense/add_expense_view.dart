@@ -55,12 +55,27 @@ class AddExpenseView extends GetView<AddExpenseController> {
                 children: [
                   GestureDetector(
                     onTap: () async {
-                      DateTime? pickedStart = await showDatePicker(
+                        DateTime? pickedStart = await showDatePicker(
                         context: context,
-                        initialDate: controller.startDate.value ?? DateTime.now(),
-                        firstDate: DateTime.now(),
+                        initialDate:
+                            controller.startDate.value ?? DateTime.now(),
+                        firstDate: DateTime(1900),
                         lastDate: DateTime(3000),
                         helpText: 'Select date',
+                        builder: (context, child) {
+                          return Theme(
+                            data: Theme.of(context).copyWith(
+                              colorScheme: ColorScheme.light(
+                                primary: AppImages
+                                    .greencolor, // header background + selected date
+                                onPrimary: Colors
+                                    .white, // header text + selected date text
+                                onSurface: Colors.black, // calendar body text
+                              ),
+                            ),
+                            child: child!,
+                          );
+                        },
                       );
                       if (pickedStart == null) return;
                       controller.startDate.value = pickedStart;

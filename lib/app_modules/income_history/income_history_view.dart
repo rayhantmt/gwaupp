@@ -45,45 +45,29 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
               ],
             ),
             SizedBox(height: Get.height * 0.02),
-            // GestureDetector(
-            //   onTap: () async {
-            //     DateTime? pickeddate = await showDatePicker(
-            //       context: context,
-            //       firstDate: DateTime.now(),
-            //       lastDate: DateTime(3000),
-            //     );
-            //     controller.datecontroller.value = pickeddate!;
-            //   },
-            //   child: Container(
-            //     height: Get.height * 0.05,
-            //     width: Get.width * 0.6,
-            //     decoration: BoxDecoration(
-            //       borderRadius: BorderRadius.circular(100),
-            //       color: Color(0xffFFFFFF),
-            //       border: Border.all(width: 1, color: Color(0xffE6E6E3)),
-            //     ),
-            //     child: Row(
-            //       mainAxisAlignment: MainAxisAlignment.center,
-            //       children: [
-            //         Icon(
-            //           Icons.calendar_month_outlined,
-            //           color: Color(0xff6B6B6B),
-            //         ),
-            //         Text(controller.datecontroller.value.toString()),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            // In your widget
             GestureDetector(
               onTap: () async {
                 // Pick START date
                 DateTime? pickedStart = await showDatePicker(
                   context: context,
                   initialDate: controller.startDate.value ?? DateTime.now(),
-                  firstDate: DateTime.now(),
+                  firstDate: DateTime(1900),
                   lastDate: DateTime(3000),
                   helpText: 'Select start date',
+                  builder: (context, child) {
+                    return Theme(
+                      data: Theme.of(context).copyWith(
+                        colorScheme: ColorScheme.light(
+                          primary: AppImages
+                              .greencolor, // header background + selected date
+                          onPrimary:
+                              Colors.white, // header text + selected date text
+                          onSurface: Colors.black, // calendar body text
+                        ),
+                      ),
+                      child: child!,
+                    );
+                  },
                 );
 
                 if (pickedStart == null) return;
@@ -92,9 +76,23 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                 DateTime? pickedEnd = await showDatePicker(
                   context: context,
                   initialDate: pickedStart,
-                  firstDate: pickedStart, // 👈 forces end >= start
+                  firstDate: pickedStart,
                   lastDate: DateTime(3000),
                   helpText: 'Select end date',
+                  builder: (context, child) {
+                    return Theme(
+                      data: Theme.of(context).copyWith(
+                        colorScheme: ColorScheme.light(
+                          primary: AppImages
+                              .greencolor, // header background + selected date
+                          onPrimary:
+                              Colors.white, // header text + selected date text
+                          onSurface: Colors.black, // calendar body text
+                        ),
+                      ),
+                      child: child!,
+                    );
+                  },
                 );
 
                 if (pickedEnd == null) return;
@@ -236,14 +234,20 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                               ),
                                               Spacer(),
                                               GestureDetector(
-                                                onTap: () => controller.deleteIncome(controller.filteredData[index].id!),
+                                                onTap: () =>
+                                                    controller.deleteIncome(
+                                                      controller
+                                                          .filteredData[index]
+                                                          .id!,
+                                                    ),
                                                 child: CircleAvatar(
                                                   radius: 20,
                                                   backgroundColor: Color(
                                                     0xffFCECEB,
                                                   ),
                                                   child: Icon(
-                                                    Icons.delete_outline_rounded,
+                                                    Icons
+                                                        .delete_outline_rounded,
                                                     color: Color(0xffC84B4B),
                                                   ),
                                                 ),
@@ -267,15 +271,21 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                                 ),
                                               ),
                                               Spacer(),
-                                            GestureDetector(
-                                                onTap: () => controller.deleteIncome(controller.filteredData[index].id!),
+                                              GestureDetector(
+                                                onTap: () =>
+                                                    controller.deleteIncome(
+                                                      controller
+                                                          .filteredData[index]
+                                                          .id!,
+                                                    ),
                                                 child: CircleAvatar(
                                                   radius: 20,
                                                   backgroundColor: Color(
                                                     0xffFCECEB,
                                                   ),
                                                   child: Icon(
-                                                    Icons.delete_outline_rounded,
+                                                    Icons
+                                                        .delete_outline_rounded,
                                                     color: Color(0xffC84B4B),
                                                   ),
                                                 ),
@@ -298,14 +308,20 @@ class IncomeHistoryView extends GetView<IncomeHistoryController> {
                                               ),
                                               Spacer(),
                                               GestureDetector(
-                                                onTap: () => controller.deleteIncome(controller.filteredData[index].id!),
+                                                onTap: () =>
+                                                    controller.deleteIncome(
+                                                      controller
+                                                          .filteredData[index]
+                                                          .id!,
+                                                    ),
                                                 child: CircleAvatar(
                                                   radius: 20,
                                                   backgroundColor: Color(
                                                     0xffFCECEB,
                                                   ),
                                                   child: Icon(
-                                                    Icons.delete_outline_rounded,
+                                                    Icons
+                                                        .delete_outline_rounded,
                                                     color: Color(0xffC84B4B),
                                                   ),
                                                 ),

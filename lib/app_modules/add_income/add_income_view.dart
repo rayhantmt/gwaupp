@@ -8,7 +8,7 @@ import 'package:gwaupp/utils/app_pages.dart';
 
 class AddIncomeView extends GetView<AddIncomeController> {
   const AddIncomeView({super.key});
-//need to wrap with the single child scroll view
+  //need to wrap with the single child scroll view
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class AddIncomeView extends GetView<AddIncomeController> {
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
-        
+
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -56,12 +56,36 @@ class AddIncomeView extends GetView<AddIncomeController> {
                 children: [
                   GestureDetector(
                     onTap: () async {
+                      // DateTime? pickedStart = await showDatePicker(
+                      //  // barrierColor: AppImages.greencolor,
+
+                      //   context: context,
+                      //   initialDate: controller.startDate.value ?? DateTime.now(),
+                      //   firstDate: DateTime.now(),
+                      //   lastDate: DateTime(3000),
+                      //   helpText: 'Select date',
+                      // );
                       DateTime? pickedStart = await showDatePicker(
                         context: context,
-                        initialDate: controller.startDate.value ?? DateTime.now(),
-                        firstDate: DateTime.now(),
+                        initialDate:
+                            controller.startDate.value ?? DateTime.now(),
+                        firstDate: DateTime(1900),
                         lastDate: DateTime(3000),
                         helpText: 'Select date',
+                        builder: (context, child) {
+                          return Theme(
+                            data: Theme.of(context).copyWith(
+                              colorScheme: ColorScheme.light(
+                                primary: AppImages
+                                    .greencolor, // header background + selected date
+                                onPrimary: Colors
+                                    .white, // header text + selected date text
+                                onSurface: Colors.black, // calendar body text
+                              ),
+                            ),
+                            child: child!,
+                          );
+                        },
                       );
                       if (pickedStart == null) return;
                       controller.startDate.value = pickedStart;
@@ -72,7 +96,10 @@ class AddIncomeView extends GetView<AddIncomeController> {
                         width: Get.width * 0.4,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(width: 1, color: Color(0xffE6E6E3)),
+                          border: Border.all(
+                            width: 1,
+                            color: Color(0xffE6E6E3),
+                          ),
                         ),
                         child: Center(
                           child: Row(
@@ -105,7 +132,10 @@ class AddIncomeView extends GetView<AddIncomeController> {
                         width: Get.width * 0.3,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(12),
-                          border: Border.all(width: 1, color: Color(0xffE6E6E3)),
+                          border: Border.all(
+                            width: 1,
+                            color: Color(0xffE6E6E3),
+                          ),
                         ),
                         child: Row(
                           children: [
@@ -149,14 +179,16 @@ class AddIncomeView extends GetView<AddIncomeController> {
                           height: Get.height * 0.035,
                         ),
                         SizedBox(width: Get.width * 0.05),
-                       Obx(() =>  Text(
-                         controller.selectedcat.value,
-                          style: GoogleFonts.inter(
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
-                            color: Color(0xff6B6B6B),
+                        Obx(
+                          () => Text(
+                            controller.selectedcat.value,
+                            style: GoogleFonts.inter(
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                              color: Color(0xff6B6B6B),
+                            ),
                           ),
-                        ),),
+                        ),
                         Spacer(),
                         Icon(
                           Icons.arrow_forward_ios_rounded,
@@ -294,14 +326,19 @@ class AddIncomeView extends GetView<AddIncomeController> {
                   ),
                 ],
               ),
-              SizedBox(height: Get.height*0.05,),
+              SizedBox(height: Get.height * 0.05),
               GestureDetector(
                 onTap: () => controller.addIncome(),
-                child: Obx(() => controller.isLoading2.value?Center(
-                  child: CircularProgressIndicator(
-                    color: AppImages.greencolor,
-                  ),
-                ):CommonButton(tittle: 'Add Income')))
+                child: Obx(
+                  () => controller.isLoading2.value
+                      ? Center(
+                          child: CircularProgressIndicator(
+                            color: AppImages.greencolor,
+                          ),
+                        )
+                      : CommonButton(tittle: 'Add Income'),
+                ),
+              ),
             ],
           ),
         ),
