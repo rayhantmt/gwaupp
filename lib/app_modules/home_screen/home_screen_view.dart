@@ -88,7 +88,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                       ),
                                     ),
                                     SizedBox(width: Get.width * 0.03),
-                                    Image.asset(AppImages.notificationIcon),
+                                   // Image.asset(AppImages.notificationIcon),
                                     SizedBox(width: Get.width * 0.03),
                                     GestureDetector(
                                       onTap: () =>
