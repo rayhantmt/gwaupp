@@ -25,7 +25,7 @@ class MainScreenView extends GetView<MainScreenController> {
             }
           }),
           Positioned(
-            bottom: 20,
+            bottom: 0,
             left: 0,
             right: 0,
             child: Obx(
