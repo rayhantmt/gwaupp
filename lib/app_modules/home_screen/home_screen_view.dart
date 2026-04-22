@@ -192,7 +192,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                 color: Color(0xff6BB498),
                                               ),
                                             ),
-                                            SizedBox(width: Get.width * 0.06),
+                                            SizedBox(width: Get.width * 0.03),
                                             Obx(
                                               () => GestureDetector(
                                                 onTap: () =>
@@ -201,7 +201,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                     ),
                                                 child: Container(
                                                   height: Get.height * 0.04,
-                                                  width: Get.width * 0.25,
+                                                  width: Get.width * 0.24,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.circular(
@@ -235,13 +235,14 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                                     const Color(
                                                                       0xffC9A24D,
                                                                     ),
-                                                                fontSize: 14,
+                                                                fontSize: 12,
                                                               ),
                                                         ),
                                                         Image.asset(
                                                           AppImages.arrowdown,
                                                           height:
                                                               Get.height * 0.02,
+                                                              width: Get.width*0.04,
                                                         ),
                                                       ],
                                                     ),
