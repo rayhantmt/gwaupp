@@ -201,7 +201,7 @@ class HomeScreenView extends GetView<HomeScreenController> {
                                                     ),
                                                 child: Container(
                                                   height: Get.height * 0.04,
-                                                  width: Get.width * 0.24,
+                                                  width: Get.width * 0.23,
                                                   decoration: BoxDecoration(
                                                     borderRadius:
                                                         BorderRadius.circular(
