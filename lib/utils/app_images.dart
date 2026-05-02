@@ -45,6 +45,6 @@ class AppImages {
   static const Color greencolor=Color(0xff0F3D2E);
   static const String noprofileimage='https://i.postimg.cc/pdtcv4h5/no-profile-picture.png';
   static const String crediticon='assets/credit_icon.png';
-  static const String expenseprogress='assets/expense_progress.png';
+  static const String expenseprogress='assets/ci_chart-line.png';
 
 }
