@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "458313168139",
+    "project_id": "gwaap-d429a",
+    "storage_bucket": "gwaap-d429a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458313168139:android:9ed4a4063d81ab02f85e0e",
+        "android_client_info": {
+          "package_name": "com.example.gwaupp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY7Jb42mL2nyacot4pfpUkOU2vXFJ7nJM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
