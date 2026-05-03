@@ -53,8 +53,10 @@ class LogInView extends GetView<LogInController> {
                         color: Color(0xff6B6B6B),
                       ),
                     ),
-                    CommonTextField(tittle: 'Email Address', obsecure: false,
-                    controller: controller.emailcontroller,
+                    CommonTextField(
+                      tittle: 'Email Address',
+                      obsecure: false,
+                      controller: controller.emailcontroller,
                     ),
                     SizedBox(height: Get.height * 0.03),
                     Obx(
@@ -103,11 +105,17 @@ class LogInView extends GetView<LogInController> {
                     ),
                     SizedBox(height: Get.height * 0.03),
                     GestureDetector(
-                     // onTap: () => Get.toNamed(AppPages.mainscreen),
-                     onTap: () => controller.login(),
-                      child: Obx(() => controller.isLoading.value?Center(child: CircularProgressIndicator(
-                        color: Colors.red,
-                      )):CommonButton(tittle: 'Log In'),),
+                      // onTap: () => Get.toNamed(AppPages.mainscreen),
+                      onTap: () => controller.login(),
+                      child: Obx(
+                        () => controller.isLoading.value
+                            ? Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.red,
+                                ),
+                              )
+                            : CommonButton(tittle: 'Log In'),
+                      ),
                     ),
                   ],
                 ),
@@ -133,7 +141,17 @@ class LogInView extends GetView<LogInController> {
               ],
             ),
             SizedBox(height: Get.height * 0.02),
-            Image.asset(AppImages.loginwithgoogle),
+            Obx(
+              () => controller.isLoading2.value
+                  ? Center(
+                      child: CircularProgressIndicator(
+                        color: AppImages.greencolor,
+                      ),
+                    )
+                  : GestureDetector(
+                    onTap: () => controller.signInWithGoogle(context),
+                    child: Image.asset(AppImages.loginwithgoogle)),
+            ),
             SizedBox(height: Get.height * 0.02),
             GestureDetector(
               onTap: () => Get.toNamed(AppPages.createnewaccount),
