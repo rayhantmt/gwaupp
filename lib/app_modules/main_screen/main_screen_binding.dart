@@ -7,7 +7,7 @@ import 'package:gwaupp/global_services/global_services.dart';
 class MainScreenBinding extends Bindings{
   @override
   void dependencies() {
-   Get.lazyPut(() => MainScreenController(),);
+   Get.lazyPut<MainScreenController>(() => MainScreenController(),);
    Get.lazyPut<InsightsController>(() => InsightsController(),);
    Get.put(HomeScreenController());
    Get.lazyPut<GlobalServicesController>(() => GlobalServicesController(),);

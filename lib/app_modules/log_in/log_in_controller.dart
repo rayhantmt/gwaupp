@@ -88,26 +88,49 @@ RxBool isLoading2=false.obs;
     final String? firstName = user.displayName?.split(' ').first;
 
     // Step 4: Send to your backend
-    final response = await ApiService.post(
-      endpoint: '/api/v1/auth/google-login',
-      body: {
-        "email": email,
-        "imageUrl": imageUrl,
-        "firstName": firstName,
-      },
-    );
+  final response = await ApiService.post(
+  endpoint: '/api/v1/auth/google-login',
+  body: {
+    "email": email,
+    "imageUrl": imageUrl,
+    "firstName": firstName,
+  },
+);
 
-    print('✅ Backend response: $response');
+print('✅ Backend response: $response');
 
-    // Step 5: Navigate to home (adjust to your routing)
-    // Navigator.pushReplacementNamed(context, '/home');
+if (response['success'] == true) {
+  final storage = GetStorage();
+  final accessToken = response['data']['accessToken'];
+  final user = response['data']['user'];  // ← 'result' not 'userData'
+
+  storage.write('firstname', user['firstName']);
+  storage.write('lastname', user['lastName']);
+  storage.write('email', user['email']);
+  storage.write('profileimg', user['imageUrl']);
+  storage.write('id', user['_id']);
+  storage.write('subscriptiontype', user['subscription_Type']);
+  storage.write('token', accessToken);
+
+  print('✅ Google Login success');
+  print('Access Token: $accessToken');
+  final name = storage.read('firstname');
+  print('Stored name: $name');
+
+  Get.offAllNamed(AppPages.mainscreen);
+} else {
+  print('❌ Google Login failed: ${response['message']}');
+  Get.snackbar(
+    'Login Failed',
+    response['message'] ?? 'Something went wrong',
+    snackPosition: SnackPosition.BOTTOM,
+  );
+}
 
   } catch (e) {
     print('❌ Google Sign-In failed: $e');
     // Show a snackbar or dialog if needed
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('Sign-in failed. Please try again.')),
-    );
+    Get.snackbar('Error', e.toString());
   }
   finally{
     isLoading2.value=false;
