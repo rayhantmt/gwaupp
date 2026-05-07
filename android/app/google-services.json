@@ -7,12 +7,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:458313168139:android:9ed4a4063d81ab02f85e0e",
+        "mobilesdk_app_id": "1:458313168139:android:6ac0be392d3abb8cf85e0e",
         "android_client_info": {
-          "package_name": "com.example.gwaupp"
+          "package_name": "com.gwaupp.rayhantmt"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "458313168139-6k6jothcc6atjchuiv38phrcijv7b2ch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDY7Jb42mL2nyacot4pfpUkOU2vXFJ7nJM"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458313168139-6k6jothcc6atjchuiv38phrcijv7b2ch.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "458313168139-4tjq3lgbhqldat66e6tkbrh4s925oogm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.gwaupp"
+              }
+            }
+          ]
         }
       }
     }
